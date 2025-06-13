@@ -97,12 +97,12 @@ const Gallery = () => {
   ];
 
   const categories = [
-    { id: 'all', name: 'All Photos', icon: '🎯' },
-    { id: 'buildings', name: 'Buildings', icon: '🏛️' },
-    { id: 'classroom', name: 'Classroom', icon: '📚' },
-    { id: 'sports', name: 'Sports', icon: '⚽' },
-    { id: 'events', name: 'Events', icon: '🎉' },
-    { id: 'facilities', name: 'Facilities', icon: '🔬' }
+    { id: 'all', name: 'All Photos' },
+    { id: 'buildings', name: 'Buildings' },
+    { id: 'classroom', name: 'Classroom' },
+    { id: 'sports', name: 'Sports' },
+    { id: 'events', name: 'Events' },
+    { id: 'facilities', name: 'Facilities' }
   ];
 
   const filteredImages = selectedCategory === 'all' 

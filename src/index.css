@@ -1,2 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 @import "tailwindcss";
 
+:root {
+    --color-primary: #a3572d;
+    --color-secondary: #0c0908; /* brown-950 */
+    --color-accent: #f3f4f6; /* light gray */
+    --color-white: #ffffff;
+    --color-black: #000000;
+}
+
+/* Text stroke utilities using multiple drop shadows */
+.drop-shadow-text-sm {
+    text-shadow: 
+      1px 1px 0px rgba(0,0,0,0.8),
+      -1px -1px 0px rgba(0,0,0,0.8),
+      1px -1px 0px rgba(0,0,0,0.8),
+      -1px 1px 0px rgba(0,0,0,0.8);
+}
+
+.drop-shadow-text-md {
+    text-shadow: 
+      2px 2px 0px rgba(0,0,0,0.8),
+      -2px -2px 0px rgba(0,0,0,0.8),
+      2px -2px 0px rgba(0,0,0,0.8),
+      -2px 2px 0px rgba(0,0,0,0.8);
+}
+
+.drop-shadow-text-lg {
+    text-shadow: 
+      3px 3px 0px rgba(0,0,0,0.8),
+      -3px -3px 0px rgba(0,0,0,0.8),
+      3px -3px 0px rgba(0,0,0,0.8),
+      -3px 3px 0px rgba(0,0,0,0.8);
+}
+
+/* White text stroke for darker backgrounds */
+.drop-shadow-text-sm-white {
+    text-shadow: 
+      1px 1px 0px rgba(255,255,255,0.8),
+      -1px -1px 0px rgba(255,255,255,0.8),
+      1px -1px 0px rgba(255,255,255,0.8),
+      -1px 1px 0px rgba(255,255,255,0.8);
+}
+
+.drop-shadow-text-md-white {
+    text-shadow: 
+      2px 2px 0px rgba(255,255,255,0.8),
+      -2px -2px 0px rgba(255,255,255,0.8),
+      2px -2px 0px rgba(255,255,255,0.8),
+      -2px 2px 0px rgba(255,255,255,0.8);
+}
+
+.drop-shadow-text-lg-white {
+    text-shadow: 
+      3px 3px 0px rgba(255,255,255,0.8),
+      -3px -3px 0px rgba(255,255,255,0.8),
+      3px -3px 0px rgba(255,255,255,0.8),
+      -3px 3px 0px rgba(255,255,255,0.8);
+}
+
+/* Font Definitions */
+
+/* Base Styles */
+@layer base {
+  html {
+    font-family: 'Nunito', system-ui, sans-serif;
+  }
+
+  /* Headings use Cinzel for an elegant, classical appearance */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', serif;
+    font-weight: 600; /* Semi-bold weight for headings by default */
+  }
+  
+  /* Special heading styles - larger headings use heavier weights */
+  h1 {
+    font-weight: 700; /* Bold for primary headings */
+  }
+  
+  h2 {
+    font-weight: 600; /* Semi-bold for secondary headings */
+  }
+}

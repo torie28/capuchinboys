@@ -20,7 +20,8 @@ const Header = () => {
   // Add scroll effect for header
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 10;
+      // Only apply scroll effect after scrolling past a certain point
+      const isScrolled = window.scrollY > 50;
       if (isScrolled !== scrolled) {
         setScrolled(isScrolled);
       }
@@ -34,7 +35,7 @@ const Header = () => {
     <header 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-white/90 backdrop-blur-sm shadow-md py-2' 
+          ? 'bg-transparent backdrop-blur-sm py-3' 
           : 'bg-transparent py-3'  
       }`}
     >
@@ -54,20 +55,16 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:block">
-            <ul className="flex items-center space-x-1">
-              {navLinks.map((item, index) => (
+          <nav className="hidden md:flex flex-1 justify-center">
+            <ul className="flex items-center space-x-2">
+              {navLinks.map((item) => (
                 <li key={item.name}>
                   <Link
                     to={item.path}
-                    className={`px-4 py-2.5 text-sm font-medium transition-all duration-200 ${
+                    className={`px-6 py-3 text-base font-medium transition-all duration-200 rounded-md ${
                       item.path === item.path
-                        ? 'text-blue-700 bg-blue-50 font-semibold'
+                        ? 'text-primary '
                         : 'text-white hover:bg-white/20 hover:text-white'
-                    } ${
-                      index === navLinks.length - 1 
-                        ? 'ml-2 bg-blue-700 text-white hover:bg-blue-800' 
-                        : ''
                     }`}
                   >
                     {item.name}
@@ -111,7 +108,7 @@ const Header = () => {
               to={item.path}
               className={`block px-3 py-2 text-base font-medium ${
                 item.path === item.path
-                  ? 'bg-blue-50 text-blue-700 font-semibold'
+                  ? 'bg-blue-50 text-blue-700 '
                   : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
               }`}
             >
