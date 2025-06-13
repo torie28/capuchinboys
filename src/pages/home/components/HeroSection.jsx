@@ -22,7 +22,7 @@ const HeroSection = () => {
         <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto text-white text-opacity-90 drop-shadow-md">
           Empowering young minds through quality education and holistic development
         </p>
-        <div className="space-x-4">
+        <div className="space-x-2">
           <a 
             href="/admissions" 
             className="inline-block bg-white text-blue-900 font-semibold px-8 py-4  hover:bg-blue-100 transition-all duration-300 transform hover:scale-105"

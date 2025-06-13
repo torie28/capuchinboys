@@ -230,7 +230,7 @@ const CapuchinSchoolPage = () => {
             <div className="w-24 h-px mx-auto mb-8 bg-gradient-to-r from-transparent via-[#B4975A] to-transparent"></div>
             <motion.div 
               key={1}
-              className="relative bg-gradient-to-br from-white/90  p-8 transition-all duration-700 transform hover:scale-105 hover:shadow-2xl group overflow-hidden before:absolute before:inset-0 before:border before:border-white/20 before:rounded-3xl before:bg-gradient-to-br before:from-white/80 before:to-[#f8f6f0]/40 before:pointer-events-none"
+              className="relative bg-gradient-to-br from-white/90 to-[#46433DFF]/60  p-8 transition-all duration-700 transform hover:scale-105 hover:shadow-2xl group overflow-hidden before:absolute before:inset-0 before:border before:border-white/20 before:rounded-3xl before:bg-gradient-to-br before:from-white/80 before:to-[#f8f6f0]/40 before:pointer-events-none"
               variants={{
                 visible: { opacity: 1, y: 0 },
                 hidden: { opacity: 0, y: 30 }
@@ -351,7 +351,7 @@ const CapuchinSchoolPage = () => {
       {/* About Section */}
       <motion.section 
         id="about" 
-        className="py-24 relative before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_25px_25px,rgba(139,134,123,0.1)_2%,transparent_0%),radial-gradient(circle_at_75px_75px,rgba(160,151,136,0.08)_2%,transparent_0%)] before:bg-[length:100px_100px] before:pointer-events-none"
+        className="py-24 bg-white relative"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}

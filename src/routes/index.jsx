@@ -3,6 +3,7 @@ import MainLayout from '../layouts/MainLayouts';
 import Home from '../pages/home/Home';
 import About from '../pages/about/About';
 import Academics from '../pages/academics/Academics';
+import Admissions from '../pages/academics/components/Admissions';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/academics",
         element: <Academics />,
+      },
+      {
+        path: "/admissions",
+        element: <Admissions />,
       },
     ],
   },

@@ -276,41 +276,6 @@ const AboutSection = () => {
             ))}
           </div>
         </div>
-
-        {/* Leadership Section */}
-        <div className="bg-gradient-to-r from-stone-800 to-amber-900  p-12 text-white text-center">
-          <h3 className="text-4xl font-bold mb-6">Leadership Excellence</h3>
-          <p className="text-xl text-stone-200 max-w-4xl mx-auto mb-8 leading-relaxed">
-            Under the guidance of experienced educators and administrators, we continue to set 
-            new standards in secondary education while staying true to our founding principles.
-          </p>
-          
-          <div className="grid md:grid-cols-3 gap-8 mt-12">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">👨‍🎓</span>
-              </div>
-              <h4 className="text-xl font-bold mb-2">Expert Faculty</h4>
-              <p className="text-stone-300">Highly qualified teachers committed to student success</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-20 h-20 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🏆</span>
-              </div>
-              <h4 className="text-xl font-bold mb-2">Proven Results</h4>
-              <p className="text-stone-300">Consistent academic excellence and university placement</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-20 h-20 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🌍</span>
-              </div>
-              <h4 className="text-xl font-bold mb-2">Global Impact</h4>
-              <p className="text-stone-300">Alumni making a difference worldwide</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   </div>
