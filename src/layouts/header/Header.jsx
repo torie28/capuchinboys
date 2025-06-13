@@ -1,9 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const location = useLocation();
+  const headerRef = useRef(null);
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -15,30 +18,58 @@ const Header = () => {
   // Close mobile menu when route changes
   useEffect(() => {
     setIsMenuOpen(false);
-      }, []);
+  }, [location]);
 
-  // Add scroll effect for header
+  // Handle scroll to show/hide header
   useEffect(() => {
-    const handleScroll = () => {
-      // Only apply scroll effect after scrolling past a certain point
-      const isScrolled = window.scrollY > 50;
-      if (isScrolled !== scrolled) {
-        setScrolled(isScrolled);
+    let ticking = false;
+    
+    const controlNavbar = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          // Always show header when scrolling to top
+          if (currentScrollY < 10) {
+            setIsVisible(true);
+          } 
+          // Hide header when scrolling down, show when scrolling up
+          else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            setIsVisible(false);
+          } else if (currentScrollY < lastScrollY) {
+            setIsVisible(true);
+          }
+          
+          setLastScrollY(currentScrollY);
+          ticking = false;
+        });
+        
+        ticking = true;
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [scrolled]);
+    window.addEventListener('scroll', controlNavbar, { passive: true });
+    return () => window.removeEventListener('scroll', controlNavbar);
+  }, [lastScrollY, location]);
 
   return (
-    <header 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-transparent backdrop-blur-sm py-3' 
-          : 'bg-transparent py-3'  
-      }`}
-    >
+    <>
+      {/* Mobile Menu Overlay */}
+      {isMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-40 md:hidden"
+          onClick={() => setIsMenuOpen(false)}
+        />
+      )}
+      
+      <header 
+        ref={headerRef}
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+          isVisible ? 'translate-y-0' : '-translate-y-full'
+        } ${
+          lastScrollY > 10 ? 'bg-transparent/90 backdrop-blur-sm shadow-md py-2' : 'bg-transparent py-3'
+        }`}
+      >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo and School Name */}
@@ -78,46 +109,74 @@ const Header = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-white hover:text-blue-600 focus:outline-none"
+              className="relative w-10 h-10 flex items-center justify-center group focus:outline-none"
               aria-label="Toggle menu"
             >
-              {isMenuOpen ? (
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-              )}
+              <div className={`relative w-6 h-5 transform transition-all duration-300 ${isMenuOpen ? 'rotate-180' : ''}`}>
+                {/* Top line */}
+                <span 
+                  className={`absolute left-0 w-full h-0.5 bg-primary transform transition-all duration-300 ease-out ${isMenuOpen ? 'rotate-45 translate-y-2' : '-translate-y-1.5'}`}
+                ></span>
+                {/* Middle line */}
+                <span 
+                  className={`absolute left-0 w-full h-0.5 bg-primary transform transition-all duration-300 ease-out ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}
+                ></span>
+                {/* Bottom line */}
+                <span 
+                  className={`absolute left-0 w-full h-0.5 bg-primary transform transition-all duration-300 ease-out ${isMenuOpen ? '-rotate-45 -translate-y-2' : 'translate-y-1.5'}`}
+                ></span>
+              </div>
+              {/* Pulsing circle effect */}
+              <span className={`absolute inset-0 rounded-full bg-primary/10 scale-0 group-active:scale-100 transition-transform duration-300 ${isMenuOpen ? 'scale-100' : ''}`}></span>
             </button>
           </div>
         </div>
       </div>
 
+      </header>
+
       {/* Mobile menu */}
       <div
-        className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
-          isMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+        className={`fixed top-0 right-0 h-full w-64 bg-transparent/95 backdrop-blur-lg shadow-2xl z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
-          {navLinks.map((item) => (
-            <Link
-              key={item.name}
-              to={item.path}
-              className={`block px-3 py-2 text-base font-medium ${
-                item.path === item.path
-                  ? 'bg-blue-50 text-blue-700 '
-                  : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
-              }`}
-            >
-              {item.name}
-            </Link>
-          ))}
+        {/* Close button */}
+        <button
+          onClick={() => setIsMenuOpen(false)}
+          className="absolute top-4 right-4 p-2 rounded-full hover:bg-primary/10 transition-colors duration-200 focus:outline-none"
+          aria-label="Close menu"
+        >
+          <svg className="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        
+        <div className="h-full flex flex-col pt-20 px-4">
+          <nav className="flex-1 space-y-4">
+            {navLinks.map((item) => (
+              <Link
+                key={item.name}
+                to={item.path}
+                onClick={() => setIsMenuOpen(false)}
+                className={`block px-4 py-3 text-lg font-medium rounded-lg transition-all duration-200 ${
+                  location.pathname === item.path
+                    ? 'bg-primary/10 text-primary font-semibold'
+                    : 'text-primary hover:bg-primary/10 hover:text-primary'
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
+          <div className="py-6 border-t border-gray-100 mt-auto">
+            <p className="text-center text-sm text-gray-500">
+              © {new Date().getFullYear()} Capuchin Boys
+            </p>
+          </div>
         </div>
       </div>
-    </header>
+    </>
   );
 };
 
