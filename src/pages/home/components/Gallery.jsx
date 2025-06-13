@@ -167,14 +167,14 @@ const Gallery = () => {
   }, []);
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 min-h-screen">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold bg-gradient-to-r from-blue-900 via-purple-900 to-blue-800 bg-clip-text text-transparent mb-4">
+          <h2 className="text-5xl font-bold bg-gradient-to-r from-[#B4975A] to-[#8B8677] bg-clip-text text-transparent mb-4">
             Photo Gallery
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary/80 mx-auto rounded-full"></div>
           <p className="text-gray-600 mt-6 text-lg max-w-2xl mx-auto">
             Explore our vibrant campus life through these captivating moments
           </p>
@@ -188,7 +188,7 @@ const Gallery = () => {
               onClick={() => handleCategoryChange(category.id)}
               className={`px-6 py-3 rounded-full font-semibold transition-all duration-500 transform hover:scale-105 ${
                 selectedCategory === category.id
-                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/25'
+                  ? 'bg-gradient-to-r from-[#B4975A] to-[#8B8677] text-white shadow-lg shadow-blue-500/25'
                   : 'bg-white/80 backdrop-blur-sm text-gray-700 hover:bg-white hover:shadow-lg border border-gray-200'
               }`}
               style={{
@@ -285,7 +285,7 @@ const Gallery = () => {
               ></div>
             </div>
             <div className="text-center">
-              <div className="text-lg font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-pulse">
+              <div className="text-lg font-bold bg-gradient-to-r from-[#B4975A] to-[#8B8677] bg-clip-text text-transparent animate-pulse">
                 Loading Amazing Photos...
               </div>
               <div className="mt-2 flex justify-center space-x-1">
@@ -319,10 +319,10 @@ const Gallery = () => {
           <div className="text-center">
             <button
               onClick={handleViewMore}
-              className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 overflow-hidden"
+              className="group relative px-8 py-4 bg-gradient-to-r from-[#B4975A] to-[#8B8677] text-white font-bold  shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 overflow-hidden"
             >
               <span className="relative z-10">View More Photos</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#8B8677] to-[#B4975A] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
             </button>
           </div>
         )}

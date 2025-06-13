@@ -1,7 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import HeroSection from './components/HeroSection';
-import Activities from './components/Activities';
+import IntroductionSection from './components/IntroductionSection';
+import AcademicPrograms from './components/AcademicPrograms';
 import Gallery from './components/Gallery';
 
 const Home = () => {
@@ -16,7 +17,8 @@ const Home = () => {
       </Helmet>
       
       <HeroSection />
-      <Activities />
+      <IntroductionSection />
+      <AcademicPrograms />
       <Gallery />
     </>
   );

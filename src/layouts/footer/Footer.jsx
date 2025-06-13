@@ -25,8 +25,8 @@ const Footer = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Footer top section */}
-        <div className={`border-b border-white/10 pb-16 transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
+        {/* Footer top section - Moved down */}
+        <div className={`pt-16 transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
             {/* Branding */}
             <div className="lg:col-span-4">
