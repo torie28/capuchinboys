@@ -5,6 +5,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const headerRef = useRef(null);
 
@@ -20,7 +21,7 @@ const Header = () => {
     setIsMenuOpen(false);
   }, [location]);
 
-  // Handle scroll to show/hide header
+  // Handle scroll to show/hide header and update tab colors
   useEffect(() => {
     let ticking = false;
     
@@ -32,6 +33,7 @@ const Header = () => {
           // Always show header when scrolling to top
           if (currentScrollY < 10) {
             setIsVisible(true);
+            setIsScrolled(false);
           } 
           // Hide header when scrolling down, show when scrolling up
           else if (currentScrollY > lastScrollY && currentScrollY > 100) {
@@ -39,6 +41,9 @@ const Header = () => {
           } else if (currentScrollY < lastScrollY) {
             setIsVisible(true);
           }
+          
+          // Update scroll state for tab colors
+          setIsScrolled(currentScrollY > 10);
           
           setLastScrollY(currentScrollY);
           ticking = false;
@@ -92,10 +97,14 @@ const Header = () => {
                 <li key={item.name}>
                   <Link
                     to={item.path}
-                    className={`px-6 py-3 text-base font-medium transition-all duration-200 rounded-md ${
-                      item.path === item.path
-                        ? 'text-primary '
-                        : 'text-white hover:bg-white/20 hover:text-white'
+                    className={`px-6 py-3 text-base font-medium transition-all duration-300 rounded-md ${
+                      location.pathname === item.path
+                        ? isScrolled 
+                          ? 'text-primary' 
+                          : 'text-white'
+                        : isScrolled
+                          ? 'text-gray-700 hover:text-primary'
+                          : 'text-white/90 hover:text-white '
                     }`}
                   >
                     {item.name}
@@ -137,7 +146,7 @@ const Header = () => {
 
       {/* Mobile menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-transparent/95 backdrop-blur-lg shadow-2xl z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed top-0 right-0 h-full w-64 bg-white/20 backdrop-blur-xl shadow-2xl z-50 transform transition-all duration-300 ease-in-out md:hidden border-l border-white/10 ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -153,16 +162,16 @@ const Header = () => {
         </button>
         
         <div className="h-full flex flex-col pt-20 px-4">
-          <nav className="flex-1 space-y-4">
+          <nav className="flex-1 space-y-2">
             {navLinks.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
                 onClick={() => setIsMenuOpen(false)}
-                className={`block px-4 py-3 text-lg font-medium rounded-lg transition-all duration-200 ${
+                className={`block px-4 py-3 text-lg font-medium  transition-all duration-200 ${
                   location.pathname === item.path
-                    ? 'bg-primary/10 text-primary font-semibold'
-                    : 'text-primary hover:bg-primary/10 hover:text-primary'
+                    ? 'bg-white/20 text-white font-semibold backdrop-blur-md'
+                    : 'text-white/90 hover:bg-white/20 hover:text-white'
                 }`}
               >
                 {item.name}
@@ -170,7 +179,7 @@ const Header = () => {
             ))}
           </nav>
           <div className="py-6 border-t border-gray-100 mt-auto">
-            <p className="text-center text-sm text-gray-500">
+            <p className="text-center text-sm text-primary">
               © {new Date().getFullYear()} Capuchin Boys
             </p>
           </div>
