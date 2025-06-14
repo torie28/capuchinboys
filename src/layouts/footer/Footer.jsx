@@ -14,7 +14,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="bg-gradient-to-r from-stone-800 to-amber-900">
+    <footer className="w-full bg-gradient-to-r from-stone-800 to-amber-900">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#444_1px,transparent_1px)]"></div>
@@ -24,7 +24,7 @@ const Footer = () => {
         <div className="absolute top-1/4 right-0 w-1/3 h-1/3 bg-gradient-to-bl from-purple-600/15 to-transparent rounded-full blur-3xl"></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="w-full px-4 sm:px-6 lg:container lg:mx-auto relative z-10">
         {/* Footer top section - Moved down */}
         <div className={`pt-16 transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">

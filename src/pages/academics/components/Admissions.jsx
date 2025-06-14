@@ -5,7 +5,7 @@ const Admissions = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section with Background Image and Overlay - Full Viewport Height */}
-      <section className="relative h-[70vh] min-h-[500px] md:h-screen max-h-[1000px] bg-gray-900 overflow-hidden">
+      <section className="relative min-h-screen h-auto md:h-[70vh] md:min-h-[500px] lg:h-screen lg:max-h-[1000px] bg-gray-900 overflow-hidden">
         {/* Background Image */}
         <div 
           className="absolute inset-0 z-0"
