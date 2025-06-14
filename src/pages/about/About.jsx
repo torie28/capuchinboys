@@ -334,11 +334,11 @@ const AboutSection = () => {
           </div>
 
           {/* Franciscan Heritage Section */}
-          <div className="bg-gradient-to-br from-stone-800 to-amber-900 text-white p-16 shadow-2xl">
+          <div className="bg-gradient-to-br from-stone-800 to-amber-900 text-white p-6 sm:p-10 md:p-16 shadow-2xl">
             <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-16">
-                <div className="w-16 h-1 bg-amber-300 mx-auto mb-8"></div>
-                <h3 className="text-5xl font-cinzel font-bold mb-4">
+              <div className="text-center mb-12 md:mb-16">
+                <div className="w-16 h-1 bg-amber-300 mx-auto mb-6 sm:mb-8"></div>
+                <h3 className="text-3xl sm:text-4xl md:text-5xl font-cinzel font-bold mb-3 sm:mb-4 px-2 break-words">
                   {ABOUT_CONTENT.franciscan.title}
                 </h3>
                 <p className="text-2xl text-amber-200 font-nunito font-light italic mb-8">
