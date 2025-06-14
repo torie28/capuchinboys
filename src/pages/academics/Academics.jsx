@@ -122,17 +122,6 @@ const CapuchinSchoolPage = () => {
             <div className="font-dancing text-4xl md:text-5xl mb-12 font-normal tracking-[0.05em] text-[#B4975A]">
               Excellence in Education
             </div>
-
-            {/* Description */}
-            <div className="max-w-4xl mx-auto mb-12">
-              <p className="text-lg md:text-xl leading-relaxed text-[#fcf9f9] font-light tracking-[0.01em]">
-                "Excellence" barely begins to describe Capuchin Boys Secondary School's 
-                commitment to academic achievement that stretches beyond expectations. 
-                Our institution, rooted in Capuchin tradition, cultivates young minds where knowledge flourishes. 
-                The name represents "the place where education runs forever," and it's easy to see 
-                why: these halls of learning never run out of inspiration.
-              </p>
-            </div>
           </div>
         </div>
       </motion.section>
