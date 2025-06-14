@@ -83,17 +83,22 @@ const CapuchinSchoolPage = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        style={{
-          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/assets/images/buildings/Secondary pic.jpg")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundAttachment: 'fixed'
-        }}
       >
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0  bg-opacity-50">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_25px_25px,rgba(139,134,123,0.1)_2%,transparent_0%),radial-gradient(circle_at_75px_75px,rgba(160,151,136,0.08)_2%,transparent_0%)] bg-[length:100px_100px] pointer-events-none"/>
+        {/* Background with Parallax Effect */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'url("/assets/images/buildings/Secondary pic.jpg")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            transform: `scale(${1 + (scrollY * 0.0005)})`,
+            transition: 'transform 1s ease-out',
+            willChange: 'transform'
+          }}
+        >
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-stone-900/90 via-stone-900/70 to-stone-900/90"></div>
         </div>
         {/* Removed floating elements */}
 
