@@ -4,11 +4,40 @@ import { motion } from 'framer-motion';
 const Admissions = () => {
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative py-32 bg-gradient-to-br from-[#1a365d] to-[#2c5282] text-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">Admissions</h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto">Begin your journey to excellence at Capuchin Boys Secondary School</p>
+      {/* Hero Section with Background Image and Overlay - Full Viewport Height */}
+      <section className="relative h-[70vh] min-h-[500px] md:h-screen max-h-[1000px] bg-gray-900 overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: 'url(/assets/images/buildings/Secondary pic.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+          }}
+        >
+          {/* Overlay */}
+          <div className="absolute inset-0  z-0"></div>
+        </div>
+        
+        {/* Content - Centered Vertically and Horizontally */}
+        <div className="relative z-10 h-full flex flex-col justify-center items-center px-6 lg:px-8 text-center">
+          <motion.h1 
+            className="text-4xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            Admissions
+          </motion.h1>
+          <motion.p 
+            className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-100 drop-shadow-md"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Begin your journey to excellence at Capuchin Boys Secondary School
+          </motion.p>
         </div>
       </section>
 
