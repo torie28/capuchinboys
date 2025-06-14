@@ -44,7 +44,7 @@ const VALUES = [
 
 const HERO_CONTENT = {
   title: "Shaping Future Leaders",
-  subtitle: "Since 1993",
+  subtitle: "Since 2015",
   description: "Excellence in education, grounded in values, preparing young men for a changing world.",
   buttons: [
     { text: "Discover Our Story", className: "bg-amber-700 hover:bg-amber-800 text-white" },
@@ -56,7 +56,7 @@ const ABOUT_CONTENT = {
   story: {
     title: "Our Distinguished Story",
     content: [
-      "Founded in 1993, Capuchin Boys Secondary School emerged from a vision to provide exceptional education grounded in moral values. Our journey began with a handful of dedicated educators and has grown into one of Tanzania's most respected educational institutions.",
+      "Founded in 2015, Capuchin Boys Secondary School emerged from a vision to provide exceptional education grounded in moral values. Our journey began with a handful of dedicated educators and has grown into one of Tanzania's most respected educational institutions.",
       "Named after the Capuchin friars known for their commitment to education and community service, our school embodies these principles in every aspect of student life. We believe in nurturing not just academic brilliance, but also character, leadership, and social responsibility."
     ]
   },
