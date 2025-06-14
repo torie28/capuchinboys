@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const AcademicPrograms = () => {
   const programs = [
@@ -122,24 +123,26 @@ const AcademicPrograms = () => {
             Ready to explore our academic offerings in detail?
           </h3>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a 
-              href="/academics"
-              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium  text-white bg-primary hover:bg-primary/90 transition-colors duration-300"
+            <Link 
+              to="/academics"
+              aria-label="View all academic programs we offer"
+              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium text-white bg-primary hover:bg-primary/90 transition-colors duration-300"
             >
               View All Academic Programs
-              <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
               </svg>
-            </a>
-            <a 
-              href="/admissions"
+            </Link>
+            <Link 
+              to="/admissions"
+              aria-label="Start your application process"
               className="inline-flex items-center justify-center px-8 py-3 border from-[#B4975A] to-[#8B8677] hover:bg-gray-50 transition-colors duration-300"
             >
               Apply Now
-              <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd" />
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

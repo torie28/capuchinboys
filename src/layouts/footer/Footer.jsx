@@ -14,9 +14,9 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="w-full bg-gradient-to-r from-stone-800 to-amber-900">
+    <footer className="w-full min-w-full bg-gradient-to-r from-white to-white overflow-x-hidden">
       {/* Background elements */}
-      <div className="absolute inset-0 z-0">
+      <div className="fixed bottom-0 left-0 right-0 z-0 w-full">
         <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#444_1px,transparent_1px)]"></div>
         
         {/* Gradient accents */}
@@ -24,84 +24,114 @@ const Footer = () => {
         <div className="absolute top-1/4 right-0 w-1/3 h-1/3 bg-gradient-to-bl from-purple-600/15 to-transparent rounded-full blur-3xl"></div>
       </div>
 
-      <div className="w-full px-4 sm:px-6 lg:container lg:mx-auto relative z-10">
-        {/* Footer top section - Moved down */}
-        <div className={`pt-16 transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
-            {/* Branding */}
-            <div className="lg:col-span-4">
-              <div className="space-y-8">
-                <div className="space-y-4">
-                  <h3>
-                    <span className="block text-white text-2xl font-light tracking-tight">Capuchin Boys</span>
-                    <span className="block text-2xl font-medium tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-white to-purple-200">
+      <div className="w-full max-w-none px-4 mx-0 sm:px-6 lg:px-8 xl:px-4 relative z-10">
+        <div className="max-w-7xl mx-auto">
+          <div className={`pt-16 transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
+              {/* Branding - Full width on mobile, then takes 4 columns */}
+              <div className="lg:col-span-4 text-center md:text-left">
+                <div className="space-y-6 md:space-y-8">
+                  <div className="space-y-2">
+                    <h3 className="text-black text-2xl font-light tracking-tight">Capuchin Boys</h3>
+                    <h4 className="text-2xl font-medium tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-black via-black to-black">
                       Secondary School
-                    </span>
-                  </h3>
-                </div>
-                
-                <p className="text-white/60 text-sm leading-relaxed">
-                  Nurturing future leaders through quality education and holistic development. 
-                  Our mission is to provide an environment that fosters academic excellence, 
-                  character development, and spiritual growth.
-                </p>
-                
-                {/* Social links */}
-                <div className="flex space-x-6">
-                  <a href="#" className="text-white/50 hover:text-white transition-colors duration-300">
-                    <FontAwesomeIcon icon={faFacebook} className="text-lg" />
-                  </a>
-                  <a href="#" className="text-white/50 hover:text-white transition-colors duration-300">
-                    <FontAwesomeIcon icon={faTwitter} className="text-lg" />
-                  </a>
-                  <a href="#" className="text-white/50 hover:text-white transition-colors duration-300">
-                    <FontAwesomeIcon icon={faInstagram} className="text-lg" />
-                  </a>
-                  <a href="#" className="text-white/50 hover:text-white transition-colors duration-300">
-                    <FontAwesomeIcon icon={faYoutube} className="text-lg" />
-                  </a>
+                    </h4>
+                  </div>
+                  
+                  <p className="text-black/60 text-sm leading-relaxed">
+                    Nurturing future leaders through quality education and holistic development. 
+                    Our mission is to provide an environment that fosters academic excellence, 
+                    character development, and spiritual growth.
+                  </p>
+                  
+                  <div className="flex justify-center md:justify-start space-x-6">
+                    <Link 
+                      to="https://facebook.com" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      aria-label="Visit our Facebook page"
+                      className="text-black/50 hover:text-black transition-colors duration-300"
+                    >
+                      <FontAwesomeIcon icon={faFacebook} className="text-lg" />
+                    </Link>
+                    <Link 
+                      to="https://twitter.com" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      aria-label="Follow us on Twitter"
+                      className="text-black/50 hover:text-black transition-colors duration-300"
+                    >
+                      <FontAwesomeIcon icon={faTwitter} className="text-lg" />
+                    </Link>
+                    <Link 
+                      to="https://instagram.com" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      aria-label="Follow us on Instagram"
+                      className="text-black/50 hover:text-black transition-colors duration-300"
+                    >
+                      <FontAwesomeIcon icon={faInstagram} className="text-lg" />
+                    </Link>
+                    <Link 
+                      to="https://youtube.com" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      aria-label="Subscribe to our YouTube channel"
+                      className="text-black/50 hover:text-black transition-colors duration-300"
+                    >
+                      <FontAwesomeIcon icon={faYoutube} className="text-lg" />
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Quick Links */}
-            <div className="lg:col-span-3 lg:col-start-7">
-              <h4 className="text-white text-lg font-semibold mb-6">Quick Links</h4>
-              <ul className="space-y-3">
-                <li><Link to="/" className="text-white/60 hover:text-white transition-colors duration-300 text-sm">Home</Link></li>
-                <li><Link to="/academics" className="text-white/60 hover:text-white transition-colors duration-300 text-sm">Academics</Link></li>
-                <li><Link to="/about" className="text-white/60 hover:text-white transition-colors duration-300 text-sm">About Us</Link></li>
-                <li><Link to="/admissions" className="text-white/60 hover:text-white transition-colors duration-300 text-sm">Admissions</Link></li>
-                <li><Link to="/contact" className="text-white/60 hover:text-white transition-colors duration-300 text-sm">Contact Us</Link></li>
-              </ul>
-            </div>
+              {/* Quick Links - Full width on mobile, then takes 3 columns */}
+              <div className="lg:col-span-3 lg:col-start-6 text-center md:text-left">
+                <h4 className="text-black text-lg font-semibold mb-4">Quick Links</h4>
+                <ul className="space-y-2">
+                  <li><Link to="/" className="text-black/60 hover:text-black transition-colors duration-300 text-sm block py-1">Home</Link></li>
+                  <li><Link to="/academics" className="text-black/60 hover:text-black transition-colors duration-300 text-sm block py-1">Academics</Link></li>
+                  <li><Link to="/about" className="text-black/60 hover:text-black transition-colors duration-300 text-sm block py-1">About Us</Link></li>
+                  <li><Link to="/admissions" className="text-black/60 hover:text-black transition-colors duration-300 text-sm block py-1">Admissions</Link></li>
+                  <li><Link to="/contact" className="text-black/60 hover:text-black transition-colors duration-300 text-sm block py-1">Contact Us</Link></li>
+                </ul>
+              </div>
 
-            {/* Contact Info */}
-            <div className="lg:col-span-4 lg:col-start-10">
-              <h4 className="text-white text-lg font-semibold mb-6">Contact Us</h4>
-              <address className="not-italic space-y-4">
-                <p className="flex items-start">
-                  <FontAwesomeIcon icon={faMapMarkerAlt} className="text-white/60 mt-1 mr-3 flex-shrink-0" />
-                  <span className="text-white/60 text-sm">P.O. Box 12345,<br/>Nairobi, Kenya</span>
-                </p>
-                <p className="flex items-center">
-                  <FontAwesomeIcon icon={faPhoneAlt} className="text-white/60 mr-3" />
-                  <a href="tel:+254712345678" className="text-white/60 hover:text-white transition-colors duration-300 text-sm">+254 712 345 678</a>
-                </p>
-                <p className="flex items-center">
-                  <FontAwesomeIcon icon={faEnvelope} className="text-white/60 mr-3" />
-                  <a href="mailto:info@capuchinboys.ac.ke" className="text-white/60 hover:text-white transition-colors duration-300 text-sm">info@capuchinboys.ac.ke</a>
-                </p>
-              </address>
+              {/* Contact Info - Full width on mobile, then takes 4 columns */}
+              <div className="lg:col-span-4 lg:col-start-9 text-center md:text-left">
+                <h4 className="text-black text-lg font-semibold mb-4">Contact Us</h4>
+                <address className="not-italic space-y-3">
+                  <div className="flex flex-col items-center md:items-start">
+                    <div className="flex items-start">
+                      <FontAwesomeIcon icon={faMapMarkerAlt} className="text-black/60 mt-1 mr-3 flex-shrink-0" />
+                      <span className="text-black/60 text-sm">P.O. Box 12345,<br/>Nairobi, Kenya</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center md:block">
+                    <a href="tel:+254712345678" className="text-black/60 hover:text-black transition-colors duration-300 text-sm flex items-center justify-center md:justify-start py-1">
+                      <FontAwesomeIcon icon={faPhoneAlt} className="mr-3" />
+                      +254 712 345 678
+                    </a>
+                  </div>
+                  <div className="flex flex-col items-center md:block">
+                    <a href="mailto:info@capuchinboys.ac.ke" className="text-black/60 hover:text-black transition-colors duration-300 text-sm flex items-center justify-center md:justify-start py-1">
+                      <FontAwesomeIcon icon={faEnvelope} className="mr-3" />
+                      info@capuchinboys.ac.ke
+                    </a>
+                  </div>
+                </address>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Copyright */}
-        <div className="pt-8 text-center">
-          <p className="text-white/40 text-sm">
-            &copy; {new Date().getFullYear()} Capuchin Boys Secondary School. All rights reserved.
-          </p>
+        <div className="w-full max-w-none px-4 mx-0 sm:px-6 lg:px-8 xl:px-4 pt-8 text-center">
+          <div className="max-w-7xl mx-auto">
+            <p className="text-white/40 text-sm">
+              &copy; {new Date().getFullYear()} Capuchin Boys Secondary School. All rights reserved.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

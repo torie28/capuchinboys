@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   return (
@@ -23,18 +24,20 @@ const HeroSection = () => {
           Empowering young minds through quality education and holistic development
         </p>
         <div className="space-x-2">
-          <a 
-            href="/admissions" 
-            className="inline-block bg-white text-blue-900 font-semibold px-8 py-4  hover:bg-blue-100 transition-all duration-300 transform hover:scale-105"
+          <Link 
+            to="/admissions" 
+            aria-label="Navigate to Admissions page to apply now"
+            className="inline-block bg-white text-blue-900 font-semibold px-8 py-4 hover:bg-blue-100 transition-all duration-300 transform hover:scale-105"
           >
             Apply Now
-          </a>
-          <a 
-            href="/about" 
-            className="inline-block border-2 border-primary text-white font-semibold px-8 py-4   hover:bg-opacity-10 transition-all duration-300 transform hover:scale-105"
+          </Link>
+          <Link 
+            to="/about" 
+            aria-label="Learn more about our school"
+            className="inline-block border-2 border-primary text-white font-semibold px-8 py-4 hover:bg-opacity-10 transition-all duration-300 transform hover:scale-105"
           >
             Learn More
-          </a>
+          </Link>
         </div>
       </div>
     </section>
