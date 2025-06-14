@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion, useAnimation, useInView } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const AcademicLevel = ({ level, description, subjects, requirements }) => (
   <div className="bg-white p-6 sm:p-8 shadow-sm border border-gray-100">
@@ -343,6 +344,21 @@ const CapuchinSchoolPage = () => {
                 ]}
               />
             )}
+            
+            {/* Apply Now Button */}
+            <div className="flex justify-center  mt-12 mb-12">
+              <Link 
+                to="/admissions"
+                aria-label="Start your application process"
+                className="inline-flex items-center justify-center px-8 py-3 border border-gray-300 text-base font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors duration-300"
+              >
+                Apply Now
+                <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd" />
+              </svg>
+              </Link>
+            </div>
+            
             </div>
           </div>
         </div>
