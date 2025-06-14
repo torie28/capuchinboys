@@ -38,8 +38,7 @@ const Footer = () => {
                     </h4>
                   </div>
                   
-                  <p className="text-black/60 text-sm leading-relaxed">
-                    Nurturing future leaders through quality education and holistic development. 
+                  <p className="text-black/60 text-sm leading-relaxed"> 
                     Our mission is to provide an environment that fosters academic excellence, 
                     character development, and spiritual growth.
                   </p>
