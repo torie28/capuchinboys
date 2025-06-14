@@ -25,24 +25,24 @@ const SchoolIntroduction = () => {
           </div>
 
           {/* Right side - Content */}
-          <div className="space-y-8">
+          <div className="space-y-10 px-6 sm:px-8 md:px-12 lg:pl-16">
             {/* Header */}
-            <div>
-              <p className="text-primary font-semibold text-sm uppercase tracking-wide mb-4">
+            <div className="space-y-6">
+              <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-2">
                 ABOUT OUR SCHOOL
               </p>
-              <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-                Capuchin boys Secondary 
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                Capuchin Boys 
                 <span className="text-primary block">
-                  School
-                  <div className="w-20 h-1 bg-primary mt-2"></div>
+                  Secondary School
+                  <div className="w-24 h-1.5 bg-primary mt-4 rounded-full"></div>
                 </span>
               </h1>
             </div>
 
             {/* Description */}
-            <div className="border-l-4 border-red-500 pl-6">
-              <p className="text-gray-600 text-lg leading-relaxed">
+            <div className="border-l-4 border-red-500 pl-6 py-2">
+              <p className="text-gray-600 text-lg md:text-xl leading-relaxed">
                 Fosters a unique environment where students can grow in their faith 
                 and academics. Daily classes, prayers, religious instruction, and 
                 opportunities for service to others are integral parts of the school 
