@@ -88,7 +88,7 @@ const CapuchinSchoolPage = () => {
         <div 
           className="absolute inset-0"
           style={{
-            backgroundImage: 'url("/assets/images/buildings/Secondary pic.jpg")',
+            backgroundImage: 'url("/assets/images/buildings/Outside-1.webp")',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',

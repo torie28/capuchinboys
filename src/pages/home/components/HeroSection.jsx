@@ -19,7 +19,7 @@ const HeroSection = () => {
       <div 
         className="absolute inset-0"
         style={{ 
-          backgroundImage: "url('/assets/images/buildings/Secondary pic.jpg')",
+          backgroundImage: "url('/assets/images/buildings/12_Sacajawea-Cafeteria__FocusFillWzI1NjAsMTQ0MCwieSIsMTMzXQ.webp')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',

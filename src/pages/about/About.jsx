@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 // Constants
 const HERO_IMAGES = [
   '/assets/images/buildings/Secondary pic.jpg',
-  '/assets/images/buildings/inside the school.jpg',
-  '/assets/images/buildings/Secondary pic.jpg',
-  '/assets/images/buildings/inside the school.jpg'
+  '/assets/images/buildings/Outside-3.webp',
+  '/assets/images/buildings/12_Sacajawea-Cafeteria__FocusFillWzI1NjAsMTQ0MCwieSIsMTMzXQ.webp',
+  '/assets/images/buildings/Outside-1.webp'
 ];
 
 const SCHOOL_IMAGES = [
