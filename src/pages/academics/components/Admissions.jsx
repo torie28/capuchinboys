@@ -5,7 +5,7 @@ const Admissions = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section with Background Image and Overlay - Full Viewport Height */}
-      <section className="relative min-h-screen h-auto md:h-[70vh] md:min-h-[500px] lg:h-screen lg:max-h-[1000px] bg-gray-900 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center bg-gray-900 overflow-hidden">
         {/* Background Image */}
         <div 
           className="absolute inset-0 z-0"
@@ -16,28 +16,35 @@ const Admissions = () => {
             backgroundRepeat: 'no-repeat',
           }}
         >
-          {/* Overlay */}
-          <div className="absolute inset-0  z-0"></div>
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black/50 z-0"></div>
         </div>
         
         {/* Content - Centered Vertically and Horizontally */}
-        <div className="relative z-10 h-full flex flex-col justify-center items-center px-6 lg:px-8 text-center">
-          <motion.h1 
-            className="text-4xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg"
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 text-center py-32">
+          <motion.div
+            className="space-y-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Admissions
-          </motion.h1>
-          <motion.p 
-            className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-100 drop-shadow-md"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Begin your journey to excellence at Capuchin Boys Secondary School
-          </motion.p>
+            <motion.h1 
+              className="text-5xl md:text-7xl font-bold text-white drop-shadow-lg"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+            >
+              Admissions
+            </motion.h1>
+            <motion.p 
+              className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-100 drop-shadow-md"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              Begin your journey to excellence at Capuchin Boys Secondary School
+            </motion.p>
+          </motion.div>
         </div>
       </section>
 
@@ -312,6 +319,8 @@ const Admissions = () => {
                     <input
                       type="text"
                       id="name"
+                      name="name"
+                      autoComplete="name"
                       className="w-full px-4 py-3 rounded-md bg-white/10 border border-white/20 focus:ring-2 focus:ring-[#B4975A] focus:border-transparent text-white placeholder-white/60"
                       placeholder="John Doe"
                     />
@@ -321,6 +330,8 @@ const Admissions = () => {
                     <input
                       type="email"
                       id="email"
+                      name="email"
+                      autoComplete="email"
                       className="w-full px-4 py-3 rounded-md bg-white/10 border border-white/20 focus:ring-2 focus:ring-[#B4975A] focus:border-transparent text-white placeholder-white/60"
                       placeholder="you@example.com"
                     />
@@ -330,6 +341,8 @@ const Admissions = () => {
                     <input
                       type="tel"
                       id="phone"
+                      name="phone"
+                      autoComplete="tel"
                       className="w-full px-4 py-3 rounded-md bg-white/10 border border-white/20 focus:ring-2 focus:ring-[#B4975A] focus:border-transparent text-white placeholder-white/60"
                       placeholder="+254 700 000000"
                     />
@@ -339,6 +352,8 @@ const Admissions = () => {
                     <input
                       type="date"
                       id="date"
+                      name="visitDate"
+                      autoComplete="off"
                       className="w-full px-4 py-3 rounded-md bg-white/10 border border-white/20 focus:ring-2 focus:ring-[#B4975A] focus:border-transparent text-white placeholder-white/60"
                     />
                   </div>
