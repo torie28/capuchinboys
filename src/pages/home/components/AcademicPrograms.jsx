@@ -46,10 +46,10 @@ const AcademicPrograms = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#B4975A] to-[#8B8677] bg-clip-text text-transparent mb-6">
             Academic Programs
-          </h1>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Our comprehensive curriculum is designed to provide students with a well-rounded education 
             that prepares them for higher learning and future careers while fostering critical thinking 
             and personal growth.
@@ -71,9 +71,9 @@ const AcademicPrograms = () => {
                       {program.title.charAt(0)}
                     </span>
                   </div>
-                  <h2 className="text-2xl font-bold text-gray-900">
+                  <h3 className="text-2xl font-bold text-gray-900">
                     {program.title}
-                  </h2>
+                  </h3>
                 </div>
 
                 {/* Description */}
@@ -83,9 +83,9 @@ const AcademicPrograms = () => {
 
                 {/* Subjects */}
                 <div className="mb-6">
-                  <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-3">
+                  <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-3">
                     Key Subjects
-                  </h3>
+                  </h4>
                   <div className="flex flex-wrap gap-2">
                     {program.subjects.map((subject, subIndex) => (
                       <span 
@@ -100,14 +100,14 @@ const AcademicPrograms = () => {
 
                 {/* Highlights */}
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-3">
+                  <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-3">
                     Program Highlights
-                  </h3>
+                  </h4>
                   <ul className="space-y-2">
                     {program.highlights.map((highlight, highlightIndex) => (
                       <li key={highlightIndex} className="flex items-start">
                         <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                        <span className="text-gray-700 text-sm">{highlight}</span>
+                        <span className="text-gray-600 text-sm">{highlight}</span>
                       </li>
                     ))}
                   </ul>
@@ -119,14 +119,14 @@ const AcademicPrograms = () => {
         
         {/* CTA Section */}
         <div className="text-center mt-12">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+          <h3 className="text-2xl font-semibold text-gray-900 mb-6">
             Ready to explore our academic offerings in detail?
-          </h2>
+          </h3>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link 
               to="/academics"
-              aria-label="View all academic programs we offer"
-              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium text-white bg-blue-700 hover:bg-blue-800 transition-colors duration-300"
+              aria-label="View all academic programs"
+              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium text-white bg-primary hover:bg-primary/90 transition-colors duration-300"
             >
               View All Academic Programs
               <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -135,8 +135,8 @@ const AcademicPrograms = () => {
             </Link>
             <Link 
               to="/admissions"
-              aria-label="Start your application process"
-              className="inline-flex items-center justify-center px-8 py-3 border-2 border-blue-700 text-blue-700 hover:bg-blue-50 transition-colors duration-300"
+              aria-label="Apply for admission"
+              className="inline-flex items-center justify-center px-8 py-3 border border-gray-300 text-base font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors duration-300"
             >
               Apply Now
               <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

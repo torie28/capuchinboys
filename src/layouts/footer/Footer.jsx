@@ -32,13 +32,13 @@ const Footer = () => {
               <div className="lg:col-span-4 text-center md:text-left">
                 <div className="space-y-6 md:space-y-8">
                   <div className="space-y-2">
-                    <h2 className="text-black text-2xl font-light tracking-tight">Capuchin Boys</h2>
-                    <p className="text-2xl font-medium tracking-tight text-black">
+                    <h3 className="text-black text-2xl font-light tracking-tight">Capuchin Boys</h3>
+                    <h4 className="text-2xl font-medium tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-black via-black to-black">
                       Secondary School
-                    </p>
+                    </h4>
                   </div>
                   
-                  <p className="text-gray-800 text-sm leading-relaxed"> 
+                  <p className="text-black/60 text-sm leading-relaxed"> 
                     Our mission is to provide an environment that fosters academic excellence, 
                     character development, and spiritual growth.
                   </p>
@@ -49,7 +49,7 @@ const Footer = () => {
                       target="_blank" 
                       rel="noopener noreferrer"
                       aria-label="Visit our Facebook page"
-                      className="text-gray-600 hover:text-black transition-colors duration-300"
+                      className="text-black/50 hover:text-black transition-colors duration-300"
                     >
                       <FontAwesomeIcon icon={faFacebook} className="text-lg" />
                     </Link>
@@ -58,7 +58,7 @@ const Footer = () => {
                       target="_blank" 
                       rel="noopener noreferrer"
                       aria-label="Follow us on Twitter"
-                      className="text-gray-600 hover:text-black transition-colors duration-300"
+                      className="text-black/50 hover:text-black transition-colors duration-300"
                     >
                       <FontAwesomeIcon icon={faTwitter} className="text-lg" />
                     </Link>
@@ -67,7 +67,7 @@ const Footer = () => {
                       target="_blank" 
                       rel="noopener noreferrer"
                       aria-label="Follow us on Instagram"
-                      className="text-gray-600 hover:text-black transition-colors duration-300"
+                      className="text-black/50 hover:text-black transition-colors duration-300"
                     >
                       <FontAwesomeIcon icon={faInstagram} className="text-lg" />
                     </Link>
@@ -76,7 +76,7 @@ const Footer = () => {
                       target="_blank" 
                       rel="noopener noreferrer"
                       aria-label="Subscribe to our YouTube channel"
-                      className="text-gray-600 hover:text-black transition-colors duration-300"
+                      className="text-black/50 hover:text-black transition-colors duration-300"
                     >
                       <FontAwesomeIcon icon={faYoutube} className="text-lg" />
                     </Link>
@@ -86,19 +86,19 @@ const Footer = () => {
 
               {/* Quick Links - Full width on mobile, then takes 3 columns */}
               <div className="lg:col-span-3 lg:col-start-6 text-center md:text-left">
-                <h3 className="text-black text-lg font-semibold mb-4">Quick Links</h3>
+                <h4 className="text-black text-lg font-semibold mb-4">Quick Links</h4>
                 <ul className="space-y-2">
-                  <li><Link to="/" className="text-gray-800 hover:text-black transition-colors duration-300 text-sm block py-1">Home</Link></li>
-                  <li><Link to="/academics" className="text-gray-800 hover:text-black transition-colors duration-300 text-sm block py-1">Academics</Link></li>
-                  <li><Link to="/about" className="text-gray-800 hover:text-black transition-colors duration-300 text-sm block py-1">About Us</Link></li>
-                  <li><Link to="/admissions" className="text-gray-800 hover:text-black transition-colors duration-300 text-sm block py-1">Admissions</Link></li>
-                  <li><Link to="/contact" className="text-gray-800 hover:text-black transition-colors duration-300 text-sm block py-1">Contact Us</Link></li>
+                  <li><Link to="/" className="text-black/60 hover:text-black transition-colors duration-300 text-sm block py-1">Home</Link></li>
+                  <li><Link to="/academics" className="text-black/60 hover:text-black transition-colors duration-300 text-sm block py-1">Academics</Link></li>
+                  <li><Link to="/about" className="text-black/60 hover:text-black transition-colors duration-300 text-sm block py-1">About Us</Link></li>
+                  <li><Link to="/admissions" className="text-black/60 hover:text-black transition-colors duration-300 text-sm block py-1">Admissions</Link></li>
+                  <li><Link to="/contact" className="text-black/60 hover:text-black transition-colors duration-300 text-sm block py-1">Contact Us</Link></li>
                 </ul>
               </div>
 
               {/* Contact Info - Full width on mobile, then takes 4 columns */}
               <div className="lg:col-span-4 lg:col-start-9 text-center md:text-left">
-                <h3 className="text-black text-lg font-semibold mb-4">Contact Us</h3>
+                <h4 className="text-black text-lg font-semibold mb-4">Contact Us</h4>
                 <address className="not-italic space-y-3">
                   <div className="flex flex-col items-center md:items-start">
                     <div className="flex items-start">
