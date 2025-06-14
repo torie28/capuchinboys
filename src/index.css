@@ -63,8 +63,31 @@
 
 /* Base Styles */
 @layer base {
+  /* Prevent horizontal overflow */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
   html {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
     font-family: 'Nunito', system-ui, sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
   }
 
   /* Headings use Cinzel for an elegant, classical appearance */

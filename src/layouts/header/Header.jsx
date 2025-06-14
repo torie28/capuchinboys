@@ -15,6 +15,7 @@ const Header = () => {
     { name: 'About Us', path: '/about' },
     { name: 'Contact', path: '/contact' },
     { name: 'Admissions', path: '/admissions' },
+    
   ];
 
   // Close mobile menu when route changes

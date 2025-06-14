@@ -3,39 +3,40 @@ import { FaGraduationCap } from 'react-icons/fa';
 
 const SchoolIntroduction = () => {
   return (
-    <div className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div className="py-12 md:py-16 lg:py-20 bg-white w-full overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center w-full">
           {/* Left side - Image */}
-          <div className="relative pr-8 md:pr-12 lg:pr-16 xl:pr-20">
-            {/* Decorative left accent */}
-            <div className="absolute -left-8 md:-left-12 top-1/2 -translate-y-1/2 w-12 h-64 opacity-100">
-              <svg viewBox="0 0 40 80" className="w-full h-full text-primary fill-current">
-                <path d="M10 10 Q20 0 30 10 Q20 20 10 30 Q20 40 30 50 Q20 60 10 70" stroke="currentColor" strokeWidth="2" fill="none"/>
-                <path d="M10 20 Q20 10 30 20 Q20 30 10 40 Q20 50 30 60 Q20 70 10 80" stroke="currentColor" strokeWidth="2" fill="none"/>
-              </svg>
-            </div>
-            
-            {/* Image container with classic padding and border */}
-            <div className="relative bg-gray-100 overflow-hidden shadow-xl rounded-lg border-8 border-white transform rotate-1 hover:rotate-0 transition-all duration-500 ease-in-out">
-              {/* Inner padding for the image */}
-              <div className="p-1.5 bg-gradient-to-br from-gray-50 to-gray-100">
-                <div className="overflow-hidden rounded-sm">
-                  <img 
-                    src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
-                    alt="Students studying together" 
-                    className="w-full h-[36rem] object-cover transition-transform duration-700 hover:scale-105"
-                  />
-                </div>
+          <div className="relative w-full max-w-full mx-auto lg:mx-0">
+            <div className="relative w-full max-w-full">
+              {/* Decorative left accent - Only show on larger screens */}
+              <div className="hidden lg:block absolute -left-6 xl:-left-8 top-1/2 -translate-y-1/2 w-10 xl:w-12 h-48 xl:h-56 opacity-100 z-10">
+                <svg viewBox="0 0 40 80" className="w-full h-full text-primary fill-current">
+                  <path d="M10 10 Q20 0 30 10 Q20 20 10 30 Q20 40 30 50 Q20 60 10 70" stroke="currentColor" strokeWidth="2" fill="none"/>
+                  <path d="M10 20 Q20 10 30 20 Q20 30 10 40 Q20 50 30 60 Q20 70 10 80" stroke="currentColor" strokeWidth="2" fill="none"/>
+                </svg>
               </div>
               
-              {/* Decorative corner accents */}
-              <div className="absolute top-0 right-0 w-16 h-16 border-t-4 border-r-4 border-primary rounded-bl-full"></div>
-              <div className="absolute bottom-0 left-0 w-16 h-16 border-b-4 border-l-4 border-primary rounded-tr-full"></div>
+              {/* Image container */}
+              <div className="relative bg-gray-100 overflow-hidden shadow-xl rounded-lg border-4 sm:border-6 md:border-8 border-white transform rotate-1 hover:rotate-0 transition-all duration-500 ease-in-out w-full max-w-full">
+                <div className="p-0.5 sm:p-1 bg-gradient-to-br from-gray-50 to-gray-100">
+                  <div className="overflow-hidden rounded-sm">
+                    <img 
+                      src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                      alt="Students studying together" 
+                      className="w-full h-auto max-h-[32rem] sm:max-h-[36rem] object-cover transition-transform duration-700 hover:scale-105"
+                    />
+                  </div>
+                </div>
+                
+                {/* Decorative corner accents */}
+                <div className="absolute top-0 right-0 w-10 sm:w-12 md:w-14 h-10 sm:h-12 md:h-14 border-t-2 sm:border-t-3 md:border-t-4 border-r-2 sm:border-r-3 md:border-r-4 border-primary rounded-bl-full"></div>
+                <div className="absolute bottom-0 left-0 w-10 sm:w-12 md:w-14 h-10 sm:h-12 md:h-14 border-b-2 sm:border-b-3 md:border-b-4 border-l-2 sm:border-l-3 md:border-l-4 border-primary rounded-tr-full"></div>
+              </div>
+              
+              {/* Decorative bottom accent */}
+              <div className="absolute -bottom-3 sm:-bottom-4 md:-bottom-5 -right-3 sm:-right-4 md:-right-5 w-16 sm:w-20 md:w-24 h-6 sm:h-8 md:h-10 bg-primary/10 transform rotate-6 rounded-full"></div>
             </div>
-            
-            {/* Decorative bottom accent */}
-            <div className="absolute -bottom-6 -right-6 w-32 h-12 bg-primary/10 transform rotate-6 rounded-full"></div>
           </div>
 
           {/* Right side - Content */}

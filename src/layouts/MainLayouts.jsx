@@ -29,7 +29,7 @@ const MainLayout = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50 w-full max-w-full overflow-hidden">
       <Helmet>
         <title>Capuchin Boys Secondary School - {isAdminRoute ? 'Admin' : 'Excellence in Education'}</title>
         <meta 
