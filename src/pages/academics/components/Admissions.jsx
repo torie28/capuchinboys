@@ -84,10 +84,10 @@ const Admissions = () => {
     advanced: {
       requirements: [
         'Completed O-Level education with at least 6 credits',
-        'Minimum grade of C in subjects relevant to chosen A-Level combination',
         'Pass the school\'s advanced placement test',
         'Interview with the academic department head',
-        'Letter of recommendation from previous school'
+        'Letter of recommendation from previous school',
+        'About minimum grade C to relevant combinations choosen.',
       ],
       formsAndDocs: [
         'A-Level Application Form',
@@ -293,23 +293,25 @@ const Admissions = () => {
                         transition={{ duration: 0.3, ease: 'easeInOut' }}
                       >
                         <div className="px-4 sm:px-6 pb-6 pt-0">
-                          <ul className="space-y-3 sm:space-y-4 text-gray-700">
+                          <ul className="space-y-3 sm:space-y-4">
                             {levelData[selectedLevel].requirements.map((requirement, index) => (
-                              <li key={index} className="flex">
-                                <svg 
-                                  className="h-5 w-5 sm:h-6 sm:w-6 text-[#B4975A] mr-3 mt-0.5 flex-shrink-0" 
-                                  fill="none" 
-                                  viewBox="0 0 24 24" 
-                                  stroke="currentColor"
-                                >
-                                  <path 
-                                    strokeLinecap="round" 
-                                    strokeLinejoin="round" 
-                                    strokeWidth={2} 
-                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" 
-                                  />
-                                </svg>
-                                <span className="text-sm sm:text-base leading-relaxed text-gray-700">
+                              <li key={index} className="flex items-start">
+                                <span className="flex-shrink-0 mt-0.5">
+                                  <svg 
+                                    className="h-5 w-5 sm:h-6 sm:w-6 text-[#B4975A] mr-3 flex-none" 
+                                    fill="none" 
+                                    viewBox="0 0 24 24" 
+                                    stroke="currentColor"
+                                  >
+                                    <path 
+                                      strokeLinecap="round" 
+                                      strokeLinejoin="round" 
+                                      strokeWidth={2} 
+                                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" 
+                                    />
+                                  </svg>
+                                </span>
+                                <span className="text-sm sm:text-base text-gray-700 -mt-0.5">
                                   {requirement}
                                 </span>
                               </li>
