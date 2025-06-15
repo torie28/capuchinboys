@@ -334,35 +334,48 @@ const AboutSection = () => {
           </div>
 
           {/* Franciscan Heritage Section */}
-          <div className="bg-gradient-to-br from-stone-800 to-amber-900 text-white p-6 sm:p-10 md:p-16 shadow-2xl">
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-12 md:mb-16">
-                <div className="w-16 h-1 bg-amber-300 mx-auto mb-6 sm:mb-8"></div>
-                <h3 className="text-3xl sm:text-4xl md:text-5xl font-cinzel font-bold mb-3 sm:mb-4 px-2 break-words">
-                  {ABOUT_CONTENT.franciscan.title}
-                </h3>
-                <p className="text-2xl text-amber-200 font-nunito font-light italic mb-8">
-                  {ABOUT_CONTENT.franciscan.subtitle}
-                </p>
-                <div className="w-24 h-px bg-amber-300/50 mx-auto"></div>
-              </div>
+          <div className="relative overflow-hidden">
+            {/* Background Image with Overlay */}
+            <div 
+              className="absolute inset-0 z-0 bg-cover bg-center"
+              style={{
+                backgroundImage: 'url(/assets/images/environments/st-francis-of-assis.jpg)',
+              }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-stone-900/90 to-amber-900/80 mix-blend-multiply"></div>
+            </div>
+            
+            {/* Content */}
+            <div className="relative z-10 text-white p-6 sm:p-10 md:p-16 shadow-2xl">
+              <div className="max-w-6xl mx-auto">
+                <div className="text-center mb-12 md:mb-16">
+                  <div className="w-16 h-1 bg-amber-300 mx-auto mb-6 sm:mb-8"></div>
+                  <h3 className="text-3xl sm:text-4xl md:text-5xl font-cinzel font-bold mb-3 sm:mb-4 px-2 break-words">
+                    {ABOUT_CONTENT.franciscan.title}
+                  </h3>
+                  <p className="text-2xl text-amber-200 font-nunito font-light italic mb-8">
+                    {ABOUT_CONTENT.franciscan.subtitle}
+                  </p>
+                  <div className="w-24 h-px bg-amber-300/50 mx-auto"></div>
+                </div>
 
-              <div className="space-y-10">
-                {ABOUT_CONTENT.franciscan.content.map((paragraph, idx) => (
-                  <p key={idx} className="text-amber-100 leading-relaxed text-lg font-nunito font-light text-center max-w-5xl mx-auto">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
+                <div className="space-y-10">
+                  {ABOUT_CONTENT.franciscan.content.map((paragraph, idx) => (
+                    <p key={idx} className="text-amber-100 leading-relaxed text-lg font-nunito font-light text-center max-w-5xl mx-auto">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
 
-              <div className="text-center mt-16">
-                <div className="inline-block bg-white/10 backdrop-blur-sm p-8 rounded-lg">
-                  <p className="text-2xl font-cinzel italic text-amber-200">
-                    "Lord, make me an instrument of your peace."
-                  </p>
-                  <p className="text-amber-300 mt-4 font-medium">
-                    — St. Francis of Assisi
-                  </p>
+                <div className="text-center mt-16">
+                  <div className="inline-block bg-white/10 backdrop-blur-sm p-8 rounded-lg border border-white/10">
+                    <p className="text-2xl font-cinzel italic text-amber-200">
+                      "Lord, make me an instrument of your peace."
+                    </p>
+                    <p className="text-amber-300 mt-4 font-medium">
+                      — St. Francis of Assisi
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
