@@ -103,19 +103,21 @@ const Footer = () => {
                   <div className="flex flex-col items-center md:items-start">
                     <div className="flex items-start">
                       <FontAwesomeIcon icon={faMapMarkerAlt} className="text-black/60 mt-1 mr-3 flex-shrink-0" />
-                      <span className="text-black/60 text-sm">P.O. Box 12345,<br/>Nairobi, Kenya</span>
+                      <span className="text-black/60 text-sm">P.O. Box 154,<br/>Pangani, Tanga</span>
                     </div>
                   </div>
                   <div className="flex flex-col items-center md:block">
                     <a href="tel:+254712345678" className="text-black/60 hover:text-black transition-colors duration-300 text-sm flex items-center justify-center md:justify-start py-1">
                       <FontAwesomeIcon icon={faPhoneAlt} className="mr-3" />
-                      +254 712 345 678
+                      +255 752 978 895, +255 687 901 972,
+                      <br></br>
+                      +255 678 864 722, +255 657 454 241
                     </a>
                   </div>
                   <div className="flex flex-col items-center md:block">
                     <a href="mailto:info@capuchinboys.ac.ke" className="text-black/60 hover:text-black transition-colors duration-300 text-sm flex items-center justify-center md:justify-start py-1">
                       <FontAwesomeIcon icon={faEnvelope} className="mr-3" />
-                      info@capuchinboys.ac.ke
+                      capuchinboysss2015@gmail.com
                     </a>
                   </div>
                 </address>
