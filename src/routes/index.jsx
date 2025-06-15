@@ -4,11 +4,13 @@ import Home from '../pages/home/Home';
 import About from '../pages/about/About';
 import Academics from '../pages/academics/Academics';
 import Admissions from '../pages/academics/components/Admissions';
+import NotFound from '../components/common/NotFound';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <NotFound />,
     children: [
       {
         path: "/",
@@ -26,6 +28,11 @@ const router = createBrowserRouter([
         path: "/admissions",
         element: <Admissions />,
       },
+      // This will catch any other routes under /
+      {
+        path: "*",
+        element: <NotFound />
+      }
     ],
   },
 ]);
