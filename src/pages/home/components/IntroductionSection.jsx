@@ -58,10 +58,10 @@ const SchoolIntroduction = () => {
             {/* Description */}
             <div className="border-l-4 border-red-500 pl-6 py-2">
               <p className="text-gray-600 text-lg md:text-xl leading-relaxed">
-                Fosters a unique environment where students can grow in their faith 
-                and academics. Daily classes, prayers, religious instruction, and 
-                opportunities for service to others are integral parts of the school 
-                experience.
+                creates a special atmosphere where students can develop
+                both intellectually and spiritually. Religious instruction,
+                daily classes, prayers, and volunteer opportunities are all
+                essential components of the educational process.
               </p>
             </div>
 
@@ -78,10 +78,8 @@ const SchoolIntroduction = () => {
                     Outstanding Performance
                   </h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Consistent history of outstanding performance in national 
-                    examinations. Year after year, our students achieve 
-                    impressive results, consistently placing among the top 
-                    schools in Tanzania.
+                   Continuous record of exceptional results in national exams.  Our kids routinely rank among
+                   Tanzania's best schools, each year achieving remarkable outcomes.
                   </p>
                 </div>
               </div>

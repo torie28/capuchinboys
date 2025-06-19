@@ -88,11 +88,11 @@ const Footer = () => {
               <div className="lg:col-span-3 lg:col-start-6 text-center md:text-left">
                 <h4 className="text-black text-lg font-semibold mb-4">Quick Links</h4>
                 <ul className="space-y-2">
-                  <li><Link to="/" className="text-black/60 hover:text-black transition-colors duration-300 text-sm block py-1">Home</Link></li>
-                  <li><Link to="/academics" className="text-black/60 hover:text-black transition-colors duration-300 text-sm block py-1">Academics</Link></li>
-                  <li><Link to="/about" className="text-black/60 hover:text-black transition-colors duration-300 text-sm block py-1">About Us</Link></li>
-                  <li><Link to="/admissions" className="text-black/60 hover:text-black transition-colors duration-300 text-sm block py-1">Admissions</Link></li>
-                  <li><Link to="/contact" className="text-black/60 hover:text-black transition-colors duration-300 text-sm block py-1">Contact Us</Link></li>
+                  <li><Link to="/" className="text-black/60 hover:text-primary transition-colors duration-300 text-sm block py-1">Home</Link></li>
+                  <li><Link to="/academics" className="text-black/60 hover:text-primary transition-colors duration-300 text-sm block py-1">Academics</Link></li>
+                  <li><Link to="/about" className="text-black/60 hover:text-primary transition-colors duration-300 text-sm block py-1">About Us</Link></li>
+                  <li><Link to="/admissions" className="text-black/60 hover:text-primary transition-colors duration-300 text-sm block py-1">Admissions</Link></li>
+                  <li><Link to="/contact" className="text-black/60 hover:text-primary transition-colors duration-300 text-sm block py-1">Contact Us</Link></li>
                 </ul>
               </div>
 
@@ -107,17 +107,17 @@ const Footer = () => {
                     </div>
                   </div>
                   <div className="flex flex-col items-center md:block">
-                    <a href="tel:+254712345678" className="text-black/60 hover:text-black transition-colors duration-300 text-sm flex items-center justify-center md:justify-start py-1">
+                    <div className="text-black/60 hover:text-black transition-colors duration-300 text-sm flex items-center justify-center md:justify-start py-1">
                       <FontAwesomeIcon icon={faPhoneAlt} className="mr-3" />
                       +255 752 978 895, +255 687 901 972,
                       <br></br>
                       +255 678 864 722, +255 657 454 241
-                    </a>
+                    </div>
                   </div>
                   <div className="flex flex-col items-center md:block">
-                    <a href="mailto:info@capuchinboys.ac.ke" className="text-black/60 hover:text-black transition-colors duration-300 text-sm flex items-center justify-center md:justify-start py-1">
+                    <a href="mailto:capuchinboys@gmail.com" className="text-black/60 hover:text-primary transition-colors duration-300 text-sm flex items-center justify-center md:justify-start py-1">
                       <FontAwesomeIcon icon={faEnvelope} className="mr-3" />
-                      capuchinboysss2015@gmail.com
+                      capuchinboys@gmail.com
                     </a>
                   </div>
                 </address>

@@ -34,10 +34,10 @@ const HeroSection = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center py-32">
         <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg">
-          Welcome to Capuchin Boys Secondary
+          Capuchin Boys Secondary
         </h1>
-        <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto text-white text-opacity-90 drop-shadow-md">
-          Empowering young minds through quality education and holistic development
+        <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto text-white text-opacity-90 font-light italic">
+          Education to the brilliant prospect
         </p>
         <div className="space-x-2">
           <Link 

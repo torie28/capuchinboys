@@ -344,7 +344,7 @@ const CapuchinSchoolPage = () => {
               <Link 
                 to="/admissions"
                 aria-label="Start your application process"
-                className="inline-flex items-center justify-center px-8 py-3 border border-gray-300 text-base font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors duration-300"
+                className="inline-flex items-center justify-center px-8 py-3 border border-primary text-base font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors duration-300"
               >
                 Apply Now
                 <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

@@ -48,7 +48,7 @@ const HERO_CONTENT = {
   description: "Excellence in education, grounded in values, preparing young men for a changing world.",
   buttons: [
     { text: "Discover Our Story", className: "bg-amber-700 hover:bg-amber-800 text-white" },
-    { text: "Take a Virtual Tour", className: "border-2 border-white text-white hover:bg-white hover:text-amber-900" }
+    { text: "Take a Virtual Tour", className: "border-2 border-primary text-white " }
   ]
 };
 
@@ -368,7 +368,7 @@ const AboutSection = () => {
                 </div>
 
                 <div className="text-center mt-16">
-                  <div className="inline-block bg-white/10 backdrop-blur-sm p-8 rounded-lg border border-white/10">
+                  <div className="inline-block bg-white/10 backdrop-blur-sm p-8  border border-white/10">
                     <p className="text-2xl font-cinzel italic text-amber-200">
                       "Lord, make me an instrument of your peace."
                     </p>

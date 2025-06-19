@@ -490,10 +490,6 @@ const Gallery = () => {
         .translate-z-minus-5 {
           transform: translateZ(-5px);
         }
-
-        .translate-z-minus-10 {
-          transform: translateZ(-10px);
-        }
       `}</style>
     </section>
   );
