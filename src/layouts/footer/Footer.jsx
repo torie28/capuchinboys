@@ -4,6 +4,25 @@ import { faInstagram, faYoutube, faFacebook, faTwitter } from '@fortawesome/free
 import { faMapMarkerAlt, faPhoneAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
+// Helper function to handle email click with device detection
+const handleEmailClick = (e) => {
+  e.preventDefault();
+  const email = 'capuchinboys@gmail.com';
+  const subject = 'Inquiry';
+  const body = 'Hello Capuchin Boys Choir,';
+  
+  // Check if mobile device
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  
+  if (isMobile) {
+    // For mobile devices, use mailto: which will open the default mail app
+    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  } else {
+    // For desktop, open Gmail compose in a new tab
+    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
+  }
+};
+
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
   
@@ -115,8 +134,13 @@ const Footer = () => {
                     </div>
                   </div>
                   <div className="flex flex-col items-center md:block">
-                    <a href="mailto:capuchinboys@gmail.com" className="text-black/60 hover:text-primary transition-colors duration-300 text-sm flex items-center justify-center md:justify-start py-1">
-                      <FontAwesomeIcon icon={faEnvelope} className="mr-3" />
+                    <a 
+                      href="" 
+                      onClick={handleEmailClick}
+                      className="text-black/60 hover:text-primary transition-colors duration-300 text-sm flex items-center justify-center md:justify-start py-1 group"
+                      aria-label="Send email to capuchinboys@gmail.com"
+                    >
+                      <FontAwesomeIcon icon={faEnvelope} className="mr-3 group-hover:scale-110 transition-transform duration-200" />
                       capuchinboys@gmail.com
                     </a>
                   </div>
