@@ -29,7 +29,7 @@ const handleEmailClick = (e) => {
   e.preventDefault();
   const email = 'capuchinboys@gmail.com';
   const subject = 'Inquiry';
-  const body = 'Hello Capuchin Boys Choir,';
+  const body = 'Hello Capuchin Boys Secondary School,';
   
   // Check if mobile device
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
