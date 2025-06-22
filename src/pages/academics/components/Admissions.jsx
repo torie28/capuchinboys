@@ -24,6 +24,25 @@ const useMobile = () => {
   return isMobile;
 };
 
+// Helper function to handle email click with device detection
+const handleEmailClick = (e) => {
+  e.preventDefault();
+  const email = 'capuchinboys@gmail.com';
+  const subject = 'Inquiry';
+  const body = 'Hello Capuchin Boys Choir,';
+  
+  // Check if mobile device
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  
+  if (isMobile) {
+    // For mobile devices, use mailto: which will open the default mail app
+    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  } else {
+    // For desktop, open Gmail compose in a new tab
+    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
+  }
+};
+
 const Admissions = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [selectedLevel, setSelectedLevel] = useState('ordinary'); // 'ordinary' or 'advanced'
@@ -431,8 +450,13 @@ const Admissions = () => {
                 <svg className="w-5 h-5 text-[#B4975A] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <a href="mailto:capuchinboysss2015@gmail.com" className="text-[#B4975A] hover:underline">
-                  capuchinboysss2015@gmail.com
+                <a 
+                  href="#" 
+                  onClick={(e) => handleEmailClick(e, 'capuchinboysss2015@gmail.com')}
+                  className="text-[#B4975A] hover:underline group inline-flex items-center"
+                  aria-label="Send email to capuchinboysss2015@gmail.com"
+                >
+                  <span className="group-hover:underline">capuchinboysss2015@gmail.com</span>
                 </a>
               </div>
               <div className="flex items-center justify-center">
