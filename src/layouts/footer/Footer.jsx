@@ -11,14 +11,15 @@ const handleEmailClick = (e) => {
   const subject = 'Inquiry';
   const body = 'Hello Capuchin Boys Secondary School,';
   
-  // Check if mobile device
+  // Check if mobile device or Apple device (which might have Mail app issues)
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const isAppleDevice = /Mac|iPod|iPhone|iPad/.test(navigator.userAgent);
   
-  if (isMobile) {
-    // For mobile devices, use mailto: which will open the default mail app
+  if (isMobile && !isAppleDevice) {
+    // For non-Apple mobile devices, use mailto:
     window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   } else {
-    // For desktop, open Gmail compose in a new tab
+    // For desktop and Apple devices, always open Gmail web
     window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
   }
 };
