@@ -296,7 +296,7 @@ const CapuchinSchoolPage = () => {
                   ]
                 }}
                 requirements={[
-                  'Successful completion of primary education (KCPE)',
+                  'Successful completion of primary education (PSLE)',
                   'Minimum entry requirements as per Ministry of Education guidelines',
                   'Passing the school\'s entrance examination and interview'
                 ]}
@@ -330,7 +330,7 @@ const CapuchinSchoolPage = () => {
                   ]
                 }}
                 requirements={[
-                  'Minimum of C+ in KCSE or equivalent',
+                  'Minimum of C+ in CSEE or equivalent',
                   'Minimum grade requirements in specific subjects for chosen combination',
                   'Successful completion of the school\'s A-Level admission process',
                   'Recommendation from previous school',

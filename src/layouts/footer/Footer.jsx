@@ -9,7 +9,7 @@ const handleEmailClick = (e) => {
   e.preventDefault();
   const email = 'capuchinboys@gmail.com';
   const subject = 'Inquiry';
-  const body = 'Hello Capuchin Boys Secondary School,';
+  const body = 'Hello Capuchin Boys Secondary School';
   
   // Check if mobile device or Apple device (which might have Mail app issues)
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);

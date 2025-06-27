@@ -86,7 +86,7 @@ const Admissions = () => {
       formsAndDocs: [
         'Application Form',
         'Birth Certificate',
-        'KCPE Results Slip',
+        'PSLE Results Slip',
         'Primary School Leaving Certificate',
         'Medical Report',
         'Passport-Sized Photos',
@@ -110,7 +110,7 @@ const Admissions = () => {
       ],
       formsAndDocs: [
         'A-Level Application Form',
-        'KCSE Results Slip/Certificate',
+        'CSEE Results Slip/Certificate',
         'O-Level School Leaving Certificate',
         'Birth Certificate',
         'Medical Report',
