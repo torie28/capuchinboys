@@ -87,10 +87,8 @@ const Admissions = () => {
         'Application Form',
         'Birth Certificate',
         'PSLE Results Slip',
-        'Primary School Leaving Certificate',
         'Medical Report',
         'Passport-Sized Photos',
-        'Parent/Guardian ID'
       ],
       importantDates: [
         { month: 'Jan', title: 'Applications Open', date: 'January 10', description: 'Applications for O-Level admissions open' },
@@ -106,17 +104,14 @@ const Admissions = () => {
         'Pass the school\'s advanced placement test',
         'Interview with the academic department head',
         'Letter of recommendation from previous school',
-        'About minimum grade C to relevant combinations choosen.',
+        'Minimum grade C to relevant combinations choosen.',
       ],
       formsAndDocs: [
         'A-Level Application Form',
         'CSEE Results Slip/Certificate',
-        'O-Level School Leaving Certificate',
         'Birth Certificate',
         'Medical Report',
         'Passport-Sized Photos',
-        'Parent/Guardian ID',
-        'Recommendation Letter'
       ],
       importantDates: [
         { month: 'Sep', title: 'Applications Open', date: 'September 1', description: 'Applications for A-Level admissions open' },
@@ -314,7 +309,7 @@ const Admissions = () => {
                         <div className="px-4 sm:px-6 pb-6 pt-0">
                           <ul className="space-y-3 sm:space-y-4">
                             {levelData[selectedLevel].requirements.map((requirement, index) => (
-                              <li key={index} className="flex items-start">
+                              <li key={index} className="flex items-start w-full">
                                 <span className="flex-shrink-0 mt-0.5">
                                   <svg 
                                     className="h-5 w-5 sm:h-6 sm:w-6 text-[#B4975A] mr-3 flex-none" 
@@ -330,7 +325,7 @@ const Admissions = () => {
                                     />
                                   </svg>
                                 </span>
-                                <span className="text-sm sm:text-base text-gray-700 -mt-0.5">
+                                <span className="text-xs sm:text-base text-gray-700 mt-0.5">
                                   {requirement}
                                 </span>
                               </li>
@@ -451,7 +446,7 @@ const Admissions = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 <a 
-                  href="#" 
+                  href="" 
                   onClick={(e) => handleEmailClick(e, 'capuchinboysss2015@gmail.com')}
                   className="text-[#B4975A] hover:underline group inline-flex items-center"
                   aria-label="Send email to capuchinboysss2015@gmail.com"
