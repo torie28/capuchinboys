@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaFacebook, FaTwitter, FaInstagram, FaCar, FaWalking, FaLocationArrow } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 const containerStyle = {
   width: '100%',
@@ -227,30 +229,33 @@ const Contact = () => {
             </div>
 
             <div className="flex space-x-4 mt-8">
-              <a 
-                href="https://facebook.com" 
+              <Link 
+                to="https://facebook.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-gray-100 w-10 h-10 rounded-full flex items-center justify-center text-gray-700 hover:bg-blue-600 hover:text-white transition-colors duration-200"
+                aria-label="Visit our Facebook page (opens in a new tab)"
               >
-                <FaFacebook className="text-xl" />
-              </a>
-              <a 
-                href="https://twitter.com" 
+                <FaFacebook className="text-xl" aria-hidden="true" />
+              </Link>
+              <Link 
+                to="https://twitter.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-gray-100 w-10 h-10 rounded-full flex items-center justify-center text-gray-700 hover:bg-blue-400 hover:text-white transition-colors duration-200"
+                aria-label="Visit our Twitter profile (opens in a new tab)"
               >
-                <FaTwitter className="text-xl" />
-              </a>
-              <a 
-                href="https://instagram.com" 
+                <FaTwitter className="text-xl" aria-hidden="true" />
+              </Link>
+              <Link 
+                to="https://instagram.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-gray-100 w-10 h-10 rounded-full flex items-center justify-center text-gray-700 hover:bg-pink-600 hover:text-white transition-colors duration-200"
+                aria-label="Visit our Instagram profile (opens in a new tab)"
               >
-                <FaInstagram className="text-xl" />
-              </a>
+                <FaInstagram className="text-xl" aria-hidden="true" />
+              </Link>
             </div>
           </div>
 
@@ -267,7 +272,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                  className="w-full px-4 py-3 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
                 />
               </div>
               <div className="space-y-1">
@@ -278,7 +283,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                  className="w-full px-4 py-3 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
                 />
               </div>
               <div className="space-y-1">
@@ -289,7 +294,7 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                  className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
                 />
               </div>
               <div className="space-y-1">
@@ -300,12 +305,12 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows="5"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                  className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
                 ></textarea>
               </div>
               <button 
                 type="submit" 
-                className="w-full bg-blue-600 text-white py-3 px-6 rounded-md font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
+                className="w-full bg-blue-600 text-white py-3 px-6  font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
               >
                 Send Message
               </button>
@@ -357,25 +362,31 @@ const Contact = () => {
               />
               </div>
               <div className="p-6 bg-gray-50 flex flex-wrap justify-center gap-4">
-                <a 
-                  href="https://www.google.com/maps/dir//-5.317787,38.916175/@-5.317787,38.916175,17z?entry=ttu" 
+                <Link 
+                  to="https://www.google.com/maps/dir//-5.317787,38.916175/@-5.317787,38.916175,17z?entry=ttu" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-md font-medium hover:bg-blue-700 transition-colors"
+                  className="inline-flex items-center px-6 py-3 bg-white border-2 border-primary text-primary font-medium hover:bg-blue-50 transition-colors"
+                  aria-label="Get driving directions to our location (opens in a new tab)"
                 >
-                  <FaCar className="mr-2" /> Get Directions
-                </a>
-                <a 
-                  href="https://www.google.com/maps/dir//-5.317787,38.916175/@-5.317787,38.916175,17z/data=!4m2!4m1!3e2?entry=ttu" 
+                  <FaCar className="mr-2" aria-hidden="true" /> 
+                  Get Directions
+                  <FaExternalLinkAlt className="ml-2 text-xs opacity-70" aria-hidden="true" />
+                </Link>
+                <Link 
+                  to="https://www.google.com/maps/dir//-5.317787,38.916175/@-5.317787,38.916175,17z/data=!4m2!4m1!3e2?entry=ttu" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-md font-medium hover:bg-green-700 transition-colors"
+                  className="inline-flex items-center px-6 py-3 bg-white border-2 border-primary text-primary font-medium hover:bg-blue-50 transition-colors"
+                  aria-label="Get walking directions to our location (opens in a new tab)"
                 >
-                  <FaWalking className="mr-2" /> Walking Directions
-                </a>
+                  <FaWalking className="mr-2" aria-hidden="true" /> 
+                  Walking Directions
+                  <FaExternalLinkAlt className="ml-2 text-xs opacity-70" aria-hidden="true" />
+                </Link>
                 <button 
                   onClick={getDistance}
-                  className="inline-flex items-center px-6 py-3 bg-purple-600 text-white rounded-md font-medium hover:bg-purple-700 transition-colors"
+                  className="inline-flex items-center px-6 py-3 bg-white border-2 border-primary text-primary font-medium hover:bg-blue-50 transition-colors"
                 >
                   <FaLocationArrow className="mr-2" /> Check Distance
                 </button>
