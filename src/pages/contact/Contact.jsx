@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
-import './Contact.css';
+import React, { useState, useEffect } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaFacebook, FaTwitter, FaInstagram, FaCar, FaWalking, FaLocationArrow } from 'react-icons/fa';
 
 const containerStyle = {
   width: '100%',
@@ -10,11 +10,22 @@ const containerStyle = {
 };
 
 const center = {
-  lat: -1.2921, // Replace with actual school coordinates
-  lng: 36.8219  // Replace with actual school coordinates
+  lat: -5.3172361777254515, // Replace with actual school coordinates 
+  lng: 38.9160211214481  // Replace with actual school coordinates
 };
 
 const Contact = () => {
+  const [scrollY, setScrollY] = useState(0);
+  const { scrollYProgress } = useScroll();
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 100]);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -44,90 +55,211 @@ const Contact = () => {
     alert('Thank you for your message. We will get back to you soon!');
   };
 
+  // Function to calculate distance between two points in kilometers
+  const calculateDistance = (lat1, lon1, lat2, lon2) => {
+    const R = 6371; // Radius of the earth in km
+    const dLat = (lat2 - lat1) * (Math.PI / 180);
+    const dLon = (lon2 - lon1) * (Math.PI / 180);
+    const a = 
+      Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos((lat1 * Math.PI / 180)) * Math.cos((lat2 * Math.PI / 180)) * 
+      Math.sin(dLon/2) * Math.sin(dLon/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    return R * c; // Distance in km
+  };
+
+  // Function to get user's current location and calculate distance to school
+  const getDistance = () => {
+    const resultDiv = document.getElementById('distance-result');
+    resultDiv.textContent = 'Getting your location...';
+    
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const userLat = position.coords.latitude;
+          const userLng = position.coords.longitude;
+          const schoolLat = -5.317787456489596;
+          const schoolLng = 38.91617479918297;
+          
+          const distance = calculateDistance(userLat, userLng, schoolLat, schoolLng);
+          resultDiv.innerHTML = `
+            <div class="bg-blue-50 p-4 rounded-lg">
+              <p>You are approximately <strong>${distance.toFixed(1)} km</strong> from Capuchin Boys Secondary School.</p>
+              <p class="text-sm mt-2">Your location: ${userLat.toFixed(6)}, ${userLng.toFixed(6)}</p>
+              <p class="text-sm">School location: ${schoolLat.toFixed(6)}, ${schoolLng.toFixed(6)}</p>
+            </div>
+          `;
+          
+          // Update the map to show both locations
+          const mapUrl = `https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d3976.0000000000005!2d38.91617479918297!3d-5.317787456489596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x0%3A0x0!2zNcKwMTknMDQuMCJTIDM4wrA1NCc1OC4yIkU!3m2!1d-5.3177875!2d38.9161748!4m4!3e2!4m4!1s${userLat}%2C${userLng}!3e2!5m2!1sen!2sus!6i14!3m6!1sen!2sus!5e0!3m2!1sen!2sus!4v${Math.floor(Date.now()/1000)}`;
+          document.querySelector('.map-container iframe').src = mapUrl;
+        },
+        (error) => {
+          let errorMessage = 'Error getting your location: ';
+          switch(error.code) {
+            case error.PERMISSION_DENIED:
+              errorMessage += 'Please allow location access to see the distance.';
+              break;
+            case error.POSITION_UNAVAILABLE:
+              errorMessage += 'Location information is unavailable.';
+              break;
+            case error.TIMEOUT:
+              errorMessage += 'The request to get your location timed out.';
+              break;
+            default:
+              errorMessage += 'An unknown error occurred.';
+          }
+          resultDiv.textContent = errorMessage;
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 5000,
+          maximumAge: 0
+        }
+      );
+    } else {
+      resultDiv.textContent = 'Geolocation is not supported by your browser.';
+    }
+  };
+
   return (
-    <div className="contact-page">
-      {/* Hero Section */}
-      <section className="contact-hero">
-        <div className="hero-overlay">
-          <div className="container">
-            <h1>Contact Us</h1>
-            <p>Get in touch with Capuchin Boys Secondary School</p>
+    <div className="font-sans text-gray-800 bg-gray-50 min-h-screen">
+      {/* Hero Section with Motion and Parallax */}
+      <motion.section  
+        id="home" 
+        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        {/* Background with Parallax Effect */}
+        <motion.div 
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'url(/assets/images/buildings/Outside-1.webp)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            scale: scale,
+            transition: 'transform 1s ease-out',
+            willChange: 'transform'
+          }}
+        >
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-stone-900/90 via-stone-900/70 to-stone-900/90"></div>
+        </motion.div>
+
+        {/* Content with subtle parallax */}
+        <motion.div 
+          className="relative z-10 text-center px-6 max-w-6xl mx-auto"
+          style={{ y }}
+        >
+          <div className="transform transition-all duration-1000">
+            {/* Main Heading */}
+            <h1 className="font-playfair font-light mb-8 text-[clamp(3rem,8vw,7rem)] leading-[1.1] tracking-[0.02em] text-white">
+              CONTACT US
+              <br />
+              <span className="font-normal bg-gradient-135 from-white via-white to-white bg-clip-text text-transparent">
+                CAPUCHIN BOYS
+              </span>
+            </h1>
+
+            {/* Subtitle */}
+            <div className="text-2xl md:text-3xl mb-12 font-light tracking-wider text-gray-200">
+              Get in touch with Capuchin Boys Secondary School
+            </div>
           </div>
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
 
 
       {/* Main Content */}
-      <div className="container">
-        <div className="contact-container">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 md:mt-16 lg:mt-20 mb-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          
           {/* Contact Info */}
-          <div className="contact-info">
-            <h2>Our Information</h2>
-            <p>Feel free to reach out to us for any inquiries or visit our school during working hours.</p>
+          <div className="bg-white p-8 rounded shadow-md">
+            <h2 className="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b-2 border-gray-100">Our Information</h2>
+            <p className="text-gray-600 mb-8">Feel free to reach out to us for any inquiries or visit our school during working hours.</p>
             
-            <div className="info-item">
-              <div className="info-icon">
-                <FaMapMarkerAlt />
+            <div className="flex items-start mb-6">
+              <div className="bg-gray-50 w-12 h-12 rounded-full flex items-center justify-center text-gray-700 mr-4 flex-shrink-0">
+                <FaMapMarkerAlt className="text-xl" />
               </div>
               <div>
-                <h4>Location</h4>
-                <p>P.O. Box 154, Pangani, Tanga</p>
+                <h4 className="font-semibold text-gray-800 text-lg">Location</h4>
+                <p className="text-gray-600">P.O. Box 154, Pangani, Tanga</p>
               </div>
             </div>
 
-            <div className="info-item">
-              <div className="info-icon">
-                <FaPhone />
+            <div className="flex items-start mb-6">
+              <div className="bg-gray-50 w-12 h-12 rounded-full flex items-center justify-center text-gray-700 mr-4 flex-shrink-0">
+                <FaPhone className="text-xl" />
               </div>
               <div>
-                <h4>Phone</h4>
-                <p>+255 752 978 895</p>
-                <p>+255 687 901 972</p>
-                <p>+255 678 864 722</p>
-                <p>+255 657 454 241</p>
+                <h4 className="font-semibold text-gray-800 text-lg mb-1">Phone</h4>
+                <p className="text-gray-600">+255 752 978 895</p>
+                <p className="text-gray-600">+255 687 901 972</p>
+                <p className="text-gray-600">+255 678 864 722</p>
+                <p className="text-gray-600">+255 657 454 241</p>
               </div>
             </div>
 
-            <div className="info-item">
-              <div className="info-icon">
-                <FaEnvelope />
+            <div className="flex items-start mb-6">
+              <div className="bg-gray-50 w-12 h-12 rounded-full flex items-center justify-center text-gray-700 mr-4 flex-shrink-0">
+                <FaEnvelope className="text-xl" />
               </div>
               <div>
-                <h4>Email</h4>
-                <p> capuchinboysss2015@gmail.com</p>
+                <h4 className="font-semibold text-gray-800 text-lg">Email</h4>
+                <p className="text-gray-600">capuchinboysss2015@gmail.com</p>
               </div>
             </div>
 
-            <div className="info-item">
-              <div className="info-icon">
-                <FaClock />
+            <div className="flex items-start mb-8">
+              <div className="bg-gray-50 w-12 h-12 rounded-full flex items-center justify-center text-gray-700 mr-4 flex-shrink-0">
+                <FaClock className="text-xl" />
               </div>
               <div>
-                <h4>Working Hours</h4>
-                <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
-                <p>Saturday: 9:00 AM - 1:00 PM</p>
+                <h4 className="font-semibold text-gray-800 text-lg">Working Hours</h4>
+                <p className="text-gray-600">Monday - Friday: 8:00 AM - 5:00 PM</p>
+                <p className="text-gray-600">Saturday: 9:00 AM - 1:00 PM</p>
               </div>
             </div>
 
-            <div className="social-links">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                <FaFacebook />
+            <div className="flex space-x-4 mt-8">
+              <a 
+                href="https://facebook.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-gray-100 w-10 h-10 rounded-full flex items-center justify-center text-gray-700 hover:bg-blue-600 hover:text-white transition-colors duration-200"
+              >
+                <FaFacebook className="text-xl" />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                <FaTwitter />
+              <a 
+                href="https://twitter.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-gray-100 w-10 h-10 rounded-full flex items-center justify-center text-gray-700 hover:bg-blue-400 hover:text-white transition-colors duration-200"
+              >
+                <FaTwitter className="text-xl" />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                <FaInstagram />
+              <a 
+                href="https://instagram.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-gray-100 w-10 h-10 rounded-full flex items-center justify-center text-gray-700 hover:bg-pink-600 hover:text-white transition-colors duration-200"
+              >
+                <FaInstagram className="text-xl" />
               </a>
             </div>
           </div>
 
 
           {/* Contact Form */}
-          <div className="contact-form">
-            <h2>Send Us a Message</h2>
-            <form onSubmit={handleSubmit}>
-              <div className="form-group">
+          <div className="bg-white p-8 rounded shadow-md">
+            <h2 className="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b-2 border-gray-100">Send Us a Message</h2>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="space-y-1">
                 <input
                   type="text"
                   name="name"
@@ -135,9 +267,10 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
                 />
               </div>
-              <div className="form-group">
+              <div className="space-y-1">
                 <input
                   type="email"
                   name="email"
@@ -145,9 +278,10 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
                 />
               </div>
-              <div className="form-group">
+              <div className="space-y-1">
                 <input
                   type="text"
                   name="subject"
@@ -155,19 +289,24 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
                 />
               </div>
-              <div className="form-group">
+              <div className="space-y-1">
                 <textarea
                   name="message"
                   placeholder="Your Message"
-                  rows="5"
                   value={formData.message}
                   onChange={handleChange}
                   required
+                  rows="5"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
                 ></textarea>
               </div>
-              <button type="submit" className="submit-btn">
+              <button 
+                type="submit" 
+                className="w-full bg-blue-600 text-white py-3 px-6 rounded-md font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
+              >
                 Send Message
               </button>
             </form>
@@ -175,38 +314,77 @@ const Contact = () => {
         </div>
 
         {/* About Section */}
-        <section className="about-section">
-          <div className="about-content">
-            <h2>About Capuchin Boys Secondary School</h2>
-            <p>
-              Capuchin Boys Secondary School is a premier educational institution dedicated to academic excellence,
-              character formation, and holistic development of young men. Our mission is to nurture responsible,
-              disciplined, and morally upright individuals who will make positive contributions to society.
-            </p>
-            <p>
-              With state-of-the-art facilities, experienced faculty, and a supportive learning environment,
-              we provide quality education that prepares our students for future challenges and opportunities.
-            </p>
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">About Capuchin Boys Secondary School</h2>
+              <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            <div className="space-y-6 text-gray-600 leading-relaxed">
+              <p>
+                Capuchin Boys Secondary School is a premier educational institution committed to academic excellence,
+                character development, and holistic growth of our students. Our dedicated faculty and staff work
+                tirelessly to provide a nurturing environment that fosters learning, creativity, and personal development.
+              </p>
+              <p>
+                We believe in shaping well-rounded individuals who are not only academically proficient but also
+                disciplined, and morally upright individuals who will make positive contributions to society.
+              </p>
+              <p>
+                With state-of-the-art facilities, experienced faculty, and a supportive learning environment,
+                we provide quality education that prepares our students for future challenges and opportunities.
+              </p>
+            </div>
           </div>
         </section>
 
         {/* Map Section */}
-        <section className="map-section">
-          <h2>Our Location</h2>
-          <div className="map-container">
-              <div style={containerStyle}>
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Our Location</h2>
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+              <div className="h-96 w-full relative">
                 <iframe
-                  title="Capuchin Boys Secondary School Location"
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d4000!2d38.91622995766773!3d-5.317628422855164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1719840000000!5m2!1sen!2sus"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full h-full object-cover"
-                />
+               title="Craftsman Safaris Location"
+               src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d4000!2d38.91622995766773!3d-5.317628422855164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1719840000000!5m2!1sen!2sus"
+               width="100%"
+               height="100%"
+               style={{ border: 0 }}
+               allowFullScreen=""
+               loading="lazy"
+               referrerPolicy="no-referrer-when-downgrade"
+               className="w-full h-full object-cover"
+              />
               </div>
+              <div className="p-6 bg-gray-50 flex flex-wrap justify-center gap-4">
+                <a 
+                  href="https://www.google.com/maps/dir//-5.317787,38.916175/@-5.317787,38.916175,17z?entry=ttu" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-md font-medium hover:bg-blue-700 transition-colors"
+                >
+                  <FaCar className="mr-2" /> Get Directions
+                </a>
+                <a 
+                  href="https://www.google.com/maps/dir//-5.317787,38.916175/@-5.317787,38.916175,17z/data=!4m2!4m1!3e2?entry=ttu" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-md font-medium hover:bg-green-700 transition-colors"
+                >
+                  <FaWalking className="mr-2" /> Walking Directions
+                </a>
+                <button 
+                  onClick={getDistance}
+                  className="inline-flex items-center px-6 py-3 bg-purple-600 text-white rounded-md font-medium hover:bg-purple-700 transition-colors"
+                >
+                  <FaLocationArrow className="mr-2" /> Check Distance
+                </button>
+              </div>
+              <div 
+                id="distance-result" 
+                className="p-4 text-center text-gray-700 bg-white border-t border-gray-200"
+              ></div>
+            </div>
           </div>
         </section>
       </div>
