@@ -4,6 +4,7 @@ import Home from '../pages/home/Home';
 import About from '../pages/about/About';
 import Academics from '../pages/academics/Academics';
 import Admissions from '../pages/academics/components/Admissions';
+import Contact from '../pages/contact/Contact';
 import NotFound from '../components/common/NotFound';
 
 const router = createBrowserRouter([
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/admissions",
         element: <Admissions />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
       // This will catch any other routes under /
       {

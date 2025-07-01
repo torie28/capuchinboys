@@ -27,7 +27,7 @@ const useMobile = () => {
 // Helper function to handle email click with device detection
 const handleEmailClick = (e) => {
   e.preventDefault();
-  const email = 'capuchinboys@gmail.com';
+  const email = 'capuchinboysss2015@gmail.com';
   const subject = 'Inquiry';
   const body = 'Hello Capuchin Boys Secondary School,';
   

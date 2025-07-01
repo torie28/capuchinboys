@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 // Helper function to handle email click with device detection
 const handleEmailClick = (e) => {
   e.preventDefault();
-  const email = 'capuchinboys@gmail.com';
+  const email = 'capuchinboysss2015@gmail.com';
   const subject = 'Inquiry';
   const body = 'Hello Capuchin Boys Secondary School';
   
@@ -139,10 +139,10 @@ const Footer = () => {
                       href="" 
                       onClick={handleEmailClick}
                       className="text-black/60 hover:text-primary transition-colors duration-300 text-sm flex items-center justify-center md:justify-start py-1 group"
-                      aria-label="Send email to capuchinboys@gmail.com"
+                      aria-label="Send email to capuchinboysss2015@gmail.com"
                     >
                       <FontAwesomeIcon icon={faEnvelope} className="mr-3 group-hover:scale-110 transition-transform duration-200" />
-                      capuchinboys@gmail.com
+                      capuchinboysss2015@gmail.com
                     </a>
                   </div>
                 </address>
