@@ -310,7 +310,7 @@ const Contact = () => {
               </div>
               <button 
                 type="submit" 
-                className="w-full bg-blue-600 text-white py-3 px-6  font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
+                className="inline-flex items-center px-6 py-3 bg-white border-2 border-primary text-primary font-medium hover:bg-blue-50 transition-colors"
               >
                 Send Message
               </button>
@@ -323,7 +323,7 @@ const Contact = () => {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-800 mb-4">About Capuchin Boys Secondary School</h2>
-              <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
+              <div className="w-24 h-px mx-auto mb-8 bg-gradient-to-r from-transparent via-[#B4975A] to-transparent"></div>
             </div>
             <div className="space-y-6 text-gray-600 leading-relaxed">
               <p>
@@ -347,6 +347,8 @@ const Contact = () => {
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Our Location</h2>
+            <div className="w-24 h-px mx-auto mb-8 bg-gradient-to-r from-transparent via-[#B4975A] to-transparent"></div>
+            
             <div className="bg-white rounded-xl shadow-lg overflow-hidden">
               <div className="h-96 w-full relative">
                 <iframe
