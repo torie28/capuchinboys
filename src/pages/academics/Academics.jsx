@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet';
-import { motion, useAnimation, useInView } from 'framer-motion';
+import { motion, useAnimation, useInView, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const AcademicLevel = ({ level, description, subjects, requirements }) => (
@@ -60,15 +60,32 @@ const CapuchinSchoolPage = () => {
       setTimeout(() => setIsTransitioning(false), 50);
     }, 300);
   };
-  const [scrollY, setScrollY] = useState(0);
-
+  // Use viewport scroll for better mobile support
+  const { scrollYProgress } = useScroll({
+    offset: ['start start', 'end start']
+  });
+  
+  // More subtle scale for mobile, slightly stronger for desktop
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 80]);
+  
+  // Add opacity effect for mobile
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.9]);
+  
+  // Handle mobile touch events for smoother scrolling
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
+    const handleTouchMove = (e) => {
+      // Prevent scroll jank on mobile
+      if (e.touches.length > 1) e.preventDefault();
     };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    
+    document.body.style.overscrollBehaviorY = 'contain';
+    window.addEventListener('touchmove', handleTouchMove, { passive: false });
+    
+    return () => {
+      document.body.style.overscrollBehaviorY = '';
+      window.removeEventListener('touchmove', handleTouchMove);
+    };
   }, []);
 
   return (
@@ -76,54 +93,58 @@ const CapuchinSchoolPage = () => {
      
 
 
-      {/* Hero Section */}
-      <motion.section 
+      {/* Hero Section with Enhanced Parallax */}
+      <motion.section  
         id="home" 
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        className="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center overflow-hidden px-4 py-20 sm:py-0 sm:px-6 touch-pan-y"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
+        style={{ opacity }}
       >
-        {/* Background with Parallax Effect */}
-        <div 
-          className="absolute inset-0"
+        {/* Background with Parallax Effect - Enhanced for mobile */}
+        <motion.div 
+          className="absolute inset-0 will-change-transform"
           style={{
             backgroundImage: 'url("/assets/images/buildings/Outside-1.webp")',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
-            transform: `scale(${1 + (scrollY * 0.0005)})`,
-            transition: 'transform 1s ease-out',
-            willChange: 'transform'
+            scale,
+            transition: 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
+            WebkitOverflowScrolling: 'touch',
+            WebkitTransform: 'translate3d(0,0,0)'
           }}
         >
-          {/* Dark Overlay */}
+          {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-stone-900/90 via-stone-900/70 to-stone-900/90"></div>
-        </div>
-        {/* Removed floating elements */}
+        </motion.div>
 
-        <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
-          <div 
-            className="transform transition-all duration-1000"
-            style={{
-              transform: `translateY(${scrollY * 0.05}px)`,
-            }}
-          >
+        {/* Content with enhanced mobile parallax */}
+        <motion.div 
+          className="relative z-10 text-center px-6 max-w-6xl mx-auto touch-none"
+          style={{ 
+            y,
+            WebkitTransform: 'translate3d(0,0,0)',
+            WebkitBackfaceVisibility: 'hidden'
+          }}
+        >
+          <div className="transform transition-all duration-1000">
             {/* Main Heading */}
-            <h1 className="font-playfair font-light mb-8 text-[clamp(3rem,8vw,7rem)] leading-[1.1] tracking-[0.02em] text-[#ffffff]">
-            CAPUCHIN BOYS
+            <h1 className="font-playfair font-light mb-8 text-[clamp(2.5rem,8vw,6rem)] leading-[1.1] tracking-[0.02em] text-white">
+              ACADEMICS
               <br />
-              <span className="font-normal bg-gradient-135 from-[#fdfdfd] via-[#fdfdfd] to-[#fdfdfd] bg-clip-text text-transparent">
-                
+              <span className="font-normal bg-gradient-135 from-white via-white to-white bg-clip-text text-transparent">
+                CAPUCHIN BOYS
               </span>
             </h1>
 
-            {/* Script Subtitle */}
-            <div className="font-dancing text-4xl md:text-5xl mb-12 font-normal tracking-[0.05em] text-[#B4975A]">
+            {/* Subtitle */}
+            <div className="font-dancing text-3xl md:text-5xl mb-12 font-normal tracking-[0.05em] text-[#B4975A]">
               Excellence in Education
             </div>
           </div>
-        </div>
+        </motion.div>
       </motion.section>
 
       {/* Academic Overview Section */}
