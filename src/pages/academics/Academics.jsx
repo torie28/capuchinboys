@@ -90,13 +90,10 @@ const CapuchinSchoolPage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-     
-
-
       {/* Hero Section with Enhanced Parallax */}
       <motion.section  
         id="home" 
-        className="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center overflow-hidden px-4 py-20 sm:py-0 sm:px-6 touch-pan-y"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -300,11 +297,11 @@ const CapuchinSchoolPage = () => {
                     'Kiswahili',
                     'Biology',
                     'Chemistry',
-                    'Physics'
+                    'Physics',
+                    'Geography',
+                    'History'
                   ],
                   electives: [
-                    'Geography',
-                    'History',
                     'Commerce',
                     'Computer Studies',
                     'French',

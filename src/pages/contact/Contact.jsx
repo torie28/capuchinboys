@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaFacebook, FaTwitter, FaInstagram, FaCar, FaWalking, FaLocationArrow } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 
 const containerStyle = {
@@ -233,7 +234,7 @@ const Contact = () => {
                 to="https://facebook.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-gray-100 w-10 h-10 rounded-full flex items-center justify-center text-gray-700 hover:bg-blue-600 hover:text-white transition-colors duration-200"
+                className="bg-gray-100 w-10 h-10 rounded-full flex items-center justify-center text-gray-700 hover:text-primary transition-colors duration-200"
                 aria-label="Visit our Facebook page (opens in a new tab)"
               >
                 <FaFacebook className="text-xl" aria-hidden="true" />
@@ -242,7 +243,7 @@ const Contact = () => {
                 to="https://twitter.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-gray-100 w-10 h-10 rounded-full flex items-center justify-center text-gray-700 hover:bg-blue-400 hover:text-white transition-colors duration-200"
+                className="bg-gray-100 w-10 h-10 rounded-full flex items-center justify-center text-gray-700 hover:text-primary transition-colors duration-200"
                 aria-label="Visit our Twitter profile (opens in a new tab)"
               >
                 <FaTwitter className="text-xl" aria-hidden="true" />
@@ -251,7 +252,7 @@ const Contact = () => {
                 to="https://instagram.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-gray-100 w-10 h-10 rounded-full flex items-center justify-center text-gray-700 hover:bg-pink-600 hover:text-white transition-colors duration-200"
+                className="bg-gray-100 w-10 h-10 rounded-full flex items-center justify-center text-gray-700  hover:text-primary transition-colors duration-200"
                 aria-label="Visit our Instagram profile (opens in a new tab)"
               >
                 <FaInstagram className="text-xl" aria-hidden="true" />
@@ -272,7 +273,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                  className="w-full px-4 py-3 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition"
                 />
               </div>
               <div className="space-y-1">
@@ -283,7 +284,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                  className="w-full px-4 py-3 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition"
                 />
               </div>
               <div className="space-y-1">
@@ -294,7 +295,7 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                  className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition"
                 />
               </div>
               <div className="space-y-1">
@@ -305,7 +306,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows="5"
-                  className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                  className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition"
                 ></textarea>
               </div>
               <button 
