@@ -72,58 +72,58 @@ const Contact = () => {
   };
 
   // Function to get user's current location and calculate distance to school
-  const getDistance = () => {
-    const resultDiv = document.getElementById('distance-result');
-    resultDiv.textContent = 'Getting your location...';
-    
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const userLat = position.coords.latitude;
-          const userLng = position.coords.longitude;
-          const schoolLat = -5.317787456489596;
-          const schoolLng = 38.91617479918297;
+  // const getDistance = () => {
+  //   const resultDiv = document.getElementById('distance-result');
+  //   resultDiv.textContent = 'Getting your location...';
+
+  //   if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition(
+  //       (position) => {
+  //         const userLat = position.coords.latitude;
+  //         const userLng = position.coords.longitude;
+  //         const schoolLat = -5.317787456489596;
+  //         const schoolLng = 38.91617479918297;
           
-          const distance = calculateDistance(userLat, userLng, schoolLat, schoolLng);
-          resultDiv.innerHTML = `
-            <div class="bg-blue-50 p-4 rounded-lg">
-              <p>You are approximately <strong>${distance.toFixed(1)} km</strong> from Capuchin Boys Secondary School.</p>
-              <p class="text-sm mt-2">Your location: ${userLat.toFixed(6)}, ${userLng.toFixed(6)}</p>
-              <p class="text-sm">School location: ${schoolLat.toFixed(6)}, ${schoolLng.toFixed(6)}</p>
-            </div>
-          `;
+  //         const distance = calculateDistance(userLat, userLng, schoolLat, schoolLng);
+  //         resultDiv.innerHTML = `
+  //           <div class="bg-blue-50 p-4 rounded-lg">
+  //             <p>You are approximately <strong>${distance.toFixed(1)} km</strong> from Capuchin Boys Secondary School.</p>
+  //             <p class="text-sm mt-2">Your location: ${userLat.toFixed(6)}, ${userLng.toFixed(6)}</p>
+  //             <p class="text-sm">School location: ${schoolLat.toFixed(6)}, ${schoolLng.toFixed(6)}</p>
+  //           </div>
+  //         `;
           
-          // Update the map to show both locations
-          const mapUrl = `https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d3976.0000000000005!2d38.91617479918297!3d-5.317787456489596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x0%3A0x0!2zNcKwMTknMDQuMCJTIDM4wrA1NCc1OC4yIkU!3m2!1d-5.3177875!2d38.9161748!4m4!3e2!4m4!1s${userLat}%2C${userLng}!3e2!5m2!1sen!2sus!6i14!3m6!1sen!2sus!5e0!3m2!1sen!2sus!4v${Math.floor(Date.now()/1000)}`;
-          document.querySelector('.map-container iframe').src = mapUrl;
-        },
-        (error) => {
-          let errorMessage = 'Error getting your location: ';
-          switch(error.code) {
-            case error.PERMISSION_DENIED:
-              errorMessage += 'Please allow location access to see the distance.';
-              break;
-            case error.POSITION_UNAVAILABLE:
-              errorMessage += 'Location information is unavailable.';
-              break;
-            case error.TIMEOUT:
-              errorMessage += 'The request to get your location timed out.';
-              break;
-            default:
-              errorMessage += 'An unknown error occurred.';
-          }
-          resultDiv.textContent = errorMessage;
-        },
-        {
-          enableHighAccuracy: true,
-          timeout: 5000,
-          maximumAge: 0
-        }
-      );
-    } else {
-      resultDiv.textContent = 'Geolocation is not supported by your browser.';
-    }
-  };
+  //         // Update the map to show both locations
+  //         const mapUrl = `https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d3976.0000000000005!2d38.91617479918297!3d-5.317787456489596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x0%3A0x0!2zNcKwMTknMDQuMCJTIDM4wrA1NCc1OC4yIkU!3m2!1d-5.3177875!2d38.9161748!4m4!3e2!4m4!1s${userLat}%2C${userLng}!3e2!5m2!1sen!2sus!6i14!3m6!1sen!2sus!5e0!3m2!1sen!2sus!4v${Math.floor(Date.now()/1000)}`;
+  //         document.querySelector('.map-container iframe').src = mapUrl;
+  //       },
+  //       (error) => {
+  //         let errorMessage = 'Error getting your location: ';
+  //         switch(error.code) {
+  //           case error.PERMISSION_DENIED:
+  //             errorMessage += 'Please allow location access to see the distance.';
+  //             break;
+  //           case error.POSITION_UNAVAILABLE:
+  //             errorMessage += 'Location information is unavailable.';
+  //             break;
+  //           case error.TIMEOUT:
+  //             errorMessage += 'The request to get your location timed out.';
+  //             break;
+  //           default:
+  //             errorMessage += 'An unknown error occurred.';
+  //         }
+  //         resultDiv.textContent = errorMessage;
+  //       },
+  //       {
+  //         enableHighAccuracy: true,
+  //         timeout: 5000,
+  //         maximumAge: 0
+  //       }
+  //     );
+  //   } else {
+  //     resultDiv.textContent = 'Geolocation is not supported by your browser.';
+  //   }
+  // };
 
   return (
     <div className="font-sans text-gray-800 bg-gray-50 min-h-screen">
@@ -387,17 +387,17 @@ const Contact = () => {
                   Walking Directions
                   <FaExternalLinkAlt className="ml-2 text-xs opacity-70" aria-hidden="true" />
                 </Link>
-                <button 
-                  onClick={getDistance}
-                  className="inline-flex items-center px-6 py-3 bg-white border-2 border-primary text-primary font-medium hover:bg-blue-50 transition-colors"
-                >
-                  <FaLocationArrow className="mr-2" /> Check Distance
-                </button>
+                {/* <button 
+                 onClick={getDistance}
+                 className="inline-flex items-center px-6 py-3 bg-white border-2 border-primary text-primary font-medium hover:bg-blue-50 transition-colors"
+               >
+                 <FaLocationArrow className="mr-2" /> Check Distance
+               </button> */}
               </div>
-              <div 
-                id="distance-result" 
-                className="p-4 text-center text-gray-700 bg-white border-t border-gray-200"
-              ></div>
+              {/* <div 
+               id="distance-result" 
+               className="p-4 text-center text-gray-700 bg-white border-t border-gray-200"
+             ></div> */}
             </div>
           </div>
         </section>
