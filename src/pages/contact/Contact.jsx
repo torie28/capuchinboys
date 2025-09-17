@@ -354,7 +354,7 @@ const Contact = () => {
               <div className="h-96 w-full relative">
                 <iframe
                title="Craftsman Safaris Location"
-               src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d4000!2d38.91622995766773!3d-5.317628422855164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1719840000000!5m2!1sen!2sus"
+               src="https://maps.google.com/maps?saddr=-5.1833,38.7833&daddr=-5.317787,38.916175&output=embed"
                width="100%"
                height="100%"
                style={{ border: 0 }}
