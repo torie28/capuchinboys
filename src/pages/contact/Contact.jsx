@@ -139,7 +139,7 @@ const Contact = () => {
         <motion.div 
           className="absolute inset-0"
           style={{
-            backgroundImage: 'url(/assets/images/buildings/Outside-1.webp)',
+            backgroundImage: 'url(/assets/images/environments/environment_section.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',

@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 
 // Constants
 const HERO_IMAGES = [
-  '/assets/images/buildings/Secondary pic.jpg',
-  '/assets/images/buildings/Outside-3.webp',
-  '/assets/images/buildings/12_Sacajawea-Cafeteria__FocusFillWzI1NjAsMTQ0MCwieSIsMTMzXQ.webp',
+  '/assets/images/environments/modern_school_environment.jpg',
+  '/assets/images/environments/environment_section.jpg',
+  '/assets/images/academics/student_in_class.jpg',
   '/assets/images/buildings/Outside-1.webp'
 ];
 

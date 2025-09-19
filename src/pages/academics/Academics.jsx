@@ -103,7 +103,7 @@ const CapuchinSchoolPage = () => {
         <motion.div 
           className="absolute inset-0 will-change-transform"
           style={{
-            backgroundImage: 'url("/assets/images/buildings/Outside-1.webp")',
+            backgroundImage: 'url("/assets/images/academics/student_focusing.jpg")',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',

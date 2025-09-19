@@ -140,7 +140,7 @@ const Admissions = () => {
         <div 
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: 'url(/assets/images/buildings/Outside-3.webp)',
+            backgroundImage: 'url(/assets/images/academics/student_in_class.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',

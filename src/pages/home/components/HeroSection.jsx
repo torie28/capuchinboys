@@ -19,7 +19,7 @@ const HeroSection = () => {
       <div 
         className="absolute inset-0"
         style={{ 
-          backgroundImage: "url('/assets/images/buildings/12_Sacajawea-Cafeteria__FocusFillWzI1NjAsMTQ0MCwieSIsMTMzXQ.webp')",
+          backgroundImage: "url('/assets/images/buildings/front_building.jpg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -34,7 +34,7 @@ const HeroSection = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center py-32">
         <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg">
-          Capuchin Boys Secondary
+          Capuchin Boys Secondary School
         </h1>
         <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto text-white text-opacity-90 font-light italic">
           Education to the brilliant prospect

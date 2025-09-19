@@ -12,86 +12,126 @@ const Gallery = () => {
   const galleryData = [
     {
       id: 1,
-      src: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=600&fit=crop",
-      alt: "Modern University Building",
-      category: "buildings",
+      src: "/assets/images/environments/modern_school_environment.jpg",
+      alt: "Modern School Building",
+      category: "environments",
       title: "Modern Architecture"
     },
     {
       id: 2,
-      src: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800&h=600&fit=crop",
+      src: "/assets/images/academics/student_focusing.jpg",
       alt: "Classroom Learning",
       category: "classroom",
       title: "Interactive Learning"
     },
     {
       id: 3,
-      src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop",
+      src: "/assets/images/sports/basketball_ground.jpg",
       alt: "Sports Activities",
       category: "sports",
       title: "Athletic Excellence"
     },
     {
       id: 4,
-      src: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800&h=600&fit=crop",
+      src: "/assets/images/events/memories_that_can't_be_forgotten.jpg",
       alt: "School Events",
       category: "events",
       title: "Community Celebrations"
     },
     {
       id: 5,
-      src: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&h=600&fit=crop",
+      src: "/assets/images/buildings/front_area_compound.jpg",
       alt: "Library Study",
-      category: "facilities",
+      category: "buildings",
       title: "Learning Resources"
+    },
+    
+    {
+      id: 12,
+      src: "/assets/images/sports/football_unfogetable_moments.jpg",
+      alt: "Student Performance",
+      category: "sports",
+      title: "Cultural Events"
     },
     {
       id: 6,
-      src: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&h=600&fit=crop",
+      src: "/assets/images/academics/student_in_class.jpg",
       alt: "Science Laboratory",
-      category: "facilities",
+      category: "classroom",
       title: "Research Excellence"
     },
     {
       id: 7,
-      src: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&h=600&fit=crop",
+      src: "/assets/images/environments/environment_section.jpg",
       alt: "Campus Grounds",
       category: "buildings",
       title: "Beautiful Campus"
     },
+    
+    {
+      id: 15,
+      src: "/assets/images/environments/environment_section.jpg",
+      alt: "Student Performance",
+      category: "environments",
+      title: "Cultural Events"
+    },
     {
       id: 8,
-      src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=600&fit=crop",
+      src: "/assets/images/events/mass_as_our_culture.jpg",
       alt: "Graduation Ceremony",
       category: "events",
       title: "Achievement Celebration"
     },
+    
+    {
+      id: 16,
+      src: "/assets/images/environments/good_environment.jpg",
+      alt: "Graduation Ceremony",
+      category: "environments",
+      title: "Achievement Celebration"
+    },
     {
       id: 9,
-      src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop",
+      src: "/assets/images/buildings/dinning_hall.jpg",
       alt: "Team Collaboration",
-      category: "classroom",
+      category: "buildings",
       title: "Collaborative Learning"
+    },
+    
+    {
+      id: 14,
+      src: "/assets/images/environments/smart_area.jpg",
+      alt: "Student Performance",
+      category: "environments",
+      title: "Cultural Events"
     },
     {
       id: 10,
-      src: "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=800&h=600&fit=crop",
+      src: "/assets/images/sports/having_good_time_in_basketball.jpg",
       alt: "Athletic Competition",
       category: "sports",
       title: "Competitive Sports"
     },
+    
+    {
+      id: 17,
+      src: "/assets/images/buildings/shool_compound.jpg",
+      alt: "Athletic Competition",
+      category: "buildings",
+      title: "Competitive Sports"
+    },
     {
       id: 11,
-      src: "https://images.unsplash.com/photo-1562774053-701939374585?w=800&h=600&fit=crop",
+      src: "/assets/images/events/making_school_memories.jpg",
       alt: "Art Studio",
-      category: "facilities",
+      category: "events",
       title: "Creative Expression"
     },
     {
-      id: 12,
-      src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop",
+      id: 13,
+      src: "/assets/images/sports/vollyball_ground.jpg",
       alt: "Student Performance",
-      category: "events",
+      category: "sports",
       title: "Cultural Events"
     }
   ];
@@ -99,10 +139,10 @@ const Gallery = () => {
   const categories = [
     { id: 'all', name: 'All Photos' },
     { id: 'buildings', name: 'Buildings' },
+    { id: 'environments', name: 'Environments' },
     { id: 'classroom', name: 'Classroom' },
     { id: 'sports', name: 'Sports' },
-    { id: 'events', name: 'Events' },
-    { id: 'facilities', name: 'Facilities' }
+    { id: 'events', name: 'Events' }
   ];
 
   const filteredImages = selectedCategory === 'all' 

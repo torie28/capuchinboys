@@ -22,7 +22,7 @@ const SchoolIntroduction = () => {
                 <div className="p-0.5 sm:p-1 bg-gradient-to-br from-gray-50 to-gray-100">
                   <div className="overflow-hidden rounded-sm">
                     <img 
-                      src="/assets/images/buildings/Outside-3.webp" 
+                      src="/assets/images/environments/environment_section.jpg" 
                       alt="Students studying together" 
                       className="w-full h-auto max-h-[32rem] sm:max-h-[36rem] object-cover transition-transform duration-700 hover:scale-105"
                     />
