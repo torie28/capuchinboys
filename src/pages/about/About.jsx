@@ -5,7 +5,7 @@ const HERO_IMAGES = [
   '/assets/images/environments/modern_school_environment.jpg',
   '/assets/images/environments/environment_section.jpg',
   '/assets/images/academics/student_in_class.jpg',
-  '/assets/images/buildings/Outside-1.webp'
+  '/assets/images/events/mass_as_our_culture.jpg'
 ];
 
 const SCHOOL_IMAGES = [
