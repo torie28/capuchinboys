@@ -47,19 +47,6 @@ const AcademicLevel = ({ level, description, subjects, requirements }) => (
 );
 
 const CapuchinSchoolPage = () => {
-  const [activeLevel, setActiveLevel] = useState('ordinary');
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  
-  const handleLevelChange = (level) => {
-    if (level === activeLevel) return;
-    setIsTransitioning(true);
-    // Wait for fade out
-    setTimeout(() => {
-      setActiveLevel(level);
-      // Wait for state update and fade in
-      setTimeout(() => setIsTransitioning(false), 50);
-    }, 300);
-  };
   // Use viewport scroll for better mobile support
   const { scrollYProgress } = useScroll({
     offset: ['start start', 'end start']
@@ -257,108 +244,51 @@ const CapuchinSchoolPage = () => {
             </motion.div>
           </div>
 
-          {/* Sharp Level Selector with Transition */}
-          <div className="flex justify-center mb-12 space-x-0 border-b border-gray-200">
-            <button
-              onClick={() => handleLevelChange('ordinary')}
-              className={`relative px-10 py-4 font-medium transition-all duration-300 transform border-b-2 ${
-                activeLevel === 'ordinary'
-                  ? 'text-primary border-primary font-semibold'
-                  : 'text-gray-600 border-transparent hover:bg-gray-50 hover:text-gray-800'
-              }`}
-            >
-              <span className="relative z-10">ORDINARY LEVEL</span>
-              <span className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-            </button>
-            <button
-              onClick={() => handleLevelChange('advanced')}
-              className={`relative px-10 py-4 font-medium transition-all duration-300 transform border-b-2 ${
-                activeLevel === 'advanced'
-                  ? 'text-primary border-primary font-semibold'
-                  : 'text-gray-600 border-transparent hover:bg-gray-50 hover:text-gray-800'
-              }`}
-            >
-              <span className="relative z-10">ADVANCED LEVEL</span>
-              <span className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-            </button>
+          {/* Level Title */}
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-playfair font-light text-gray-800">
+              ORDINARY LEVEL PROGRAM
+            </h3>
+            <div className="w-24 h-px mx-auto my-4 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
           </div>
 
-          {/* Level Content with Transition */}
-          <div className={`mb-20 transition-opacity duration-300 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
-            <div className={`transition-transform duration-300 ${isTransitioning ? 'translate-y-4' : 'translate-y-0'}`}>
-            {activeLevel === 'ordinary' ? (
-              <AcademicLevel
-                level="Ordinary"
-                description="Our four-year O-Level program provides a strong foundation in core subjects while allowing students to explore various academic disciplines. The program prepares students for both higher education and professional development."
-                subjects={{
-                  core: [
-                    'English Language',
-                    'Mathematics',
-                    'Kiswahili',
-                    'Biology',
-                    'Chemistry',
-                    'Physics',
-                    'Geography',
-                    'History'
-                  ],
-                  electives: [
-                    'Commerce',
-                    'Computer Studies',
-                    'French',
-                    'Religious Education',
-                    'Agriculture',
-                    'Business Studies',
-                    'Art & Design',
-                    'Music',
-                    'Physical Education'
-                  ]
-                }}
-                requirements={[
-                  'Successful completion of primary education (PSLE)',
-                  'Minimum entry requirements as per Ministry of Education guidelines',
-                  'Passing the school\'s entrance examination and interview'
-                ]}
-              />
-            ) : (
-              <AcademicLevel
-                level="Advanced"
-                description="Our two-year A-Level program offers specialized study in chosen subject combinations, preparing students for university education and professional careers. Students select three or four principal subjects that align with their career aspirations."
-                subjects={{
-                  core: [
-                    'General Studies',
-                    'Entrepreneurship',
-                    'Information and Communication Technology (ICT)'
-                  ],
-                  electives: [
-                    'Mathematics',
-                    'Physics',
-                    'Chemistry',
-                    'Biology',
-                    'Geography',
-                    'History',
-                    'Economics',
-                    'Commerce',
-                    'Entrepreneurship',
-                    'Computer Science',
-                    'Literature in English',
-                    'French',
-                    'Kiswahili',
-                    'Religious Education',
-                    'Art & Design'
-                  ]
-                }}
-                requirements={[
-                  'Minimum of C+ in CSEE or equivalent',
-                  'Minimum grade requirements in specific subjects for chosen combination',
-                  'Successful completion of the school\'s A-Level admission process',
-                  'Recommendation from previous school',
-                  'Personal statement outlining academic goals'
-                ]}
-              />
-            )}
+          {/* Level Content */}
+          <div className="mb-20">
+            <AcademicLevel
+              level="Ordinary"
+              description="Our four-year O-Level program provides a strong foundation in core subjects while allowing students to explore various academic disciplines. The program prepares students for both higher education and professional development."
+              subjects={{
+                core: [
+                  'English Language',
+                  'Mathematics',
+                  'Kiswahili',
+                  'Biology',
+                  'Chemistry',
+                  'Physics',
+                  'Geography',
+                  'History'
+                ],
+                electives: [
+                  'Commerce',
+                  'Computer Studies',
+                  'French',
+                  'Religious Education',
+                  'Agriculture',
+                  'Business Studies',
+                  'Art & Design',
+                  'Music',
+                  'Physical Education'
+                ]
+              }}
+              requirements={[
+                'Successful completion of primary education (PSLE)',
+                'Minimum entry requirements as per Ministry of Education guidelines',
+                'Passing the school\'s entrance examination and interview'
+              ]}
+            />
             
             {/* Apply Now Button */}
-            <div className="flex justify-center  mt-12 mb-12">
+            <div className="flex justify-center mt-12 mb-12">
               <Link 
                 to="/admissions"
                 aria-label="Start your application process"
@@ -366,11 +296,9 @@ const CapuchinSchoolPage = () => {
               >
                 Apply Now
                 <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd" />
-              </svg>
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd" />
+                </svg>
               </Link>
-            </div>
-            
             </div>
           </div>
         </div>

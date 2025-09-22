@@ -41,27 +41,27 @@ const Gallery = () => {
     {
       id: 5,
       src: "/assets/images/buildings/front_area_compound.jpg",
-      alt: "Library Study",
+      alt: "Science Laboratory",
       category: "buildings",
       title: "Learning Resources"
     },
     
     {
-      id: 12,
+      id: 6,
       src: "/assets/images/sports/football_unfogetable_moments.jpg",
       alt: "Student Performance",
       category: "sports",
       title: "Cultural Events"
     },
     {
-      id: 6,
+      id: 7,
       src: "/assets/images/academics/student_in_class.jpg",
       alt: "Science Laboratory",
       category: "classroom",
       title: "Research Excellence"
     },
     {
-      id: 7,
+      id: 8,
       src: "/assets/images/environments/environment_section.jpg",
       alt: "Campus Grounds",
       category: "buildings",
@@ -69,14 +69,14 @@ const Gallery = () => {
     },
     
     {
-      id: 15,
+      id: 9,
       src: "/assets/images/environments/environment_section.jpg",
       alt: "Student Performance",
       category: "environments",
       title: "Cultural Events"
     },
     {
-      id: 8,
+      id: 10,
       src: "/assets/images/events/mass_as_our_culture.jpg",
       alt: "Graduation Ceremony",
       category: "events",
@@ -84,14 +84,14 @@ const Gallery = () => {
     },
     
     {
-      id: 16,
+      id: 11,
       src: "/assets/images/environments/good_environment.jpg",
       alt: "Graduation Ceremony",
       category: "environments",
       title: "Achievement Celebration"
     },
     {
-      id: 9,
+      id: 12,
       src: "/assets/images/buildings/dinning_hall.jpg",
       alt: "Team Collaboration",
       category: "buildings",
@@ -99,14 +99,14 @@ const Gallery = () => {
     },
     
     {
-      id: 14,
+      id: 13,
       src: "/assets/images/environments/smart_area.jpg",
       alt: "Student Performance",
       category: "environments",
       title: "Cultural Events"
     },
     {
-      id: 10,
+      id: 14,
       src: "/assets/images/sports/having_good_time_in_basketball.jpg",
       alt: "Athletic Competition",
       category: "sports",
@@ -114,21 +114,21 @@ const Gallery = () => {
     },
     
     {
-      id: 17,
+      id: 15,
       src: "/assets/images/buildings/shool_compound.jpg",
       alt: "Athletic Competition",
       category: "buildings",
       title: "Competitive Sports"
     },
     {
-      id: 11,
+      id: 16,
       src: "/assets/images/events/making_school_memories.jpg",
       alt: "Art Studio",
       category: "events",
       title: "Creative Expression"
     },
     {
-      id: 13,
+      id: 17,
       src: "/assets/images/sports/vollyball_ground.jpg",
       alt: "Student Performance",
       category: "sports",
