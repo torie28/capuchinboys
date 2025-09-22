@@ -5,39 +5,27 @@ const AcademicPrograms = () => {
   const programs = [
     {
       title: "Sciences",
-      subjects: ["Biology", "Chemistry", "Physics", "Mathematics", "Computer Science"],
+      subjects: ["Biology", "Chemistry", "Physics", "Mathematics"],
       description: "Comprehensive science education with modern laboratory facilities and hands-on experiments.",
       highlights: ["State-of-the-art laboratories", "Qualified science teachers", "Science fair participation"]
     },
     {
       title: "Languages & Literature",
-      subjects: ["English", "Kiswahili", "French", "Literature", "Communication Skills"],
+      subjects: ["English", "Kiswahili", "Literature"],
       description: "Developing strong communication skills and cultural understanding through language studies.",
       highlights: ["Bilingual education", "Literary competitions", "Cultural exchange programs"]
     },
     {
       title: "Social Studies",
-      subjects: ["History", "Geography", "Civics", "Economics", "Religious Studies"],
+      subjects: ["History", "Geography", "Civics", "Religious Studies"],
       description: "Understanding society, culture, and global citizenship through comprehensive social education.",
       highlights: ["Historical field trips", "Community service projects", "Model UN participation"]
-    },
-    {
-      title: "Arts & Creativity",
-      subjects: ["Fine Arts", "Music", "Drama", "Crafts", "Creative Writing"],
-      description: "Fostering creativity and artistic expression through various forms of art and performance.",
-      highlights: ["Annual art exhibitions", "Drama productions", "Music festivals"]
     },
     {
       title: "Physical Education",
       subjects: ["Sports", "Health Education", "Fitness Training", "Team Sports", "Athletics"],
       description: "Promoting physical fitness, teamwork, and healthy lifestyle habits.",
       highlights: ["Inter-school competitions", "Sports facilities", "Health awareness programs"]
-    },
-    {
-      title: "Technical Skills",
-      subjects: ["Computer Studies", "Entrepreneurship", "Life Skills", "Career Guidance"],
-      description: "Preparing students for the modern world with practical and technical skills.",
-      highlights: ["Computer literacy", "Business skills", "Career counseling"]
     }
   ];
 
