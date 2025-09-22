@@ -47,22 +47,20 @@ const AcademicLevel = ({ level, description, subjects, requirements }) => (
 );
 
 const CapuchinSchoolPage = () => {
-  // Use viewport scroll for better mobile support
+  const activeLevel = 'ordinary';
+  const isTransitioning = false;
+  
   const { scrollYProgress } = useScroll({
     offset: ['start start', 'end start']
   });
   
-  // More subtle scale for mobile, slightly stronger for desktop
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
   const y = useTransform(scrollYProgress, [0, 1], [0, 80]);
   
-  // Add opacity effect for mobile
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.9]);
   
-  // Handle mobile touch events for smoother scrolling
   useEffect(() => {
     const handleTouchMove = (e) => {
-      // Prevent scroll jank on mobile
       if (e.touches.length > 1) e.preventDefault();
     };
     
@@ -101,7 +99,7 @@ const CapuchinSchoolPage = () => {
           }}
         >
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-stone-900/90 via-stone-900/70 to-stone-900/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-stone-900/70 via-stone-900/50 to-stone-900/60"></div>
         </motion.div>
 
         {/* Content with enhanced mobile parallax */}
@@ -244,12 +242,11 @@ const CapuchinSchoolPage = () => {
             </motion.div>
           </div>
 
-          {/* Level Title */}
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-playfair font-light text-gray-800">
-              ORDINARY LEVEL PROGRAM
+          {/* Level Title - Only Ordinary Level */}
+          <div className="flex justify-center mb-12">
+            <h3 className="text-2xl font-semibold text-primary border-b-2 border-primary pb-2">
+              ORDINARY LEVEL
             </h3>
-            <div className="w-24 h-px mx-auto my-4 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
           </div>
 
           {/* Level Content */}
@@ -286,20 +283,20 @@ const CapuchinSchoolPage = () => {
                 'Passing the school\'s entrance examination and interview'
               ]}
             />
-            
-            {/* Apply Now Button */}
-            <div className="flex justify-center mt-12 mb-12">
-              <Link 
-                to="/admissions"
-                aria-label="Start your application process"
-                className="inline-flex items-center justify-center px-8 py-3 border border-primary text-base font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors duration-300"
-              >
-                Apply Now
-                <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd" />
-                </svg>
-              </Link>
-            </div>
+          </div>
+
+          {/* Apply Now Button */}
+          <div className="flex justify-center  mt-12 mb-12">
+            <Link 
+              to="/admissions"
+              aria-label="Start your application process"
+              className="inline-flex items-center justify-center px-8 py-3 border border-primary text-base font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors duration-300"
+            >
+              Apply Now
+              <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd" />
+            </svg>
+            </Link>
           </div>
         </div>
       </motion.section>

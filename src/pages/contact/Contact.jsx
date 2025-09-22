@@ -149,7 +149,7 @@ const Contact = () => {
           }}
         >
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-stone-900/90 via-stone-900/70 to-stone-900/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-stone-900/70 via-stone-900/50 to-stone-900/60"></div>
         </motion.div>
 
         {/* Content with subtle parallax */}
