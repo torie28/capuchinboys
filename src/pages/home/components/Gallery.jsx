@@ -4,7 +4,7 @@ const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
-  const [visibleImages, setVisibleImages] = useState(6);
+  const [visibleImages, setVisibleImages] = useState(8);
   const [isLoading, setIsLoading] = useState(false);
   const [animate3D, setAnimate3D] = useState(false);
 
