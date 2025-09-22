@@ -49,16 +49,16 @@ const Gallery = () => {
     {
       id: 6,
       src: "/assets/images/sports/football_unfogetable_moments.jpg",
-      alt: "Student Performance",
+      alt: "Performing magic dance",
       category: "sports",
-      title: "Cultural Events"
+      title: "Unforgettable Football Moments"
     },
     {
       id: 7,
       src: "/assets/images/academics/student_in_class.jpg",
-      alt: "Science Laboratory",
+      alt: "Student in classroom",
       category: "classroom",
-      title: "Research Excellence"
+      title: "Learning in Action"
     },
     {
       id: 8,
@@ -70,40 +70,43 @@ const Gallery = () => {
     
     {
       id: 9,
-      src: "/assets/images/environments/environment_section.jpg",
-      alt: "Student Performance",
+      src: "/assets/images/buildings/acomodative_compound.jpg",
+      alt: "School compound and facilities",
       category: "environments",
-      title: "Cultural Events"
+      title: "Conducive Learning Environment"
+      
     },
     {
       id: 10,
       src: "/assets/images/events/mass_as_our_culture.jpg",
-      alt: "Graduation Ceremony",
+      alt: "Cultural Mass Gathering",
       category: "events",
-      title: "Achievement Celebration"
+      title: "Cultural Unity"
     },
     
     {
       id: 11,
       src: "/assets/images/environments/good_environment.jpg",
-      alt: "Graduation Ceremony",
+      alt: "Conducive school environment",
       category: "environments",
-      title: "Achievement Celebration"
+      title: "Good Learning Environment"
+      
     },
     {
       id: 12,
       src: "/assets/images/buildings/dinning_hall.jpg",
-      alt: "Team Collaboration",
+      alt: "School dining hall",
       category: "buildings",
-      title: "Collaborative Learning"
+      title: "Dining Hall"
+      
     },
     
     {
       id: 13,
       src: "/assets/images/environments/smart_area.jpg",
-      alt: "Student Performance",
+      alt: "Smart school environment",
       category: "environments",
-      title: "Cultural Events"
+      title: "Smart Learning Environment"
     },
     {
       id: 14,
@@ -116,23 +119,23 @@ const Gallery = () => {
     {
       id: 15,
       src: "/assets/images/buildings/shool_compound.jpg",
-      alt: "Athletic Competition",
+      alt: "School compound view",
       category: "buildings",
-      title: "Competitive Sports"
+      title: "School Environment"
     },
     {
       id: 16,
       src: "/assets/images/events/making_school_memories.jpg",
-      alt: "Art Studio",
+      alt: "Students making school memories",
       category: "events",
-      title: "Creative Expression"
+      title: "Memorable School Moments"
     },
     {
       id: 17,
       src: "/assets/images/sports/vollyball_ground.jpg",
-      alt: "Student Performance",
+      alt: "Volleyball match in action",
       category: "sports",
-      title: "Cultural Events"
+      title: "Volleyball Competition"
     }
   ];
 
