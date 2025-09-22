@@ -9,14 +9,14 @@ const HERO_IMAGES = [
 ];
 
 const SCHOOL_IMAGES = [
-  '/assets/images/academics/student_in_class.jpg',
-  '/assets/images/academics/student_in_class.jpg',
-  '/assets/images/academics/student_in_class.jpg',
-  '/assets/images/buildings/shool_compound.jpg',
-  '/assets/images/buildings/acomodative_compound.jpg',
-  '/assets/images/academics/student_in_class.jpg',
-  '/assets/images/academics/student_in_class.jpg',
-  '/assets/images/academics/student_focusing.jpg'
+  'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=500&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=500&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=500&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&h=500&fit=crop',
+  'https://images.unsplash.com/photo-1596495578065-6e0763fa1178?w=500&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=500&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=500&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=500&h=500&fit=crop' 
 ];
 
 const VALUES = [
@@ -152,7 +152,7 @@ const AboutSection = () => {
                 transition: 'transform 1.5s ease-out, opacity 2s ease-in-out'
               }}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-stone-900/95 via-stone-900/80 to-stone-900/85"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-stone-900/70 via-stone-900/50 to-stone-900/60"></div>
             </div>
           ))}
         </div>

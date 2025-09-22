@@ -45,26 +45,12 @@ const handleEmailClick = (e) => {
 
 const Admissions = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [selectedLevel, setSelectedLevel] = useState('ordinary'); // 'ordinary' or 'advanced'
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const [openSections, setOpenSections] = useState({
     requirements: true,
     forms: true,
     dates: true
   });
   const isMobile = useMobile();
-  
-  const handleLevelChange = (level) => {
-    if (level === selectedLevel || isTransitioning) return;
-    
-    setIsTransitioning(true);
-    // Wait for fade out
-    setTimeout(() => {
-      setSelectedLevel(level);
-      // Wait for state update and fade in
-      setTimeout(() => setIsTransitioning(false), 50);
-    }, 200);
-  };
 
   const toggleSection = (section) => {
     if (!isMobile) return;
@@ -74,53 +60,28 @@ const Admissions = () => {
     }));
   };
 
-  // Level-specific data
-  const levelData = {
-    ordinary: {
-      requirements: [
-        'Completed primary education with excellent grades',
-        'Minimum grade of C in Mathematics, English, and Science',
-        'Pass the school\'s entrance examination',
-        'Successful interview with the admissions panel'
-      ],
-      formsAndDocs: [
-        'Application Form',
-        'Birth Certificate',
-        'PSLE Results Slip',
-        'Medical Report',
-        'Passport-Sized Photos',
-      ],
-      importantDates: [
-        { month: 'Jan', title: 'Applications Open', date: 'January 10', description: 'Applications for O-Level admissions open' },
-        { month: 'Feb', title: 'Entrance Exams', date: 'February 15', description: 'Entrance exams for O-Level admissions' },
-        { month: 'Mar', title: 'Interviews', date: 'March 1-15', description: 'Interviews for O-Level admissions' },
-        { month: 'Apr', title: 'Acceptance Letters', date: 'April 1', description: 'Acceptance letters for O-Level admissions' },
-        { month: 'May', title: 'Enrollment Deadline', date: 'May 15', description: 'Enrollment deadline for O-Level admissions' }
-      ]
-    },
-    advanced: {
-      requirements: [
-        'Completed O-Level education with at least 6 credits',
-        'Pass the school\'s advanced placement test',
-        'Interview with the academic department head',
-        'Letter of recommendation from previous school',
-        'Minimum grade C to relevant combinations choosen.',
-      ],
-      formsAndDocs: [
-        'A-Level Application Form',
-        'CSEE Results Slip/Certificate',
-        'Birth Certificate',
-        'Medical Report',
-        'Passport-Sized Photos',
-      ],
-      importantDates: [
-        { month: 'Sep', title: 'Applications Open', date: 'September 1', description: 'Applications for A-Level admissions open' },
-        { month: 'Oct', title: 'Entrance Exams', date: 'October 15', description: 'Entrance exams for A-Level admissions' },
-        { month: 'Nov', title: 'Interviews', date: 'November 1-15', description: 'Interviews for A-Level admissions' },
-        { month: 'Dec', title: 'Acceptance Letters', date: 'December 1', description: 'Acceptance letters for A-Level admissions' },
-        { month: 'Jan', title: 'Enrollment Deadline', date: 'January 15', description: 'Enrollment deadline for A-Level admissions' }
-      ]
-    }
+  // Admission data for O-Level
+  const admissionData = {
+    requirements: [
+      'Completed primary education with excellent grades',
+      'Minimum grade of C in Mathematics, English, and Science',
+      'Pass the school\'s entrance examination',
+      'Successful interview with the admissions panel'
+    ],
+    formsAndDocs: [
+      'Application Form',
+      'Birth Certificate',
+      'PSLE Results Slip',
+      'Medical Report',
+      'Passport-Sized Photos',
+    ],
+    importantDates: [
+      { month: 'Jan', title: 'Applications Open', date: 'January 10', description: 'Applications for O-Level admissions open' },
+      { month: 'Feb', title: 'Entrance Exams', date: 'February 15', description: 'Entrance exams for O-Level admissions' },
+      { month: 'Mar', title: 'Interviews', date: 'March 1-15', description: 'Interviews for O-Level admissions' },
+      { month: 'Apr', title: 'Acceptance Letters', date: 'April 1', description: 'Acceptance letters for O-Level admissions' },
+      { month: 'May', title: 'Enrollment Deadline', date: 'May 15', description: 'Enrollment deadline for O-Level admissions' }
+    ]
   };
 
   // Handle scroll position for parallax effect
@@ -243,189 +204,59 @@ const Admissions = () => {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Admission Information</h2>
-            <div className="w-24 h-1 bg-[#B4975A] mx-auto mb-8"></div>
-            
-            {/* Level Selection Buttons */}
-            <div className="flex justify-center mb-12 space-x-0 border-b border-gray-200">
-              <button
-                type="button"
-                onClick={() => handleLevelChange('ordinary')}
-                className={`relative px-10 py-4 font-medium transition-all duration-300 transform border-b-2 ${
-                  selectedLevel === 'ordinary'
-                    ? 'text-[#B4975A] border-[#B4975A] font-semibold'
-                    : 'text-gray-600 border-transparent hover:text-gray-800'
-                }`}
-                disabled={isTransitioning}
-              >
-                <span className="relative z-10">ORDINARY LEVEL</span>
-                <span className="absolute inset-0 bg-[#B4975A]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-              </button>
-              <button
-                type="button"
-                onClick={() => handleLevelChange('advanced')}
-                className={`relative px-10 py-4 font-medium transition-all duration-300 transform border-b-2 ${
-                  selectedLevel === 'advanced'
-                    ? 'text-[#B4975A] border-[#B4975A] font-semibold'
-                    : 'text-gray-600 border-transparent hover:text-gray-800'
-                }`}
-                disabled={isTransitioning}
-              >
-                <span className="relative z-10">ADVANCED LEVEL</span>
-                <span className="absolute inset-0 bg-[#B4975A]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-              </button>
-            </div>
-
-            {/* Requirements Section */}
-            <div className={`transition-opacity duration-200 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
-              <div className="max-w-4xl mx-auto mb-8 md:mb-16">
-                <motion.div 
-                  className={`bg-white rounded-lg shadow-md overflow-hidden ${isMobile ? 'cursor-pointer' : ''}`}
-                  onClick={() => toggleSection('requirements')}
-                >
-                  <div className="flex justify-between items-center p-6">
-                    <h3 className="text-2xl  text-gray-900 whitespace-nowrap">
-                      {selectedLevel === 'ordinary' ? 'Ordinary Level' : 'Advanced Level'} Requirements
-                    </h3>
-                    {isMobile && (
-                      <motion.span
-                        animate={{ rotate: openSections.requirements ? 0 : 180 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <svg className="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </motion.span>
-                    )}
-                  </div>
-                  <AnimatePresence>
-                    {(!isMobile || openSections.requirements) && (
-                      <motion.div
-                        initial={isMobile ? { height: 0, opacity: 0 } : false}
-                        animate={isMobile ? { height: 'auto', opacity: 1 } : false}
-                        exit={isMobile ? { height: 0, opacity: 0 } : false}
-                        transition={{ duration: 0.3, ease: 'easeInOut' }}
-                      >
-                        <div className="px-4 sm:px-6 pb-6 pt-0">
-                          <ul className="space-y-3 sm:space-y-4">
-                            {levelData[selectedLevel].requirements.map((requirement, index) => (
-                              <li key={index} className="flex items-start w-full">
-                                <span className="flex-shrink-0 mt-0.5">
-                                  <svg 
-                                    className="h-5 w-5 sm:h-6 sm:w-6 text-[#B4975A] mr-3 flex-none" 
-                                    fill="none" 
-                                    viewBox="0 0 24 24" 
-                                    stroke="currentColor"
-                                  >
-                                    <path 
-                                      strokeLinecap="round" 
-                                      strokeLinejoin="round" 
-                                      strokeWidth={2} 
-                                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" 
-                                    />
-                                  </svg>
-                                </span>
-                                <span className="text-xs sm:text-base text-gray-700 mt-0.5">
-                                  {requirement}
-                                </span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Ordinary Level (O-Level) Admissions</h2>
+            <div className="w-24 h-1 bg-primary mx-auto"></div>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Admission Requirements */}
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="p-6">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Admission Requirements</h3>
+                <ul className="space-y-3">
+                  {admissionData.requirements.map((req, index) => (
+                    <li key={index} className="flex items-start">
+                      <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-gray-700">{req}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
 
-            {/* Forms & Documents and Important Dates */}
-            <div className={`transition-opacity duration-200 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
-              <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                {/* Forms & Documents */}
-                <motion.div 
-                  className={`bg-white rounded-lg shadow-md overflow-hidden ${isMobile ? 'cursor-pointer' : ''}`}
-                  onClick={() => toggleSection('forms')}
-                >
-                  <div className="flex justify-between items-center p-6">
-                    <h3 className="text-2xl font-semibold text-gray-900">Forms & Documents</h3>
-                    {isMobile && (
-                      <motion.span
-                        animate={{ rotate: openSections.forms ? 0 : 180 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <svg className="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </motion.span>
-                    )}
-                  </div>
-                  <AnimatePresence>
-                    {(!isMobile || openSections.forms) && (
-                      <motion.div
-                        initial={isMobile ? { height: 0, opacity: 0 } : false}
-                        animate={isMobile ? { height: 'auto', opacity: 1 } : false}
-                        exit={isMobile ? { height: 0, opacity: 0 } : false}
-                        transition={{ duration: 0.3, ease: 'easeInOut' }}
-                      >
-                        <div className="px-6 pb-6 pt-0">
-                          <ul className="space-y-3">
-                            {levelData[selectedLevel].formsAndDocs.map((doc, index) => (
-                              <li key={index} className="flex items-start">
-                                <svg className="h-6 w-6 text-[#B4975A] mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span className="text-gray-700">{doc}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
+            {/* Required Forms and Documents */}
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="p-6">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Required Forms and Documents</h3>
+                <ul className="space-y-3">
+                  {admissionData.formsAndDocs.map((doc, index) => (
+                    <li key={index} className="flex items-start">
+                      <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span className="text-gray-700">{doc}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
 
-                {/* Important Dates */}
-                <motion.div 
-                  className={`bg-white rounded-lg shadow-md overflow-hidden ${isMobile ? 'cursor-pointer' : ''} md:mt-0`}
-                  onClick={() => toggleSection('dates')}
-                >
-                  <div className="flex justify-between items-center p-6">
-                    <h3 className="text-2xl font-semibold text-gray-900">Important Dates</h3>
-                    {isMobile && (
-                      <motion.span
-                        animate={{ rotate: openSections.dates ? 0 : 180 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <svg className="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </motion.span>
-                    )}
-                  </div>
-                  <AnimatePresence>
-                    {(!isMobile || openSections.dates) && (
-                      <motion.div
-                        initial={isMobile ? { height: 0, opacity: 0 } : false}
-                        animate={isMobile ? { height: 'auto', opacity: 1 } : false}
-                        exit={isMobile ? { height: 0, opacity: 0 } : false}
-                        transition={{ duration: 0.3, ease: 'easeInOut' }}
-                      >
-                        <div className="px-6 pb-6 pt-0">
-                          <div className="space-y-6">
-                            {levelData[selectedLevel].importantDates.map((date, index) => (
-                              <div key={index} className="border-l-2 border-[#B4975A] pl-4 py-1">
-                                <h4 className="font-medium text-gray-900">{date.title}</h4>
-                                <p className="text-gray-600 text-sm">{date.date}</p>
-                                <p className="text-gray-500 text-sm mt-1">{date.description}</p>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
+            {/* Important Dates */}
+            <div className="md:col-span-2 bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="p-6">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-6">Important Dates</h3>
+                <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+                  {admissionData.importantDates.map((date, index) => (
+                    <div key={index} className="border-l-2 border-[#B4975A] pl-4 py-2">
+                      <div className="text-sm font-medium text-[#B4975A]">{date.month}</div>
+                      <h4 className="font-medium text-gray-900">{date.title}</h4>
+                      <p className="text-gray-600 text-sm">{date.date}</p>
+                      <p className="text-gray-500 text-xs mt-1">{date.description}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -435,7 +266,7 @@ const Admissions = () => {
         <div className="max-w-4xl mx-auto bg-gray-50 px-8 py-8 rounded-lg border-t border-gray-200">
           <div className="text-center max-w-2xl mx-auto">
             <h3 className="text-xl font-semibold text-gray-900 mb-4">
-              {selectedLevel === 'ordinary' ? 'O-Level' : 'A-Level'} Admissions
+              O-Level Admissions
             </h3>
             <p className="text-gray-600 mb-6">
               For more details about our admission process and requirements, please don't hesitate to contact our admissions office.
