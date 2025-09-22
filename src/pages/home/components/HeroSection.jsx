@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 
 // Hero Images
 const HERO_IMAGES = [
+  '/assets/images/buildings/front_building.jpg',
   '/assets/images/environments/modern_school_environment.jpg',
   '/assets/images/environments/environment_section.jpg',
   '/assets/images/academics/student_in_class.jpg',
-  '/assets/images/events/mass_as_our_culture.jpg',
-  '/assets/images/buildings/front_building.jpg' // Keeping the original image in the rotation
+  '/assets/images/events/mass_as_our_culture.jpg'
+  
 ];
 
 const HeroSection = () => {
@@ -57,28 +58,33 @@ const HeroSection = () => {
         ))}
       </div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center py-32">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg">
-          Capuchin Boys Secondary School
-        </h1>
-        <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto text-white text-opacity-90 font-light italic">
-          Education to the brilliant prospect
-        </p>
-        <div className="space-x-2">
-          <Link 
-            to="/admissions"
-            aria-label="Start your application process"
-            className="inline-block bg-white text-blue-900 font-semibold px-8 py-4 hover:bg-blue-100 transition-all duration-300 transform hover:scale-105"
-          >
-            Apply Now
-          </Link>
-          <Link 
-            to="/about"
-            aria-label="Learn more about our school"
-            className="inline-block border-2 border-primary text-white font-semibold px-8 py-4 hover:bg-opacity-10 transition-all duration-300 transform hover:scale-105"
-          >
-            Learn More
-          </Link>
+      <div className="max-w-7xl mx-auto px-8 lg:px-12 w-full relative z-10 py-32">
+        <div className="max-w-4xl">
+          <h1 className="text-6xl md:text-8xl font-cinzel font-bold text-white mb-8 leading-tight">
+            Capuchin Boys
+            <span className="block text-amber-300 text-5xl md:text-6xl mt-4 font-light italic">
+              Secondary School
+            </span>
+          </h1>
+          <p className="text-2xl text-amber-100 mb-12 max-w-3xl leading-relaxed font-nunito font-light">
+            Education to the brilliant prospect
+          </p>
+          <div className="flex flex-wrap gap-6">
+            <Link 
+              to="/admissions"
+              aria-label="Start your application process"
+              className="px-12 py-5 rounded-none text-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg bg-white text-blue-900"
+            >
+              Apply Now
+            </Link>
+            <Link 
+              to="/about"
+              aria-label="Learn more about our school"
+              className="px-12 py-5 rounded-none text-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg border-2 border-primary text-white"
+            >
+              Learn More
+            </Link>
+          </div>
         </div>
       </div>
     </section>
