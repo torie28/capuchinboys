@@ -1,14 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-// Hero Images
-const HERO_IMAGES = [
-  '/assets/images/buildings/front_building.jpg',
-  '/assets/images/environments/modern_school_environment.jpg',
-  '/assets/images/environments/environment_section.jpg',
-  '/assets/images/academics/student_in_class.jpg',
-  '/assets/images/events/mass_as_our_culture.jpg'
-  
+// Hero content with matching images and text
+const HERO_CONTENT = [
+  {
+    image: '/assets/images/buildings/front_building.jpg',
+    title: 'Capuchin Boys',
+    subtitle: 'Secondary School',
+    description: 'Excellence in Education and Character Formation'
+  },
+  {
+    image: '/assets/images/environments/modern_school_environment.jpg',
+    title: 'Modern Learning',
+    subtitle: 'Environments',
+    description: 'State-of-the-art facilities for 21st century education'
+  },
+  {
+    image: '/assets/images/environments/environment_section.jpg',
+    title: 'Green Campus',
+    subtitle: 'Serene Environment',
+    description: 'Learning in harmony with nature'
+  },
+  {
+    image: '/assets/images/academics/student_in_class.jpg',
+    title: 'Academic Excellence',
+    subtitle: 'Holistic Education',
+    description: 'Nurturing minds and shaping futures'
+  },
+  {
+    image: '/assets/images/events/mass_as_our_culture.jpg',
+    title: 'Spiritual Growth',
+    subtitle: 'Our Culture',
+    description: 'Building character through faith and values'
+  }
 ];
 
 const HeroSection = () => {
@@ -25,10 +49,10 @@ const HeroSection = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Auto-scrolling animation for hero images
+  // Auto-scrolling animation for hero content
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex(prev => (prev + 1) % HERO_IMAGES.length);
+      setCurrentImageIndex(prev => (prev + 1) % HERO_CONTENT.length);
     }, 6000);
     return () => clearInterval(interval);
   }, []);
@@ -37,14 +61,14 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
       {/* Background Images with Carousel */}
       <div className="absolute inset-0">
-        {HERO_IMAGES.map((img, index) => (
+        {HERO_CONTENT.map((content, index) => (
           <div 
             key={index}
             className={`absolute inset-0 transition-opacity duration-2000 ${
               index === currentImageIndex ? 'opacity-100' : 'opacity-0'
             }`}
             style={{
-              backgroundImage: `url('${img}')`,
+              backgroundImage: `url('${content.image}')`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
@@ -60,15 +84,24 @@ const HeroSection = () => {
       
       <div className="max-w-7xl mx-auto px-8 lg:px-12 w-full relative z-10 py-32">
         <div className="max-w-4xl">
-          <h1 className="text-6xl md:text-8xl font-cinzel font-bold text-white mb-8 leading-tight">
-            Capuchin Boys
-            <span className="block text-amber-300 text-5xl md:text-6xl mt-4 font-light italic">
-              Secondary School
-            </span>
-          </h1>
-          <p className="text-2xl text-amber-100 mb-12 max-w-3xl leading-relaxed font-nunito font-light">
-            Education to the brilliant prospect
-          </p>
+          {HERO_CONTENT.map((content, index) => (
+            <div 
+              key={index}
+              className={`transition-all duration-1000 ${
+                index === currentImageIndex ? 'opacity-100' : 'opacity-0 absolute'
+              }`}
+            >
+              <h1 className="text-6xl md:text-8xl font-cinzel font-bold text-white mb-8 leading-tight">
+                {content.title}
+                <span className="block text-amber-300 text-5xl md:text-6xl mt-4 font-light italic">
+                  {content.subtitle}
+                </span>
+              </h1>
+              <p className="text-2xl text-amber-100 mb-12 max-w-3xl leading-relaxed font-nunito font-light">
+                {content.description}
+              </p>
+            </div>
+          ))}
           <div className="flex flex-wrap gap-6">
             <Link 
               to="/admissions"
