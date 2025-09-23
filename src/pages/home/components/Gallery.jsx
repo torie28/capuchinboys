@@ -253,7 +253,7 @@ const Gallery = () => {
           {displayedImages.map((image, index) => (
             <div
               key={image.id}
-              className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-2 cursor-pointer"
+              className="group relative overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-2 cursor-pointer"
               style={{
                 animationName: 'fadeInScale',
                 animationDuration: '0.8s',
@@ -264,7 +264,7 @@ const Gallery = () => {
               }}
               onClick={() => openModal(image)}
             >
-              <div className="aspect-w-4 aspect-h-3 bg-gradient-to-br from-gray-200 to-gray-300">
+              <div className="aspect-w-4 aspect-h-3 bg-gradient-to-br from-gray-200 to-gray-300 overflow-hidden">
                 <img
                   src={image.src}
                   alt={image.alt}
@@ -282,7 +282,7 @@ const Gallery = () => {
               </div>
 
               {/* Hover Effect Border */}
-              <div className="absolute inset-0 border-2 border-transparent group-hover:border-white/30 rounded-2xl transition-colors duration-500"></div>
+              <div className="absolute inset-0 border-2 border-transparent group-hover:border-white/30 transition-colors duration-500"></div>
               
               {/* Shine Effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
@@ -385,18 +385,15 @@ const Gallery = () => {
               </button>
 
               {/* Modal Content */}
-              <div className="bg-white rounded-2xl overflow-hidden shadow-2xl transform animate-modal-appear">
-                <div className="relative">
-                  <img
-                    src={selectedImage.src}
-                    alt={selectedImage.alt}
-                    className="w-full h-auto max-h-[70vh] object-contain"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                </div>
-                <div className="p-6 bg-gradient-to-r from-gray-50 to-white">
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">{selectedImage.title}</h3>
-                  <p className="text-gray-600">{selectedImage.alt}</p>
+              <div className="relative w-full h-full max-h-[90vh] overflow-auto transform animate-modal-appear">
+                <img
+                  src={selectedImage.src}
+                  alt={selectedImage.alt}
+                  className="w-full h-auto max-h-[90vh] object-cover"
+                />
+                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                  <h3 className="text-3xl font-bold text-white mb-2">{selectedImage.title}</h3>
+                  <p className="text-gray-200">{selectedImage.alt}</p>
                 </div>
               </div>
             </div>
