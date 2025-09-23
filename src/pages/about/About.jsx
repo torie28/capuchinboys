@@ -9,14 +9,10 @@ const HERO_IMAGES = [
 ];
 
 const SCHOOL_IMAGES = [
-  'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=500&h=400&fit=crop',
-  'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=500&h=600&fit=crop',
-  'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=500&h=400&fit=crop',
-  'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&h=500&fit=crop',
-  'https://images.unsplash.com/photo-1596495578065-6e0763fa1178?w=500&h=400&fit=crop',
-  'https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=500&h=600&fit=crop',
-  'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=500&h=400&fit=crop',
-  'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=500&h=500&fit=crop' 
+  'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=500&h=400&fit=crop', // School building
+  'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=500&h=600&fit=crop', // Classroom
+  'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=500&h=400&fit=crop', // Library
+  'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&h=500&fit=crop'  // Students studying
 ];
 
 const VALUES = [
@@ -115,6 +111,14 @@ const AboutSection = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [activeSection, setActiveSection] = useState(0);
 
+  // Function to handle smooth scrolling to a section
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   // Handle scroll position for parallax effect
   useEffect(() => {
     const handleScroll = () => {
@@ -173,6 +177,7 @@ const AboutSection = () => {
                 {HERO_CONTENT.buttons.map((button, idx) => (
                   <button 
                     key={idx}
+                    onClick={() => button.text === 'Discover Our Story' ? scrollToSection('our-story') : null}
                     className={`px-12 py-5 rounded-none text-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg ${button.className}`}
                   >
                     {button.text}
@@ -198,7 +203,7 @@ const AboutSection = () => {
           <div className="grid lg:grid-cols-2 gap-20 items-start mb-32">
             {/* Left Side - Content */}
             <div className="space-y-12">
-              <div className="bg-white/95 backdrop-blur-sm p-12 shadow-2xl border border-amber-200/50">
+              <div id="our-story" className="bg-white/95 backdrop-blur-sm p-12 shadow-2xl border border-amber-200/50 scroll-mt-24">
                 <div className="mb-8">
                   <div className="w-16 h-1 bg-amber-600 mb-6"></div>
                   <h3 className="text-4xl font-cinzel font-bold text-stone-800 mb-2">
