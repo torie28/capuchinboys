@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 // Hero content with matching images and text
@@ -87,37 +88,78 @@ const HeroSection = () => {
           {HERO_CONTENT.map((content, index) => (
             <div 
               key={index}
-              className={`transition-all duration-1000 ${
-                index === currentImageIndex ? 'opacity-100' : 'opacity-0 absolute'
+              className={`absolute inset-0 transition-all duration-1000 ease-in-out transform ${
+                index === currentImageIndex 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-4 pointer-events-none'
               }`}
+              style={{
+                transitionDelay: index === currentImageIndex ? '200ms' : '0ms'
+              }}
             >
-              <h1 className="text-6xl md:text-8xl font-cinzel font-bold text-white mb-8 leading-tight">
+              <motion.h1 
+                className="text-6xl md:text-8xl font-cinzel font-bold text-white mb-8 leading-tight"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ 
+                  opacity: index === currentImageIndex ? 1 : 0,
+                  y: index === currentImageIndex ? 0 : 20
+                }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
                 {content.title}
-                <span className="block text-amber-300 text-5xl md:text-6xl mt-4 font-light italic">
+                <motion.span 
+                  className="block text-amber-300 text-5xl md:text-6xl mt-4 font-light italic"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ 
+                    opacity: index === currentImageIndex ? 1 : 0,
+                    y: index === currentImageIndex ? 0 : 20
+                  }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                >
                   {content.subtitle}
-                </span>
-              </h1>
-              <p className="text-2xl text-amber-100 mb-12 max-w-3xl leading-relaxed font-nunito font-light">
+                </motion.span>
+              </motion.h1>
+              <motion.p 
+                className="text-2xl text-amber-100 mb-12 max-w-3xl leading-relaxed font-nunito font-light"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ 
+                  opacity: index === currentImageIndex ? 1 : 0,
+                  y: index === currentImageIndex ? 0 : 20
+                }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
                 {content.description}
-              </p>
+              </motion.p>
+              <motion.div 
+                className="pt-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ 
+                  opacity: index === currentImageIndex ? 1 : 0,
+                  y: index === currentImageIndex ? 0 : 20
+                }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+              >
+                <div className="flex flex-wrap gap-6">
+                  <Link 
+                    to="/admissions"
+                    aria-label="Start your application process"
+                    className="px-12 py-5 rounded-none text-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg bg-white text-blue-900"
+                  >
+                    Apply Now
+                  </Link>
+                  <Link 
+                    to="/about"
+                    aria-label="Learn more about our school"
+                    className="px-12 py-5 rounded-none text-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg border-2 border-primary text-white"
+                  >
+                    Learn More
+                  </Link>
+                </div>
+              </motion.div>
             </div>
           ))}
-          <div className="flex flex-wrap gap-6">
-            <Link 
-              to="/admissions"
-              aria-label="Start your application process"
-              className="px-12 py-5 rounded-none text-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg bg-white text-blue-900"
-            >
-              Apply Now
-            </Link>
-            <Link 
-              to="/about"
-              aria-label="Learn more about our school"
-              className="px-12 py-5 rounded-none text-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg border-2 border-primary text-white"
-            >
-              Learn More
-            </Link>
-          </div>
+          
+          {/* Buttons - Now moved inside the content loop */}
         </div>
       </div>
     </section>
