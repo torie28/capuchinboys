@@ -96,47 +96,54 @@ const Admissions = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section with Parallax Effect - Full Viewport Height */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image with Parallax Effect */}
-        <div 
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: 'url(/assets/images/academics/student_in_class.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            transform: `scale(${1 + (scrollPosition * 0.0005)})`,
-            transition: 'transform 1s ease-out',
-            willChange: 'transform'
-          }}
-        >
-          {/* Dark Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-stone-900/70 via-stone-900/50 to-stone-900/60"></div>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
+        {/* Background Images with Parallax Effect */}
+        <div className="absolute inset-0">
+          <div 
+            className="absolute inset-0 z-0 transition-opacity duration-1000"
+            style={{
+              backgroundImage: 'url(/assets/images/academics/student_in_class.jpg)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              transform: `scale(${1 + (scrollPosition * 0.0005)})`,
+              transition: 'transform 1.5s ease-out',
+              willChange: 'transform',
+              opacity: 1
+            }}
+          >
+            {/* Dark Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-stone-900/70 via-stone-900/50 to-stone-900/60"></div>
+          </div>
         </div>
         
         {/* Content - Centered Vertically and Horizontally */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 text-center py-32">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 py-32">
           <motion.div
-            className="space-y-6"
+            className="space-y-8 max-w-4xl mx-auto text-left"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
             <motion.h1 
-              className="text-5xl md:text-7xl font-bold text-white drop-shadow-lg"
+              className="text-6xl md:text-8xl font-cinzel font-bold text-white mb-6 leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
             >
               Admissions
+              <span className="block text-amber-300 text-5xl md:text-6xl mt-4 font-light italic">
+                Join Our Community
+              </span>
             </motion.h1>
             <motion.p 
-              className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-100 drop-shadow-md"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-2xl text-amber-100 mb-12 max-w-3xl leading-relaxed font-nunito font-light"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Begin your journey to excellence at Capuchin Boys Secondary School
+              Begin your journey to academic excellence at Capuchin Boys Secondary School. 
+              Discover how you can become part of our prestigious institution.
             </motion.p>
           </motion.div>
         </div>
