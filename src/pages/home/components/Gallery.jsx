@@ -391,146 +391,15 @@ const Gallery = () => {
                   alt={selectedImage.alt}
                   className="w-full h-auto max-h-[90vh] object-cover"
                 />
-                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                  <h3 className="text-3xl font-bold text-white mb-2">{selectedImage.title}</h3>
-                  <p className="text-gray-200">{selectedImage.alt}</p>
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 bg-gradient-to-t from-black/80 to-transparent">
+                  <h3 className="text-base sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-1 sm:mb-2">{selectedImage.title}</h3>
+                  <p className="text-xs sm:text-sm text-gray-200">{selectedImage.alt}</p>
                 </div>
               </div>
             </div>
-          </div>
+          </div> 
         )}
       </div>
-
-      <style>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes fadeInScale {
-          0% {
-            opacity: 0;
-            transform: scale(0.9) translateY(30px);
-          }
-          100% {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-          }
-        }
-
-        @keyframes spin {
-          0% { transform: perspective(100px) rotateX(45deg) rotate(0deg); }
-          100% { transform: perspective(100px) rotateX(45deg) rotate(360deg); }
-        }
-
-        @keyframes bounce {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
-        }
-
-        @keyframes fadeIn3D {
-          0% {
-            opacity: 0;
-            transform: perspective(1000px) rotateY(-90deg) rotateX(30deg) translateZ(-100px);
-          }
-          50% {
-            opacity: 0.5;
-            transform: perspective(1000px) rotateY(-45deg) rotateX(15deg) translateZ(-50px);
-          }
-          100% {
-            opacity: 1;
-            transform: perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0px);
-          }
-        }
-
-        @keyframes modal-appear {
-          from {
-            opacity: 0;
-            transform: scale(0.9);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-
-        @keyframes animate-3d-wave {
-          0% {
-            transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px);
-          }
-          25% {
-            transform: perspective(1000px) rotateX(15deg) rotateY(5deg) translateZ(20px);
-          }
-          50% {
-            transform: perspective(1000px) rotateX(-10deg) rotateY(-5deg) translateZ(10px);
-          }
-          75% {
-            transform: perspective(1000px) rotateX(5deg) rotateY(3deg) translateZ(15px);
-          }
-          100% {
-            transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px);
-          }
-        }
-
-        .animate-modal-appear {
-          animation: modal-appear 0.3s ease-out;
-        }
-
-        /* Animation delays removed - using inline styles instead */
-
-        .animate-3d-wave {
-          animation: animate-3d-wave 2s ease-in-out infinite;
-        }
-
-        .backface-hidden {
-          backface-visibility: hidden;
-        }
-
-        .transform-gpu {
-          transform: translateZ(0);
-        }
-
-        .hover\\:rotateY-12:hover {
-          transform: perspective(1000px) rotateY(12deg);
-        }
-
-        .hover\\:rotateX-6:hover {
-          transform: perspective(1000px) rotateX(6deg);
-        }
-
-        .shadow-3xl {
-          box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1);
-        }
-
-        /* 3D Perspective Container */
-        .gallery-card {
-          transform-style: preserve-3d;
-          transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .gallery-card:hover {
-          transform: perspective(1000px) rotateY(8deg) rotateX(4deg) translateZ(20px);
-        }
-
-        /* Custom 3D transforms */
-        .translate-z-5 {
-          transform: translateZ(5px);
-        }
-
-        .translate-z-10 {
-          transform: translateZ(10px);
-        }
-
-        .translate-z-minus-5 {
-          transform: translateZ(-5px);
-        }
-      `}</style>
     </section>
   );
 };
