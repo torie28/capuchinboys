@@ -83,8 +83,8 @@ const HeroSection = () => {
         ))}
       </div>
       
-      <div className="max-w-7xl mx-auto px-8 lg:px-12 w-full relative z-10 py-32">
-        <div className="max-w-4xl">
+      <div className="max-w-7xl mx-auto px-8 md:px-12 w-full relative z-10 py-20 md:py-32">
+        <div className="max-w-4xl ml-0 md:ml-4 lg:ml-8">
           {HERO_CONTENT.map((content, index) => (
             <div 
               key={index}
@@ -98,7 +98,7 @@ const HeroSection = () => {
               }}
             >
               <motion.h1 
-                className="text-6xl md:text-8xl font-cinzel font-bold text-white mb-8 leading-tight"
+                className="text-5xl sm:text-6xl md:text-8xl font-cinzel font-bold text-white mb-6 md:mb-8 leading-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ 
                   opacity: index === currentImageIndex ? 1 : 0,
@@ -108,7 +108,7 @@ const HeroSection = () => {
               >
                 {content.title}
                 <motion.span 
-                  className="block text-amber-300 text-5xl md:text-6xl mt-4 font-light italic"
+                  className="block text-amber-300 text-3xl sm:text-4xl md:text-6xl mt-3 md:mt-4 font-light italic"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ 
                     opacity: index === currentImageIndex ? 1 : 0,
@@ -120,7 +120,7 @@ const HeroSection = () => {
                 </motion.span>
               </motion.h1>
               <motion.p 
-                className="text-2xl text-amber-100 mb-12 max-w-3xl leading-relaxed font-nunito font-light"
+                className="text-xl sm:text-2xl text-amber-100 mb-8 md:mb-12 max-w-3xl leading-relaxed font-nunito font-light"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ 
                   opacity: index === currentImageIndex ? 1 : 0,
@@ -143,14 +143,14 @@ const HeroSection = () => {
                   <Link 
                     to="/admissions"
                     aria-label="Start your application process"
-                    className="px-12 py-5 rounded-none text-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg bg-white text-blue-900"
+                    className="px-8 sm:px-12 py-4 sm:py-5 rounded-none text-base sm:text-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg bg-white text-blue-900"
                   >
                     Apply Now
                   </Link>
                   <Link 
                     to="/about"
                     aria-label="Learn more about our school"
-                    className="px-12 py-5 rounded-none text-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg border-2 border-primary text-white"
+                    className="px-8 sm:px-12 py-4 sm:py-5 rounded-none text-base sm:text-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg border-2 border-primary text-white"
                   >
                     Learn More
                   </Link>
