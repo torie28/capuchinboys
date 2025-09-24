@@ -164,13 +164,13 @@ const AboutSection = () => {
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-8 lg:px-12 w-full">
             <div className="max-w-4xl">
-              <h1 className="text-6xl md:text-8xl font-cinzel font-bold text-white mb-8 leading-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-cinzel font-bold text-white mb-6 md:mb-8 leading-tight">
                 {HERO_CONTENT.title}
-                <span className="block text-amber-300 text-5xl md:text-6xl mt-4 font-light italic">
+                <span className="block text-amber-300 text-2xl sm:text-3xl md:text-4xl lg:text-6xl mt-2 sm:mt-3 md:mt-4 font-light italic">
                   {HERO_CONTENT.subtitle}
                 </span>
               </h1>
-              <p className="text-2xl text-amber-100 mb-12 max-w-3xl leading-relaxed font-nunito font-light">
+              <p className="text-lg sm:text-xl md:text-2xl text-amber-100 mb-8 md:mb-12 max-w-3xl leading-relaxed font-nunito font-light">
                 {HERO_CONTENT.description}
               </p>
               <div className="flex flex-wrap gap-6">
@@ -178,7 +178,7 @@ const AboutSection = () => {
                   <button 
                     key={idx}
                     onClick={() => button.text === 'Discover Our Story' ? scrollToSection('our-story') : null}
-                    className={`px-12 py-5 rounded-none text-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg ${button.className}`}
+                    className={`px-8 sm:px-10 md:px-12 py-3 sm:py-4 md:py-5 rounded-none text-base sm:text-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg ${button.className}`}
                   >
                     {button.text}
                   </button>
@@ -205,14 +205,14 @@ const AboutSection = () => {
             <div className="space-y-12">
               <div id="our-story" className="bg-white/95 backdrop-blur-sm p-12 shadow-2xl border border-amber-200/50 scroll-mt-24">
                 <div className="mb-8">
-                  <div className="w-16 h-1 bg-amber-600 mb-6"></div>
-                  <h3 className="text-4xl font-cinzel font-bold text-stone-800 mb-2">
+                  <div className="w-12 sm:w-16 h-1 bg-amber-600 mb-4 sm:mb-6"></div>
+                  <h3 className="text-3xl sm:text-4xl font-cinzel font-bold text-stone-800 mb-2">
                     {ABOUT_CONTENT.story.title}
                   </h3>
-                  <div className="w-24 h-px bg-stone-300"></div>
+                  <div className="w-16 sm:w-24 h-px bg-stone-300"></div>
                 </div>
                 {ABOUT_CONTENT.story.content.map((paragraph, idx) => (
-                  <p key={idx} className="text-stone-600 leading-relaxed text-lg mb-8 last:mb-0 font-nunito font-light">
+                  <p key={idx} className="text-stone-600 leading-relaxed text-base sm:text-lg mb-6 sm:mb-8 last:mb-0 font-nunito font-light">
                     {paragraph}
                   </p>
                 ))}
@@ -220,26 +220,26 @@ const AboutSection = () => {
 
               <div className="bg-gradient-to-br from-amber-900 to-stone-900 text-white p-12 shadow-2xl">
                 <div className="mb-8">
-                  <div className="w-16 h-1 bg-amber-300 mb-6"></div>
-                  <h3 className="text-4xl font-cinzel font-bold mb-2">
+                  <div className="w-12 sm:w-16 h-1 bg-amber-300 mb-4 sm:mb-6"></div>
+                  <h3 className="text-3xl sm:text-4xl font-cinzel font-bold mb-2">
                     {ABOUT_CONTENT.mission.title}
                   </h3>
-                  <div className="w-24 h-px bg-amber-300/50"></div>
+                  <div className="w-16 sm:w-24 h-px bg-amber-300/50"></div>
                 </div>
-                <p className="text-amber-100 leading-relaxed text-lg mb-10 font-nunito font-light">
+                <p className="text-amber-100 leading-relaxed text-base sm:text-lg mb-6 sm:mb-10 font-nunito font-light">
                   {ABOUT_CONTENT.mission.content}
                 </p>
               </div>
 
               <div className="bg-white/95 backdrop-blur-sm p-12 shadow-2xl border border-stone-200/50">
                 <div className="mb-8">
-                  <div className="w-16 h-1 bg-stone-600 mb-6"></div>
-                  <h3 className="text-4xl font-cinzel font-bold text-stone-800 mb-2">
+                  <div className="w-12 sm:w-16 h-1 bg-stone-600 mb-4 sm:mb-6"></div>
+                  <h3 className="text-3xl sm:text-4xl font-cinzel font-bold text-stone-800 mb-2">
                     {ABOUT_CONTENT.vision.title}
                   </h3>
-                  <div className="w-24 h-px bg-stone-300"></div>
+                  <div className="w-16 sm:w-24 h-px bg-stone-300"></div>
                 </div>
-                <p className="text-stone-600 leading-relaxed text-lg font-nunito font-light">
+                <p className="text-stone-600 leading-relaxed text-base sm:text-lg font-nunito font-light">
                   {ABOUT_CONTENT.vision.content}
                 </p>
               </div>
@@ -269,8 +269,8 @@ const AboutSection = () => {
               {/* Floating Achievement Card */}
               <div className="absolute -bottom-8 -left-8 bg-amber-700 text-white rounded-lg p-8 shadow-2xl border-4 border-white">
                 <div className="text-center">
-                  <div className="text-4xl font-bold mb-2">Excellence</div>
-                  <div className="text-amber-200 text-sm font-medium">In Every Endeavor</div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2">Excellence</div>
+                  <div className="text-amber-200 text-xs sm:text-sm font-medium">In Every Endeavor</div>
                 </div>
               </div>
             </div>
@@ -279,10 +279,10 @@ const AboutSection = () => {
           {/* Values Section */}
           <div className="mb-32">
             <div className="text-center mb-20">
-              <div className="w-16 h-1 bg-amber-600 mx-auto mb-8"></div>
-              <h3 className="text-5xl font-cinzel font-bold text-stone-800 mb-6">Our Core Values</h3>
-              <div className="w-24 h-px bg-stone-300 mx-auto mb-8"></div>
-              <p className="text-xl text-stone-600 max-w-4xl mx-auto font-nunito font-light leading-relaxed">
+              <div className="w-12 sm:w-16 h-1 bg-amber-600 mx-auto mb-6 sm:mb-8"></div>
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-cinzel font-bold text-stone-800 mb-4 sm:mb-6">Our Core Values</h3>
+              <div className="w-16 sm:w-24 h-px bg-stone-300 mx-auto mb-6 sm:mb-8"></div>
+              <p className="text-lg sm:text-xl text-stone-600 max-w-4xl mx-auto font-nunito font-light leading-relaxed">
                 The fundamental principles that guide our educational philosophy and shape the character of every student who walks through our halls
               </p>
             </div>
@@ -293,9 +293,9 @@ const AboutSection = () => {
                   key={index}
                   className="bg-white/95 backdrop-blur-sm rounded-lg p-10 shadow-xl border border-amber-200/50 text-center hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
                 >
-                  <div className="text-5xl mb-6">{value.icon}</div>
-                  <h4 className="text-xl font-cinzel font-bold text-stone-800 mb-6">{value.title}</h4>
-                  <p className="text-stone-600 leading-relaxed text-lg font-nunito font-light">{value.description}</p>
+                  <div className="text-4xl sm:text-5xl mb-4 sm:mb-6">{value.icon}</div>
+                  <h4 className="text-lg sm:text-xl font-cinzel font-bold text-stone-800 mb-4 sm:mb-6">{value.title}</h4>
+                  <p className="text-stone-600 leading-relaxed text-base sm:text-lg font-nunito font-light">{value.description}</p>
                 </div>
               ))}
             </div>
@@ -304,15 +304,15 @@ const AboutSection = () => {
           {/* Community Offerings Section */}
           <div className="mb-32">
             <div className="text-center mb-20">
-              <div className="w-16 h-1 bg-amber-600 mx-auto mb-8"></div>
-              <h3 className="text-5xl font-cinzel font-bold text-stone-800 mb-4">
+              <div className="w-12 sm:w-16 h-1 bg-amber-600 mx-auto mb-6 sm:mb-8"></div>
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-cinzel font-bold text-stone-800 mb-3 sm:mb-4">
                 {ABOUT_CONTENT.community.title}
               </h3>
-              <p className="text-2xl text-amber-700 font-nunito font-light italic mb-8">
+              <p className="text-xl sm:text-2xl text-amber-700 font-nunito font-light italic mb-6 sm:mb-8">
                 {ABOUT_CONTENT.community.subtitle}
               </p>
-              <div className="w-24 h-px bg-stone-300 mx-auto mb-8"></div>
-              <p className="text-xl text-stone-600 max-w-4xl mx-auto font-nunito font-light leading-relaxed">
+              <div className="w-16 sm:w-24 h-px bg-stone-300 mx-auto mb-6 sm:mb-8"></div>
+              <p className="text-lg sm:text-xl text-stone-600 max-w-4xl mx-auto font-nunito font-light leading-relaxed">
                 {ABOUT_CONTENT.community.description}
               </p>
             </div>
@@ -324,13 +324,13 @@ const AboutSection = () => {
                   className="bg-white/95 backdrop-blur-sm p-8 shadow-xl border border-amber-200/50 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1"
                 >
                   <div className="mb-6">
-                    <div className="w-12 h-1 bg-amber-600 mb-4"></div>
-                    <h4 className="text-xl font-cinzel font-bold text-stone-800 mb-2">
+                    <div className="w-10 sm:w-12 h-1 bg-amber-600 mb-3 sm:mb-4"></div>
+                    <h4 className="text-lg sm:text-xl font-cinzel font-bold text-stone-800 mb-2">
                       {offering.title}
                     </h4>
-                    <div className="w-16 h-px bg-stone-300"></div>
+                    <div className="w-12 sm:w-16 h-px bg-stone-300"></div>
                   </div>
-                  <p className="text-stone-600 leading-relaxed text-lg font-nunito font-light">
+                  <p className="text-stone-600 leading-relaxed text-base sm:text-lg font-nunito font-light">
                     {offering.description}
                   </p>
                 </div>
@@ -355,18 +355,18 @@ const AboutSection = () => {
               <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-12 md:mb-16">
                   <div className="w-16 h-1 bg-amber-300 mx-auto mb-6 sm:mb-8"></div>
-                  <h3 className="text-3xl sm:text-4xl md:text-5xl font-cinzel font-bold mb-3 sm:mb-4 px-2 break-words">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-cinzel font-bold mb-3 sm:mb-4 px-2 break-words">
                     {ABOUT_CONTENT.franciscan.title}
                   </h3>
-                  <p className="text-2xl text-amber-200 font-nunito font-light italic mb-8">
+                  <p className="text-xl sm:text-2xl text-amber-200 font-nunito font-light italic mb-6 sm:mb-8">
                     {ABOUT_CONTENT.franciscan.subtitle}
                   </p>
-                  <div className="w-24 h-px bg-amber-300/50 mx-auto"></div>
+                  <div className="w-16 sm:w-24 h-px bg-amber-300/50 mx-auto"></div>
                 </div>
 
-                <div className="space-y-10">
+                <div className="space-y-6 sm:space-y-10">
                   {ABOUT_CONTENT.franciscan.content.map((paragraph, idx) => (
-                    <p key={idx} className="text-amber-100 leading-relaxed text-lg font-nunito font-light text-center max-w-5xl mx-auto">
+                    <p key={idx} className="text-amber-100 leading-relaxed text-base sm:text-lg font-nunito font-light text-center max-w-5xl mx-auto">
                       {paragraph}
                     </p>
                   ))}
@@ -377,7 +377,7 @@ const AboutSection = () => {
                     <p className="text-2xl font-cinzel italic text-amber-200">
                       "Lord, make me an instrument of your peace."
                     </p>
-                    <p className="text-amber-300 mt-4 font-medium">
+                    <p className="text-amber-300 mt-3 sm:mt-4 text-sm sm:text-base font-medium">
                       — St. Francis of Assisi
                     </p>
                   </div>
