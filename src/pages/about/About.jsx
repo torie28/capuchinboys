@@ -9,10 +9,10 @@ const HERO_IMAGES = [
 ];
 
 const SCHOOL_IMAGES = [
-  'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=500&h=400&fit=crop', // School building
-  'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=500&h=600&fit=crop', // Classroom
-  'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=500&h=400&fit=crop', // Library
-  'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&h=500&fit=crop'  // Students studying
+  '/assets/images/events/mass_as_our_culture.jpg', // School building
+  '/assets/images/academics/student_in_class.jpg', // Classroom
+  '/assets/images/academics/student_focusing.jpg', // Library
+  '/assets/images/environments/modern_school_environment.jpg',  // Students studying
 ];
 
 const VALUES = [
@@ -267,7 +267,7 @@ const AboutSection = () => {
               </div>
               
               {/* Floating Achievement Card */}
-              <div className="absolute -bottom-8 -left-8 bg-amber-700 text-white rounded-lg p-8 shadow-2xl border-4 border-white">
+              <div className="absolute bottom-0 left-0 -mb-20 -ml-8 bg-amber-700 text-white rounded-lg p-5 sm:p-7 shadow-2xl border-4 border-white">
                 <div className="text-center">
                   <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2">Excellence</div>
                   <div className="text-amber-200 text-xs sm:text-sm font-medium">In Every Endeavor</div>
