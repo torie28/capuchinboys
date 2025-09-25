@@ -110,27 +110,59 @@ const CapuchinSchoolPage = () => {
 
         {/* Content with enhanced mobile parallax */}
         <motion.div 
-          className="relative z-10 text-center px-6 max-w-6xl mx-auto touch-none"
+          className="relative z-10 px-6 max-w-6xl mx-auto touch-none text-center lg:text-left"
           style={{ 
             y,
             WebkitTransform: 'translate3d(0,0,0)',
             WebkitBackfaceVisibility: 'hidden'
           }}
         >
-          <div className="transform transition-all duration-1000">
+          <div className="transform transition-all duration-1000 max-w-4xl lg:ml-0">
             {/* Main Heading */}
-            <h1 className="font-playfair font-light mb-8 text-[clamp(2.5rem,8vw,6rem)] leading-[1.1] tracking-[0.02em] text-white">
-              ACADEMICS
-              <br />
-              <span className="font-normal bg-gradient-135 from-white via-white to-white bg-clip-text text-transparent">
-                CAPUCHIN BOYS
-              </span>
-            </h1>
+            <motion.h1 
+              className="text-4xl sm:text-5xl md:text-7xl font-cinzel font-bold text-white mb-4 md:mb-6 leading-tight"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <span className="whitespace-nowrap">ACADEMICS EXCELLENCE</span>
+              <motion.span 
+                className="block text-amber-300 text-2xl sm:text-3xl md:text-5xl mt-2 md:mt-3 font-light italic"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              >
+                HOLISTIC EDUCATION
+              </motion.span>
+            </motion.h1>
 
-            {/* Subtitle */}
-            <div className="font-dancing text-3xl md:text-5xl mb-12 font-normal tracking-[0.05em] text-[#B4975A]">
-              Excellence in Education
-            </div>
+            {/* Description */}
+            <motion.p 
+              className="text-lg sm:text-xl text-amber-100 mb-6 md:mb-8 max-w-3xl leading-relaxed font-nunito font-light"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              Excellence in Education and Holistic Development
+            </motion.p>
+
+            {/* Buttons */}
+            <motion.div 
+              className="pt-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
+              <div className="flex flex-wrap justify-center lg:justify-start gap-6">
+                <Link 
+                  to="/contact"
+                  aria-label="Contact us for more information"
+                  className="px-8 sm:px-12 py-4 sm:py-5 rounded-none text-base sm:text-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg border-2 border-white text-white"
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </motion.div>
           </div>
         </motion.div>
       </motion.section>
@@ -289,20 +321,6 @@ const CapuchinSchoolPage = () => {
                 'Passing the school\'s entrance examination and interview'
               ]}
             />
-          </div>
-
-          {/* Apply Now Button */}
-          <div className="flex justify-center mt-12 mb-12">
-            <Link 
-              to="/admissions"
-              aria-label="Start your application process"
-              className="inline-flex items-center justify-center px-8 py-3 border border-primary text-base font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors duration-300"
-            >
-              Apply Now
-              <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd" />
-              </svg>
-            </Link>
           </div>
         </div>
       </motion.section>

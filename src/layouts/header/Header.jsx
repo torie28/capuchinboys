@@ -14,7 +14,7 @@ const Header = () => {
     { name: 'Academics', path: '/academics' },
     { name: 'Admissions', path: '/admissions' },
     { name: 'About Us', path: '/about' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Contact Us', path: '/contact' },
     
   ];
 
