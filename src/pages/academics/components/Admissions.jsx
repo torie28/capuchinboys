@@ -126,18 +126,18 @@ const Admissions = () => {
             transition={{ duration: 0.8 }}
           >
             <motion.h1 
-              className="text-6xl md:text-8xl font-cinzel font-bold text-white mb-6 leading-tight"
+              className="text-5xl sm:text-6xl md:text-8xl font-cinzel font-bold text-white mb-4 md:mb-6 leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
             >
               Admissions
-              <span className="block text-amber-300 text-5xl md:text-6xl mt-4 font-light italic">
+              <span className="block text-amber-300 text-3xl sm:text-4xl md:text-6xl mt-3 md:mt-4 font-light italic">
                 Join Our Community
               </span>
             </motion.h1>
             <motion.p 
-              className="text-2xl text-amber-100 mb-12 max-w-3xl leading-relaxed font-nunito font-light"
+              className="text-xl sm:text-2xl text-amber-100 mb-8 md:mb-12 max-w-3xl leading-relaxed font-nunito font-light"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
