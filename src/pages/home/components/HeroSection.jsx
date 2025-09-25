@@ -23,7 +23,7 @@ const HERO_CONTENT = [
     description: 'Learning in harmony with nature'
   },
   {
-    image: '/assets/images/academics/student_in_class.jpg',
+    image: '/assets/images/academics/student_focusing.jpg',
     title: 'Academic Excellence',
     subtitle: 'Holistic Education',
     description: 'Nurturing minds and shaping futures'
@@ -75,7 +75,15 @@ const HeroSection = () => {
               backgroundRepeat: 'no-repeat',
               transform: `scale(${1 + (scrollPosition * 0.0005)})`,
               transition: 'transform 1.5s ease-out, opacity 2s ease-in-out',
-              willChange: 'transform, opacity'
+              willChange: 'transform, opacity',
+              // Mobile-specific styles
+              '@media (max-width: 640px)': {
+                backgroundSize: 'cover',
+                backgroundPosition: 'top center',
+                height: '100%',
+                width: '100%',
+                transform: 'scale(1.2)' // Slightly zoom in on mobile
+              }
             }}
           >
             <div className="absolute inset-0 bg-gradient-to-r from-stone-900/70 via-stone-900/50 to-stone-900/60"></div>

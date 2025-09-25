@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 const HERO_IMAGES = [
   '/assets/images/environments/modern_school_environment.jpg',
   '/assets/images/environments/environment_section.jpg',
-  '/assets/images/academics/student_in_class.jpg',
+  '/assets/images/academics/student_focusing.jpg',
   '/assets/images/events/mass_as_our_culture.jpg'
 ];
 
