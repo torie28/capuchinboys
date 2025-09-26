@@ -164,13 +164,13 @@ const AboutSection = () => {
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-8 lg:px-12 w-full">
             <div className="max-w-4xl">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-cinzel font-bold text-white mb-6 md:mb-8 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-cinzel font-bold text-white mb-4 md:mb-6 leading-tight">
                 {HERO_CONTENT.title}
-                <span className="block text-amber-300 text-2xl sm:text-3xl md:text-4xl lg:text-6xl mt-2 sm:mt-3 md:mt-4 font-light italic">
+                <span className="block text-amber-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl mt-2 sm:mt-2 md:mt-3 font-light italic">
                   {HERO_CONTENT.subtitle}
                 </span>
               </h1>
-              <p className="text-lg sm:text-xl md:text-2xl text-amber-100 mb-8 md:mb-12 max-w-3xl leading-relaxed font-nunito font-light">
+              <p className="text-base sm:text-lg text-amber-100 mb-6 md:mb-10 max-w-3xl leading-relaxed font-nunito font-light">
                 {HERO_CONTENT.description}
               </p>
               <div className="flex flex-wrap gap-6">
