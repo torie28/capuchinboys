@@ -79,7 +79,7 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo and School Name */}
           <Link to="/" className="flex items-center space-x-3 group">
-            <div className="w-12 h-12 rounded-full overflow-hidden group-hover:rotate-360 transition-transform duration-700 ease-in-out">
+            <div className="w-20 h-20  overflow-hidden group-hover:rotate-360 transition-transform duration-700 ease-in-out">
               <img 
                 src="/assets/images/logo/school_logo2.png" 
                 alt="School Logo" 
