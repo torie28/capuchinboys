@@ -110,24 +110,24 @@ const CapuchinSchoolPage = () => {
 
         {/* Content with enhanced mobile parallax */}
         <motion.div 
-          className="relative z-10 px-6 max-w-6xl mx-auto touch-none text-center lg:text-left"
+          className="relative z-10 px-6 max-w-6xl mx-auto touch-none text-left"
           style={{ 
             y,
             WebkitTransform: 'translate3d(0,0,0)',
             WebkitBackfaceVisibility: 'hidden'
           }}
         >
-          <div className="transform transition-all duration-1000 max-w-4xl lg:ml-0">
+          <div className="transform transition-all duration-1000 max-w-4xl">
             {/* Main Heading */}
             <motion.h1 
-              className="text-4xl sm:text-5xl md:text-7xl font-cinzel font-bold text-white mb-4 md:mb-6 leading-tight"
+              className="text-5xl sm:text-6xl md:text-8xl font-cinzel font-bold text-white mb-6 md:mb-8 leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <span className="whitespace-nowrap">ACADEMICS EXCELLENCE</span>
+              <span className="lg:whitespace-nowrap">ACADEMICS EXCELLENCE</span>
               <motion.span 
-                className="block text-amber-300 text-2xl sm:text-3xl md:text-5xl mt-2 md:mt-3 font-light italic"
+                className="block text-amber-300 text-3xl sm:text-4xl md:text-6xl mt-3 md:mt-4 font-light italic"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
@@ -138,7 +138,7 @@ const CapuchinSchoolPage = () => {
 
             {/* Description */}
             <motion.p 
-              className="text-lg sm:text-xl text-amber-100 mb-6 md:mb-8 max-w-3xl leading-relaxed font-nunito font-light"
+              className="text-xl sm:text-2xl text-amber-100 mb-8 md:mb-12 max-w-3xl leading-relaxed font-nunito font-light"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -153,7 +153,7 @@ const CapuchinSchoolPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              <div className="flex flex-wrap justify-center lg:justify-start gap-6">
+              <div className="flex flex-wrap gap-6">
                 <Link 
                   to="/contact"
                   aria-label="Contact us for more information"
