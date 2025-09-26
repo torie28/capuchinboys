@@ -78,8 +78,8 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo and School Name */}
-          <Link to="/" className="flex items-center space-x-3">
-            <div className="w-12 h-12 rounded-full overflow-hidden">
+          <Link to="/" className="flex items-center space-x-3 group">
+            <div className="w-12 h-12 rounded-full overflow-hidden group-hover:rotate-360 transition-transform duration-700 ease-in-out">
               <img 
                 src="/assets/images/logo/school_log.jpg" 
                 alt="School Logo" 
