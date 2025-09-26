@@ -54,7 +54,7 @@ const Footer = () => {
                     <img 
                       src="/assets/images/logo/school_log.jpg" 
                       alt="Capuchin Boys Secondary School Logo" 
-                      className="h-20 w-20 md:h-16 md:w-16 object-cover rounded-full mb-4 md:mb-0"
+                      className="h-40 w-40 md:h-16 md:w-16 object-cover rounded-full mb-4 md:mb-0"
                     />
                     <div className="text-center md:text-left space-y-1">
                       <h3 className="text-black text-2xl font-light tracking-tight">Capuchin Boys</h3>
