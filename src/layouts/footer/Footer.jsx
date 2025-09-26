@@ -43,22 +43,28 @@ const Footer = () => {
         <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-blue-600/15 to-transparent rounded-full blur-3xl"></div>
         <div className="absolute top-1/4 right-0 w-1/3 h-1/3 bg-gradient-to-bl from-purple-600/15 to-transparent rounded-full blur-3xl"></div>
       </div>
-
       <div className="w-full max-w-none px-4 mx-0 sm:px-6 lg:px-8 xl:px-4 relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className={`pt-16 transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
               {/* Branding - Full width on mobile, then takes 4 columns */}
-              <div className="lg:col-span-4 text-center md:text-left">
+              <div className="lg:col-span-4">
                 <div className="space-y-6 md:space-y-8">
-                  <div className="space-y-2">
-                    <h3 className="text-black text-2xl font-light tracking-tight">Capuchin Boys</h3>
-                    <h4 className="text-2xl font-medium tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-black via-black to-black">
-                      Secondary School
-                    </h4>
+                  <div className="flex flex-col items-center md:flex-row md:items-center md:space-x-4">
+                    <img 
+                      src="/assets/images/logo/school_log.jpg" 
+                      alt="Capuchin Boys Secondary School Logo" 
+                      className="h-20 w-20 md:h-16 md:w-16 object-cover rounded-full mb-4 md:mb-0"
+                    />
+                    <div className="text-center md:text-left space-y-1">
+                      <h3 className="text-black text-2xl font-light tracking-tight">Capuchin Boys</h3>
+                      <h4 className="text-2xl font-medium tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-black via-black to-black">
+                        Secondary School
+                      </h4>
+                    </div>
                   </div>
                   
-                  <p className="text-black/60 text-sm leading-relaxed"> 
+                  <p className="text-black/60 text-sm leading-relaxed text-center md:text-left"> 
                     Our mission is to provide an environment that fosters academic excellence, 
                     character development, and spiritual growth.
                   </p>
