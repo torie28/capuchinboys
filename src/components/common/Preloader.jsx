@@ -1,52 +1,89 @@
 // src/components/common/Preloader.jsx
-import { useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const Preloader = ({ onLoadingComplete }) => {
+const Preloader = ({ onLoadingComplete, isInitialLoad = true }) => {
+  const [isVisible, setIsVisible] = useState(true);
+
   useEffect(() => {
-    // Complete loading after animation duration
-    const completeTimer = setTimeout(() => {
+    // For initial load, show loader for 1.2 seconds on mobile, 1.5s on desktop
+    const isMobile = window.innerWidth <= 768;
+    const duration = isMobile ? 1200 : 1500;
+    
+    const timer = setTimeout(() => {
+      setIsVisible(false);
       onLoadingComplete?.();
-    }, 2000);
+    }, duration);
+    
+    return () => clearTimeout(timer);
+  }, [onLoadingComplete, isInitialLoad]);
 
-    return () => {
-      clearTimeout(completeTimer);
-    };
-  }, [onLoadingComplete]);
+  // Animation variants for the loader overlay
+  const overlayVariants = {
+    visible: { 
+      opacity: 1,
+      transition: { 
+        duration: 0.4,
+        ease: [0.4, 0, 0.2, 1]
+      }
+    },
+    hidden: { 
+      opacity: 0,
+      transition: { 
+        duration: 0.4,
+        ease: [0.4, 0, 0.2, 1]
+      }
+    }
+  };
 
-  // Animation variants for the dots
+  // Animation variants for the dots - optimized for mobile
   const dotVariants = {
     initial: { y: '0%' },
-    animate: (i) => ({
-      y: ['0%', '-100%', '0%'],
-      transition: {
-        duration: 0.8,
-        repeat: Infinity,
-        delay: i * 0.1,
-        ease: 'easeInOut'
-      }
-    })
+    animate: (i) => {
+      const isMobile = window.innerWidth <= 768;
+      return {
+        y: ['0%', isMobile ? '-50%' : '-100%', '0%'],
+        transition: {
+          duration: isMobile ? 0.6 : 0.8,
+          repeat: Infinity,
+          delay: i * (isMobile ? 0.15 : 0.1),
+          ease: 'easeInOut'
+        }
+      };
+    }
   };
 
   return (
-    <div className="fixed inset-0 bg-white bg-opacity-90 flex flex-col items-center justify-center z-50 p-6">
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="flex space-x-3"
-      >
-        {[0, 1, 2, 3].map((i) => (
-          <motion.div
-            key={i}
-            className="w-4 h-4 rounded-full bg-primary"
-            variants={dotVariants}
-            initial="initial"
-            animate="animate"
-            custom={i}
-          />
-        ))}
-      </motion.div>
-    </div>
+    <AnimatePresence>
+      {isVisible && (
+        <motion.div 
+          className="fixed inset-0 bg-gray-50 flex items-center justify-center z-50 touch-none"
+          style={{
+            WebkitTapHighlightColor: 'transparent',
+            WebkitTouchCallout: 'none',
+            WebkitUserSelect: 'none',
+            userSelect: 'none'
+          }}
+          initial="visible"
+          animate="visible"
+          exit="hidden"
+          variants={overlayVariants}
+        >
+          <div className="flex space-x-3">
+            {[0, 1, 2].map((i) => (
+              <motion.div
+                key={i}
+                className="w-3 h-3 rounded-full bg-primary"
+                variants={dotVariants}
+                initial="initial"
+                animate="animate"
+                custom={i}
+              />
+            ))}
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 
