@@ -20,13 +20,22 @@ const MainLayout = () => {
     
     // Handle route changes
     const isNewRoute = prevLocationRef.current !== location.pathname;
-    prevLocationRef.current = location.pathname;
     
     if (isNewRoute || isFirstLoad) {
       setIsLoading(true);
       setIsAdminRoute(location.pathname.startsWith('/admin'));
       window.scrollTo(0, 0);
+      
+      // Set a small timeout to ensure the loading state is properly handled
+      // This helps with the initial render and route transitions
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+      }, 100);
+      
+      return () => clearTimeout(timer);
     }
+    
+    prevLocationRef.current = location.pathname;
   }, [location.pathname]);
 
   const handleLoadingComplete = () => {
@@ -36,27 +45,25 @@ const MainLayout = () => {
     }
   };
 
-  // Animation variants for page transitions - optimized for mobile
-  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+  // Animation variants for page transitions
   const pageVariants = {
     initial: { 
       opacity: 0,
-      y: isMobile ? 10 : 20
+      y: 20
     },
     enter: { 
       opacity: 1,
       y: 0,
       transition: { 
-        duration: isMobile ? 0.4 : 0.6,
-        ease: [0.4, 0, 0.2, 1],
-        when: 'beforeChildren'
+        duration: 0.6,
+        ease: [0.4, 0, 0.2, 1]
       }
     },
     exit: { 
       opacity: 0,
-      y: isMobile ? -10 : -20,
+      y: -20,
       transition: { 
-        duration: isMobile ? 0.3 : 0.4,
+        duration: 0.4,
         ease: [0.4, 0, 0.2, 1]
       }
     }
@@ -101,7 +108,7 @@ const MainLayout = () => {
             </AnimatePresence>
           </main>
           
-          {!isLoading && <Footer />}
+          <Footer />
         </>
       ) : (
         <div className="flex-grow bg-gray-100">

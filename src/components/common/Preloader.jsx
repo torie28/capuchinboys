@@ -6,14 +6,11 @@ const Preloader = ({ onLoadingComplete, isInitialLoad = true }) => {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    // For initial load, show loader for 1.2 seconds on mobile, 1.5s on desktop
-    const isMobile = window.innerWidth <= 768;
-    const duration = isMobile ? 1200 : 1500;
-    
+    // For initial load, show loader for 1.5 seconds
     const timer = setTimeout(() => {
       setIsVisible(false);
       onLoadingComplete?.();
-    }, duration);
+    }, 1500);
     
     return () => clearTimeout(timer);
   }, [onLoadingComplete, isInitialLoad]);
@@ -22,48 +19,36 @@ const Preloader = ({ onLoadingComplete, isInitialLoad = true }) => {
   const overlayVariants = {
     visible: { 
       opacity: 1,
-      transition: { 
-        duration: 0.4,
-        ease: [0.4, 0, 0.2, 1]
-      }
+      transition: { duration: 0.5 }
     },
     hidden: { 
       opacity: 0,
       transition: { 
-        duration: 0.4,
+        duration: 0.5,
         ease: [0.4, 0, 0.2, 1]
       }
     }
   };
 
-  // Animation variants for the dots - optimized for mobile
+  // Animation variants for the dots
   const dotVariants = {
     initial: { y: '0%' },
-    animate: (i) => {
-      const isMobile = window.innerWidth <= 768;
-      return {
-        y: ['0%', isMobile ? '-50%' : '-100%', '0%'],
-        transition: {
-          duration: isMobile ? 0.6 : 0.8,
-          repeat: Infinity,
-          delay: i * (isMobile ? 0.15 : 0.1),
-          ease: 'easeInOut'
-        }
-      };
-    }
+    animate: (i) => ({
+      y: ['0%', '-100%', '0%'],
+      transition: {
+        duration: 0.8,
+        repeat: Infinity,
+        delay: i * 0.1,
+        ease: 'easeInOut'
+      }
+    })
   };
 
   return (
     <AnimatePresence>
       {isVisible && (
         <motion.div 
-          className="fixed inset-0 bg-gray-50 flex items-center justify-center z-50 touch-none"
-          style={{
-            WebkitTapHighlightColor: 'transparent',
-            WebkitTouchCallout: 'none',
-            WebkitUserSelect: 'none',
-            userSelect: 'none'
-          }}
+          className="fixed inset-0 bg-gray-50 flex items-center justify-center z-50"
           initial="visible"
           animate="visible"
           exit="hidden"
