@@ -75,13 +75,13 @@ const Admissions = () => {
       'Medical Report',
       'Passport-Sized Photos',
     ],
-    importantDates: [
-      { month: 'Jan', title: 'Applications Open', date: 'January 10', description: 'Applications for O-Level admissions open' },
-      { month: 'Feb', title: 'Entrance Exams', date: 'February 15', description: 'Entrance exams for O-Level admissions' },
-      { month: 'Mar', title: 'Interviews', date: 'March 1-15', description: 'Interviews for O-Level admissions' },
-      { month: 'Apr', title: 'Acceptance Letters', date: 'April 1', description: 'Acceptance letters for O-Level admissions' },
-      { month: 'May', title: 'Enrollment Deadline', date: 'May 15', description: 'Enrollment deadline for O-Level admissions' }
-    ]
+    // importantDates: [
+    //   { month: 'Jan', title: 'Applications Open', date: 'January 10', description: 'Applications for O-Level admissions open' },
+    //   { month: 'Feb', title: 'Entrance Exams', date: 'February 15', description: 'Entrance exams for O-Level admissions' },
+    //   { month: 'Mar', title: 'Interviews', date: 'March 1-15', description: 'Interviews for O-Level admissions' },
+    //   { month: 'Apr', title: 'Acceptance Letters', date: 'April 1', description: 'Acceptance letters for O-Level admissions' },
+    //   { month: 'May', title: 'Enrollment Deadline', date: 'May 15', description: 'Enrollment deadline for O-Level admissions' }
+    // ]
   };
 
   // Handle scroll position for parallax effect
@@ -241,7 +241,7 @@ const Admissions = () => {
             </div>
 
             {/* Important Dates */}
-            <div className="md:col-span-2 bg-white rounded-lg shadow-md overflow-hidden">
+            {/* <div className="md:col-span-2 bg-white rounded-lg shadow-md overflow-hidden">
               <div className="p-6">
                 <h3 className="text-2xl font-semibold text-gray-900 mb-6">Important Dates</h3>
                 <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
@@ -255,7 +255,7 @@ const Admissions = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         
