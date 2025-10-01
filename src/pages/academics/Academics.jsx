@@ -20,7 +20,7 @@ const AcademicLevel = ({ level, description, subjects, requirements }) => (
       </div>
     </div>
     
-    <div className="mb-8">
+    {/* <div className="mb-8">
       <h4 className="font-medium text-gray-800 mb-3 text-lg">Elective Subjects <span className="text-sm font-normal text-gray-500">(Choose 3-4)</span></h4>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
         {subjects.electives.map((subject, i) => (
@@ -30,7 +30,7 @@ const AcademicLevel = ({ level, description, subjects, requirements }) => (
           </div>
         ))}
       </div>
-    </div>
+    </div> */}
     
     <div className="pt-4 border-t border-gray-100">
       <h4 className="font-medium text-gray-800 mb-3 text-lg">Admission Requirements</h4>
@@ -303,17 +303,17 @@ const CapuchinSchoolPage = () => {
                   'Geography',
                   'History'
                 ],
-                electives: [
-                  'Commerce',
-                  'Computer Studies',
-                  'French',
-                  'Religious Education',
-                  'Agriculture',
-                  'Business Studies',
-                  'Art & Design',
-                  'Music',
-                  'Physical Education'
-                ]
+                // electives: [
+                //   'Commerce',
+                //   'Computer Studies',
+                //   'French',
+                //   'Religious Education',
+                //   'Agriculture',
+                //   'Business Studies',
+                //   'Art & Design',
+                //   'Music',
+                //   'Physical Education'
+                // ]
               }}
               requirements={[
                 'Successful completion of primary education (PSLE)',
@@ -347,7 +347,7 @@ const CapuchinSchoolPage = () => {
               <div className="space-y-6 text-lg leading-relaxed text-[#080808] font-light">
                 <p>
                   Founded on the sacred principles of Capuchin Franciscan spirituality, our institution has been 
-                  a beacon of educational excellence for over three decades. We cultivate young minds through 
+                  a beacon of educational excellence for over one decades. We cultivate young minds through 
                   the perfect harmony of rigorous academics and moral formation.
                 </p>
                 <p>
