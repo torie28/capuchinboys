@@ -19,11 +19,11 @@ const AcademicPrograms = () => {
       title: "Social Studies",
       subjects: ["History", "Geography", "Civics", "Religious Studies"],
       description: "Understanding society, culture, and global citizenship through comprehensive social education.",
-      highlights: ["Historical field trips", "Community service projects", "Model UN participation"]
+      highlights: ["Historical field trips", "Community service projects",]
     },
     {
       title: "Physical Education",
-      subjects: ["Sports", "Health Education", "Fitness Training", "Team Sports", "Athletics"],
+      subjects: ["Sports", "Health Education",  "Team Sports"],
       description: "Promoting physical fitness, teamwork, and healthy lifestyle habits.",
       highlights: ["Inter-school competitions", "Sports facilities", "Health awareness programs"]
     }
