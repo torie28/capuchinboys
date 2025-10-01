@@ -126,7 +126,7 @@ const Gallery = () => {
     {
       id: 16,
       src: "/assets/images/events/making_school_memories.jpg",
-      alt: "Students making school memories",
+      alt: "Making school memories",
       category: "events",
       title: "Memorable School Moments"
     },
