@@ -162,7 +162,7 @@ const Admissions = () => {
               {
                 step: '01',
                 title: 'Application',
-                description: 'Submit the online application form along with required documents.'
+                description: 'Submit the application form along with required documents.'
               },
               {
                 step: '02',
@@ -171,21 +171,11 @@ const Admissions = () => {
               },
               {
                 step: '03',
-                title: 'Interview',
-                description: 'Attend an interview with our academic team.'
-              },
-              {
-                step: '04',
                 title: 'Acceptance',
                 description: 'Receive admission decision and complete enrollment.'
               },
               {
-                step: '05',
-                title: 'Orientation',
-                description: 'Attend new student orientation program.'
-              },
-              {
-                step: '06',
+                step: '04',
                 title: 'Begin Classes',
                 description: 'Start your academic journey with us.'
               }
