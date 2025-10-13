@@ -267,7 +267,7 @@ const AboutSection = () => {
               </div>
               
               {/* Floating Achievement Card */}
-              <div className="absolute bottom-0 left-0 -mb-20 -ml-8 bg-amber-700 text-white rounded-lg p-5 sm:p-7 shadow-2xl border-4 border-white">
+              <div className="absolute bottom-0 left-0 -mb-20 -ml-8 bg-amber-700 text-white  p-5 sm:p-7 shadow-2xl border-4 border-white">
                 <div className="text-center">
                   <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2">Excellence</div>
                   <div className="text-amber-200 text-xs sm:text-sm font-medium">In Every Endeavor</div>

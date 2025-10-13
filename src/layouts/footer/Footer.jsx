@@ -119,6 +119,7 @@ const Footer = () => {
                   <li><Link to="/about" className="text-black/60 hover:text-primary transition-colors duration-300 text-sm block py-1">About Us</Link></li>
                   <li><Link to="/admissions" className="text-black/60 hover:text-primary transition-colors duration-300 text-sm block py-1">Admissions</Link></li>
                   <li><Link to="/contact" className="text-black/60 hover:text-primary transition-colors duration-300 text-sm block py-1">Contact Us</Link></li>
+                  {/* <li><Link to="/blog" className="text-black/60 hover:text-primary transition-colors duration-300 text-sm block py-1">Blog</Link></li> */}
                 </ul>
               </div>
 

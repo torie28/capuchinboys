@@ -33,6 +33,10 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
+      // {
+      //   path: "/blog",
+      //   element: <Blog />,
+      // },
       // This will catch any other routes under /
       {
         path: "*",
